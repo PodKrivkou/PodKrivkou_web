@@ -37,11 +37,8 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding-top: 1rem;
+            transition: max-height 0.3s ease-out, padding-top 0.3s ease-out;
+            padding-top: 0;
         }
         .faq-item.active .faq-icon {
             transform: rotate(180deg);
@@ -53,9 +50,11 @@
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brandTeal/10 shadow-sm">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-horizon text-brandTeal flex items-center gap-2">
-                Pod <span class="text-brandPink">Křivkou</span>
+            <!-- Logo replacement -->
+            <a href="#" class="flex items-center group">
+                <img src="logo.png" alt="Pod Křivkou" class="h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-102">
             </a>
+            
             <div class="hidden md:flex space-x-8 text-sm font-semibold text-brandDark/80">
                 <a href="#fakta" class="hover:text-brandTeal transition">Fakta o skolióze</a>
                 <a href="#lecba" class="hover:text-brandTeal transition">Způsoby léčby</a>
@@ -109,12 +108,12 @@
                 <div class="bg-brandCream p-6 rounded-2xl border border-brandTeal/5 shadow-sm">
                     <div class="w-10 h-10 bg-brandTeal text-white rounded-xl flex items-center justify-center font-bold mb-4">01</div>
                     <h3 class="font-bold text-brandDark text-lg mb-2">Cobbův úhel</h3>
-                    <p class="text-sm text-brandDark/70 leading-relaxed">Zakřivení se měří ve stupních. Úhel nad 10° se považuje za skoliózu. Způsob léčby se mění v závislosti na progresi nad 25° nebo 40°.</p>
+                    <p class="text-sm text-brandDark/70 leading-relaxed">Zakřivení se měří ve stupních. Úhel nad 10° se považuje za skoliózu. Způsob léčby se mění v závislosti na progresi nad 25° oder 40°.</p>
                 </div>
                 <div class="bg-brandCream p-6 rounded-2xl border border-brandTeal/5 shadow-sm">
                     <div class="w-10 h-10 bg-brandPink text-white rounded-xl flex items-center justify-center font-bold mb-4">02</div>
                     <h3 class="font-bold text-brandDark text-lg mb-2">Idiopatický původ</h3>
-                    <p class="text-sm text-brandDark/70 leading-relaxed">Až 80 % případů je tzv. idiopatických – to znamená, že přesná příčina není známa. Rozhodně za ni nemohou těžké batohy oder špatné sezení.</p>
+                    <p class="text-sm text-brandDark/70 leading-relaxed">Až 80 % případů je tzv. idiopatických – to znamená, že přesná příčina není známa. Rozhodně za ni nemohou těžké batohy nebo špatné sezení.</p>
                 </div>
                 <div class="bg-brandCream p-6 rounded-2xl border border-brandTeal/5 shadow-sm">
                     <div class="w-10 h-10 bg-brandYellow text-brandDark rounded-xl flex items-center justify-center font-bold mb-4">03</div>
@@ -212,7 +211,7 @@
                         <svg class="faq-icon w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
-                        Pevná a nepohyblivá zůstane pouze ta část páteře, která byla přímo operována a fúzována. Neoperované úseky (zejména bedra a kyčle) se přirozeně adaptují a zvýší svou flexibilitu, aby fixaci kompenzovaly. Většina pacientů se bez problému ohne, zaváže si boty a sportuje.
+                        Pevná a nepohyblivá zůstane pouze ta část páteře, která byla přímo operována a fúzována. Neoperované úseky (zejména bedra a kyčle) se přirozeně adaptují a zvýší svou flexibilitu, aby fixaci kompenzovaly. Většina pacientů se bez problému Classification unese, zaváže si boty a sportuje.
                     </div>
                 </div>
 
@@ -249,13 +248,27 @@
 
     <script>
         function toggleFAQ(element) {
-            element.classList.toggle('active');
+            const answer = element.querySelector('.faq-answer');
+            const isActive = element.classList.contains('active');
+            
             const allItems = document.querySelectorAll('.faq-item');
             allItems.forEach(item => {
                 if (item !== element) {
                     item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = '0px';
+                    item.querySelector('.faq-answer').style.paddingTop = '0px';
                 }
             });
+
+            if (!isActive) {
+                element.classList.add('active');
+                answer.style.paddingTop = '1rem';
+                answer.style.maxHeight = (answer.scrollHeight + 16) + 'px';
+            } else {
+                element.classList.remove('active');
+                answer.style.maxHeight = '0px';
+                answer.style.paddingTop = '0px';
+            }
         }
     </script>
 </body>
