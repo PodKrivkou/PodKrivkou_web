@@ -50,12 +50,11 @@
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brandTeal/10 shadow-sm">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Logo replacement -->
-            <a href="#" class="flex items-center group">
-                <img src="logo.png" alt="Pod Křivkou" class="h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-102">
+            <a href="#" class="text-2xl font-horizon text-brandTeal flex items-center gap-2">
+                Pod <span class="text-brandPink">Křivkou</span>
             </a>
-            
             <div class="hidden md:flex space-x-8 text-sm font-semibold text-brandDark/80">
+                <a href="#o-nas" class="hover:text-brandTeal transition">O nás</a>
                 <a href="#fakta" class="hover:text-brandTeal transition">Fakta o skolióze</a>
                 <a href="#lecba" class="hover:text-brandTeal transition">Způsoby léčby</a>
                 <a href="#blizci" class="hover:text-brandTeal transition">Pro blízké</a>
@@ -68,7 +67,7 @@
     </nav>
 
     <header class="relative overflow-hidden py-16 lg:py-24">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-start">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
             <div>
                 <span class="inline-block bg-brandTeal/10 text-brandTeal text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">Založeno pacienty pro pacienty</span>
                 <h1 class="text-4xl lg:text-5xl font-horizon text-brandTeal leading-tight">
@@ -83,21 +82,30 @@
                 </div>
             </div>
             
-            <div class="relative bg-white rounded-3xl p-8 lg:p-10 border-2 border-brandTeal/10 shadow-xl flex flex-col justify-center overflow-hidden w-full max-w-md lg:ml-auto">
-                <div class="absolute top-0 right-0 w-24 h-24 bg-brandYellow/40 rounded-full blur-2xl -mr-6 -mt-6"></div>
-                <blockquote class="text-lg italic text-brandDark font-medium relative z-10">
-                    "Tento web slouží jako bezpečný přístav pro pacienty, klid v duši pro rodiče a rychlý zdroj informací, který lékařům ušetří hodiny odpovídání na stále stejné otázky."
-                </blockquote>
-                <div class="mt-6 flex items-center gap-3 relative z-10">
-                    <div class="w-10 h-10 rounded-full bg-brandYellow flex items-center justify-center text-brandDark font-bold text-sm">✨</div>
-                    <div>
-                        <p class="text-sm font-bold text-brandDark">Zakladatelé projektu</p>
-                        <p class="text-xs text-brandDark/60">Po spinální fúzi & plní života</p>
-                    </div>
-                </div>
+            <!-- Nahrazeno: Původní bílý blok s citátem pryč, nyní je zde čistě vaše logo -->
+            <div class="flex justify-center lg:justify-end w-full">
+                <img src="logo.png" alt="Pod Křivkou Logo" class="w-full max-w-[280px] md:max-w-[340px] h-auto object-contain drop-shadow-sm select-none">
             </div>
         </div>
     </header>
+
+    <section id="o-nas" class="py-20 bg-brandCream">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-white p-8 lg:p-12 rounded-3xl border border-brandTeal/10 shadow-sm grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-horizon text-brandTeal leading-tight">Kdo jsme a proč to děláme?</h2>
+                </div>
+                <div class="text-sm text-brandDark/80 leading-relaxed space-y-4">
+                    <p>
+                        Jsme skupina mladých lidí, kteří prožili dětství v korzetu a nakonec podstoupili náročnou operaci – spinální fúzi. Když nám skoliózu diagnostikovali, internet byl plný strašidelných diskusí a protichůdných rad, které v nás i našich rodičích vyvolávaly jen strach.
+                    </p>
+                    <p>
+                        Rozhodli jsme se to změnit. **Pod Křivkou** je projekt, který spojuje osobní zkušenosti s ověřenými lékařskými fakty. Chceme ukázat, že šrouby v zádech nejsou konec světa, ale začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří mají celou cestu teprve před sebou.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="fakta" class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-6 text-center">
@@ -108,7 +116,7 @@
                 <div class="bg-brandCream p-6 rounded-2xl border border-brandTeal/5 shadow-sm">
                     <div class="w-10 h-10 bg-brandTeal text-white rounded-xl flex items-center justify-center font-bold mb-4">01</div>
                     <h3 class="font-bold text-brandDark text-lg mb-2">Cobbův úhel</h3>
-                    <p class="text-sm text-brandDark/70 leading-relaxed">Zakřivení se měří ve stupních. Úhel nad 10° se považuje za skoliózu. Způsob léčby se mění v závislosti na progresi nad 25° oder 40°.</p>
+                    <p class="text-sm text-brandDark/70 leading-relaxed">Zakřivení se měří ve stupních. Úhel nad 10° se považuje za skoliózu. Způsob léčby se mění v závislosti na progresi nad 25° nebo 40°.</p>
                 </div>
                 <div class="bg-brandCream p-6 rounded-2xl border border-brandTeal/5 shadow-sm">
                     <div class="w-10 h-10 bg-brandPink text-white rounded-xl flex items-center justify-center font-bold mb-4">02</div>
@@ -211,7 +219,7 @@
                         <svg class="faq-icon w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
-                        Pevná a nepohyblivá zůstane pouze ta část páteře, která byla přímo operována a fúzována. Neoperované úseky (zejména bedra a kyčle) se přirozeně adaptují a zvýší svou flexibilitu, aby fixaci kompenzovaly. Většina pacientů se bez problému Classification unese, zaváže si boty a sportuje.
+                        Pevná a nepohyblivá zůstane pouze ta část páteře, která byla přímo operována a fúzována. Neoperované úseky (zejména bedra a kyčle) se přirozeně adaptují a zvýší svou flexibilitu, aby fixaci kompenzovaly. Většina pacientů se bez problému ohne, zaváže si boty a sportuje.
                     </div>
                 </div>
 
