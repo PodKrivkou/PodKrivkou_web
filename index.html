@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pod Křivkou | Průvodce skoliózou a životem po operaci</title>  <! -- tady je to, co se ukaze pri kopirovani linku -->
-    <link rel="icon" type="image/png" href="favicon.png">     <! -- tady je mala ikonka, co je videt nahore u nazvu webovky na browser tabu -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Pod Křivkou | Průvodce skoliózou a životem po operaci</title>  <link rel="icon" type="image/png" href="favicon.png">     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,15 +43,28 @@
             transform: rotate(180deg);
             color: #E94D7F;
         }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out;
+            opacity: 0;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-brandCream text-brandDark font-glacial antialiased">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brandTeal/10 shadow-sm">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-horizon text-brandTeal flex items-center gap-2">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl md:text-2xl font-horizon text-brandTeal flex items-center gap-2">
                 Pod <span class="text-brandPink">Křivkou</span>
             </a>
+            
             <div class="hidden md:flex space-x-8 text-sm font-semibold text-brandDark/80">
                 <a href="#fakta" class="hover:text-brandTeal transition">Fakta o skolióze</a>
                 <a href="#lecba" class="hover:text-brandTeal transition">Způsoby léčby</a>
@@ -61,38 +72,58 @@
                 <a href="#faq" class="hover:text-brandTeal transition">Časté dotazy</a>
                 <a href="#o-nas" class="hover:text-brandTeal transition">Kdo jsme</a>
             </div>
-            <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition transform hover:scale-105 shadow-md">
+            
+            <div class="hidden md:block">
+                <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition transform hover:scale-105 shadow-md">
+                    Komunita
+                </a>
+            </div>
+
+            <button id="menu-toggle" class="block md:hidden text-brandDark focus:outline-none p-2" aria-label="Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden bg-white border-b border-brandTeal/10 px-6 pb-6 space-y-4 font-semibold text-sm flex flex-col text-center">
+            <a href="#fakta" class="py-2 hover:text-brandTeal transition" onclick="toggleMenu()">Fakta o skolióze</a>
+            <a href="#lecba" class="py-2 hover:text-brandTeal transition" onclick="toggleMenu()">Způsoby léčby</a>
+            <a href="#blizci" class="py-2 hover:text-brandTeal transition" onclick="toggleMenu()">Pro blízké</a>
+            <a href="#faq" class="py-2 hover:text-brandTeal transition" onclick="toggleMenu()">Časté dotazy</a>
+            <a href="#o-nas" class="py-2 hover:text-brandTeal transition" onclick="toggleMenu()">Kdo jsme</a>
+            <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition block shadow-sm mt-2">
                 Komunita
             </a>
         </div>
     </nav>
 
-    <header class="relative overflow-hidden py-16 lg:py-24">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
-            <div>
+    <header class="relative overflow-hidden py-12 md:py-16 lg:py-24">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 md:gap-12 lg:gap-16 items-center">
+            <div class="text-center lg:text-left">
                 <span class="inline-block bg-brandTeal/10 text-brandTeal text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">Založeno pacienty pro pacienty</span>
-                <h1 class="text-4xl lg:text-5xl font-horizon text-brandTeal leading-tight">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-horizon text-brandTeal leading-tight">
                     Silnější než tvoje křivka.
                 </h1>
-                <p class="mt-6 text-base text-brandDark/80 leading-relaxed">
+                <p class="mt-6 text-sm md:text-base text-brandDark/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                     Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé. Sami jsme si tím prošli, máme po operaci a jsme tu, abychom ti ukázali, že život na druhé straně je plný síly, pohybu a dobrodružství bez limitů. Chceme ukázat, že šrouby v zádech nejsou konec světa, ale začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří mají celou cestu teprve před sebou.
                 </p>
-                <div class="mt-8 flex flex-wrap gap-4">
-                    <a href="#faq" class="bg-brandTeal text-white px-6 py-3 rounded-xl font-bold hover:bg-brandPink transition shadow-md">Lékařské FAQ</a>
-                    <a href="#lecba" class="bg-white text-brandTeal border border-brandTeal/20 px-6 py-3 rounded-xl font-bold hover:bg-slate-50 transition">Informace o léčbě</a>
+                <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
+                    <a href="#faq" class="bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-brandPink transition shadow-md w-full sm:w-auto text-center">Lékařské FAQ</a>
+                    <a href="#lecba" class="bg-white text-brandTeal border border-brandTeal/20 px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-slate-50 transition w-full sm:w-auto text-center">Informace o léčbé</a>
                 </div>
             </div>
             
-            <div class="flex justify-center lg:justify-end w-full">
-                <img src="logo.png" alt="Pod Křivkou Logo" class="w-full max-w-[280px] md:max-w-[340px] h-auto object-contain drop-shadow-sm select-none">
+            <div class="flex justify-center lg:justify-end w-full mt-6 lg:mt-0">
+                <img src="logo.png" alt="Pod Křivkou Logo" class="w-full max-w-[220px] md:max-w-[280px] lg:max-w-[340px] h-auto object-contain drop-shadow-sm select-none">
             </div>
         </div>
     </header>
 
-    <section id="fakta" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-horizon text-brandTeal">Fakta o skolióze</h2>
-            <p class="mt-4 text-brandDark/70 max-w-2xl mx-auto">Skolióza je trojrozměrné vychýlení páteře. Zde jsou základní, lékařsky podložená fakta bez mýtů.</p>
+    <section id="fakta" class="py-16 md:py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Fakta o skolióze</h2>
+            <p class="mt-4 text-sm md:text-base text-brandDark/70 max-w-2xl mx-auto">Skolióza je trojrozměrné vychýlení páteře. Zde jsou základní, lékařsky podložená fakta bez mýtů.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 text-left">
                 <div class="bg-brandCream p-6 rounded-2xl border border-brandTeal/5 shadow-sm">
@@ -114,42 +145,42 @@
         </div>
     </section>
 
-    <section id="lecba" class="py-20 bg-brandCream/50">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-horizon text-brandTeal">Cesta léčby</h2>
-                <p class="mt-4 text-brandDark/70">Moderní medicína nabízí vysoce účinné způsoby, jak křivku zastavit nebo bezpečně korigovat.</p>
+    <section id="lecba" class="py-16 md:py-20 bg-brandCream/50">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Cesta léčby</h2>
+                <p class="mt-4 text-sm md:text-base text-brandDark/70">Moderní medicína nabízí vysoce účinné způsoby, jak křivku zastavit nebo bezpečně korigovat.</p>
             </div>
 
-            <div class="space-y-12">
-                <div class="flex flex-col md:flex-row gap-6 md:gap-12 bg-white p-6 rounded-2xl shadow-sm border border-brandTeal/5">
-                    <div class="md:w-1/3">
+            <div class="space-y-8 md:space-y-12">
+                <div class="flex flex-col lg:flex-row gap-6 lg:gap-12 bg-white p-6 rounded-2xl shadow-sm border border-brandTeal/5">
+                    <div class="lg:w-1/3">
                         <span class="text-xs font-bold text-brandPink uppercase tracking-widest">Verze 01</span>
                         <h3 class="text-xl font-bold text-brandDark mt-1">Korzetování & Cvičení</h3>
                     </div>
-                    <div class="md:w-2/3 text-brandDark/70 text-sm leading-relaxed space-y-3">
-                        <p>U středních křivek (25°–40°) u rostoucích dětí pomáhá pevný plastový korzet (ortéza) zabránit zhoršování. Fyzioterapie (např. Schrothova metoda) se zaměřuje na vnitřní svalový korzet a správné dýchání.</p>
+                    <div class="lg:w-2/3 text-brandDark/70 text-sm leading-relaxed space-y-3">
+                        <p>U středních křivek (25°–40°) u rostoucích dětí pomáhelperský pevný plastový korzet (ortéza) zabránit zhoršování. Fyzioterapie (např. Schrothova metoda) se zaměřuje na vnitřní svalový korzet a správné dýchání.</p>
                         <p class="bg-brandYellow/20 text-brandDark p-3 rounded-xl font-medium border border-brandYellow/30">💡 <strong>Sebevědomí do školy:</strong> Korzet se dá skvěle schovat pod stylové vrstvené oblečení. Otevřená komunikace s kamarády je ten nejlepší štít proti studu!</p>
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row gap-6 md:gap-12 bg-white p-6 rounded-2xl shadow-sm border border-brandTeal/5">
-                    <div class="md:w-1/3">
+                <div class="flex flex-col lg:flex-row gap-6 lg:gap-12 bg-white p-6 rounded-2xl shadow-sm border border-brandTeal/5">
+                    <div class="lg:w-1/3">
                         <span class="text-xs font-bold text-brandTeal uppercase tracking-widest">Verze 02</span>
                         <h3 class="text-xl font-bold text-brandDark mt-1">Operace (Spinální Fúze)</h3>
                     </div>
-                    <div class="md:w-2/3 text-brandDark/70 text-sm leading-relaxed space-y-3">
+                    <div class="lg:w-2/3 text-brandDark/70 text-sm leading-relaxed space-y-3">
                         <p>Pokud křivka přesáhne 45°–50° a dále prograduje, doporučuje se chirurgický zákrok. Operatér použije titanové tyče a šrouby, kterými páteř šetrně narovná a zafixuje, čímž dojde k bezpečnému zpevnění.</p>
                         <p>Dnešní metody jsou na špičkové úrovni, maximalizují bezpečnost a zkracují pobyt v nemocnici na minimum dní.</p>
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row gap-6 md:gap-12 bg-white p-6 rounded-2xl shadow-sm border border-brandTeal/5">
-                    <div class="md:w-1/3">
+                <div class="flex flex-col lg:flex-row gap-6 lg:gap-12 bg-white p-6 rounded-2xl shadow-sm border border-brandTeal/5">
+                    <div class="lg:w-1/3">
                         <span class="text-xs font-bold text-brandTerracotta uppercase tracking-widest">Verze 03</span>
                         <h3 class="text-xl font-bold text-brandDark mt-1">Návrat k dobrodružství</h3>
                     </div>
-                    <div class="md:w-2/3 text-brandDark/70 text-sm leading-relaxed space-y-3">
+                    <div class="lg:w-2/3 text-brandDark/70 text-sm leading-relaxed space-y-3">
                         <p>První týdny po operaci vyžadují klid, správné vstávání přes bok (log-rolling) a postupné chození. Během 6 až 12 měsíců kosti pevně srostou. Většina pacientů se vrací k plnohodnotnému životu – cestování, plavání, tanci, turistice a sportům bez chronických bolestí.</p>
                     </div>
                 </div>
@@ -157,14 +188,14 @@
         </div>
     </section>
 
-    <section id="blizci" class="py-20 bg-brandDark text-white">
-        <div class="max-w-4xl mx-auto px-6">
+    <section id="blizci" class="py-16 md:py-20 bg-brandDark text-white">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-horizon text-brandCyan">Jak podpořit pacienta</h2>
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandCyan">Jak podpořit pacienta</h2>
                 <p class="mt-4 text-slate-400 text-sm">Praktický průvodce pro rodiče, sourozence a kamarády, aby věděli, jak s člověkem se skoliózou správně komunikovat.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <div class="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-3">
                     <h3 class="font-bold text-brandCyan text-lg">Co DĚLAT (Pro přátele a rodinu)</h3>
                     <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside">
@@ -187,28 +218,28 @@
         </div>
     </section>
 
-    <section id="faq" class="py-20 bg-white">
-        <div class="max-w-3xl mx-auto px-6">
+    <section id="faq" class="py-16 md:py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 md:px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-horizon text-brandTeal">Časté otázky pacientů</h2>
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Časté otázky pacientů</h2>
                 <p class="mt-4 text-brandDark/70 text-sm">Ověřené odpovědi na opakující se otázky v ambulancích. Ušetřete čas sobě i svému lékaři.</p>
             </div>
 
             <div class="space-y-4">
                 <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
-                    <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-brandDark text-base">Ztratím po operaci (fúzi) navždy veškerou ohebnost páteře?</h3>
-                        <svg class="faq-icon w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <div class="flex justify-between items-center gap-4">
+                        <h3 class="font-bold text-brandDark text-sm md:text-base">Ztratím po operaci (fúzi) navždy veškerou ohebnost páteře?</h3>
+                        <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
-                        Pevná a nepohyblivá zůstane pouze ta část páteře, která byla přímo operována a fúzována. Neoperované úseky (zejména bedra a kyčle) se přirozeně adaptují a zvýší svou flexibilitu, aby fixaci kompenzovaly. Většina pacientů se bez problému ohne, zaváže si boty a sportuje.
+                        Pevná a nepohyblivá zůstane pouze ta část páteře, která byla přímo operována a fúzována. Neoperované úseky (zejména bedra a kyčle) se přirozeně adaptují a zvýší svou flexibilitu, aby fixaci kompenzovaly. Většina pacientů se bez problému podle, zaváže si boty a sportuje.
                     </div>
                 </div>
 
                 <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
-                    <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-brandDark text-base">Budu pískat na letištních detektorech kovu?</h3>
-                        <svg class="faq-icon w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <div class="flex justify-between items-center gap-4">
+                        <h3 class="font-bold text-brandDark text-sm md:text-base">Budu pískat na letištních detektorech kovu?</h3>
+                        <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
                         Velmi zřídka. Moderní titanové implantáty běžné bezpečnostní rámy na letištích nespouštějí. Pokud by se tak stalo, stačí ostraze sdělit, že máte v těle zdravotní implantáty. Žádné speciální lékařské potvrzení v praxi obvykle vyžadováno není.
@@ -216,9 +247,9 @@
                 </div>
 
                 <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
-                    <div class="flex justify-between items-center">
-                        <h3 class="font-bold text-brandDark text-base">Dokáže korzet skoliózu úplně vyléčit a narovnat?</h3>
-                        <svg class="faq-icon w-5 h-5 text-brandTeal transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <div class="flex justify-between items-center gap-4">
+                        <h3 class="font-bold text-brandDark text-sm md:text-base">Dokáže korzet skoliózu úplně vyléčit a narovnat?</h3>
+                        <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
                         Korzet není navržen tak, aby již vzniklou křivku trvale vrátil na 0°, ale aby zabránil jejímu dalšímu zhoršování (progresi) během divokého růstu v dospívání. Úspěšná léčba korzetem znamená udržet křivku pod hranicí nutnosti operace.
@@ -228,12 +259,11 @@
         </div>
     </section>
 
-    <!-- Přesunuto: Sekce "Kdo jsme" je nyní zde, na konci webu před patičkou -->
-    <section id="o-nas" class="py-20 bg-brandCream">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="bg-white p-8 lg:p-12 rounded-3xl border border-brandTeal/10 shadow-sm grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 items-center">
+    <section id="o-nas" class="py-16 md:py-20 bg-brandCream">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
+            <div class="bg-white p-6 md:p-8 lg:p-12 rounded-3xl border border-brandTeal/10 shadow-sm grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 md:gap-8 items-center">
                 <div>
-                    <h2 class="text-3xl font-horizon text-brandTeal leading-tight">Kdo jsme a proč to děláme?</h2>
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal leading-tight text-center lg:text-left">Kdo jsme a proč to děláme?</h2>
                 </div>
                 <div class="text-sm text-brandDark/80 leading-relaxed space-y-4">
                     <p>
@@ -248,7 +278,7 @@
     </section>
 
     <footer class="bg-brandCream border-t border-brandTeal/10 py-10 text-center text-xs text-brandDark/50">
-        <div class="max-w-6xl mx-auto px-6 space-y-3">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 space-y-3">
             <p class="font-bold text-brandTeal">Pod Křivkou &copy; 2026</p>
             <p>Vytvořeno s ❤️ lidmi, kteří si tím prošli sami.</p>
             <p class="max-w-xl mx-auto text-[11px] text-brandDark/40 leading-relaxed">Upozornění: Informace na tomto webu jsou pouze informativního charakteru a nenahrazují odbornou lékařskou péči, diagnózu ani doporučení vašeho ortopeda či chirurga.</p>
@@ -256,6 +286,26 @@
     </footer>
 
     <script>
+        // Funkce pro otevírání/zavírání mobilního menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuToggle.addEventListener('click', () => {
+            toggleMenu();
+        });
+
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.contains('open');
+            if (isOpen) {
+                mobileMenu.classList.remove('open');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Ikona hamburgeru
+            } else {
+                mobileMenu.classList.add('open');
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Ikona křížku (X)
+            }
+        }
+
         function toggleFAQ(element) {
             const answer = element.querySelector('.faq-answer');
             const isActive = element.classList.contains('active');
