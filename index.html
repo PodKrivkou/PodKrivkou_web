@@ -287,7 +287,7 @@
         <div class="max-w-6xl mx-auto px-4 md:px-6 space-y-3">
             <p class="font-bold text-brandTeal">Pod Křivkou &copy; 2026</p>
             <p>Vytvořeno s ❤️ lidmi, kteří si tím prošli sami.</p>
-            <p class="max-w-xl mx-auto text-[11px] text-brandDark/40 leading-relaxed">Upozornění: Informace na tomto webu jsou pouze informativního charakteru a nenahrazují odbornou lékařské péči, diagnózu ani doporučení vašeho ortopeda či chirurga.</p>
+            <p class="max-w-xl mx-auto text-[11px] text-brandDark/40 leading-relaxed">Upozornění: Informace na tomto webu jsou pouze informativního charakteru a nenahrazují odbornou lékařskou péči, diagnózu ani doporučení vašeho ortopeda či chirurga.</p>
         </div>
     </footer>
 
@@ -311,9 +311,9 @@
             }
         }
 
-        // UPRAVENÁ FUNKCE PRO MAXIMÁLNĚ BEZPEČNÝ VÝPOČET POZICE
+        // CHYTRÉ SCROLLOVÁNÍ PODLE TYPU ZAŘÍZENÍ (Mobil vs Desktop)
         function scrollToSection(event, targetId, isMobile) {
-            event.preventDefault(); // Stop nativnímu chování
+            event.preventDefault(); 
             
             if (isMobile) {
                 mobileMenu.classList.remove('open');
@@ -323,10 +323,15 @@
             setTimeout(() => {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const navHeight = 80;      // Přesná výška naší lišty
-                    const extraPadding = 50;   // Výrazně zvýšená rezerva (zástěra), aby vršek sekce nikdy nezalezl pod lištu
+                    const navHeight = 80; // Fixní výška lišty
                     
-                    // Stabilnější výpočet pozice vůči dokumentu nezávislý na momentálním scrollu
+                    // ROZCESTNÍK: Podle šířky okna zjistíme, zda jsme na desktopu nebo mobilu
+                    // Tailwind bod md odpovídá šířce 768px.
+                    let extraPadding = 12; // Výchozí malá rezerva pro počítače
+                    if (window.innerWidth < 768) {
+                        extraPadding = 60; // Větší bezpečná rezerva pro telefony
+                    }
+                    
                     const targetPosition = window.scrollY + targetElement.getBoundingClientRect().top;
                     const offsetPosition = targetPosition - navHeight - extraPadding;
                     
@@ -335,7 +340,7 @@
                         behavior: 'smooth'
                     });
                 }
-            }, isMobile ? 220 : 0); // Malá pauza pro mobil na zavření menu, desktop hned
+            }, isMobile ? 220 : 0);
         }
 
         function toggleFAQ(element) {
