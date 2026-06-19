@@ -61,8 +61,10 @@
 </head>
 <body class="bg-brandCream text-brandDark font-glacial antialiased">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brandTeal/10 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
+    <!-- Přidáno id="main-nav" pro dynamické měření výšky v JS -->
+    <nav id="main-nav" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brandTeal/10 shadow-sm">
+        <!-- Výška změněna z h-20 na h-16 (64px) na mobilu a md:h-20 (80px) na desktopu -->
+        <div class="max-w-6xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
             <a href="#" class="text-xl md:text-2xl font-horizon text-brandTeal flex items-center gap-2">
                 Pod <span class="text-brandPink">Křivkou</span>
             </a>
@@ -112,7 +114,7 @@
                     Silnější než tvoje křivka.
                 </h1>
                 <p class="mt-6 text-sm md:text-base text-brandDark/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé. Sami jsme si tím prošli, máme po operaci a jsme tu, abychom ti ukázali, že život na druhé straně je plný síly, pohybu a dobrodružství bez limitů. Chceme ukázat, že šrouby v zádech nejsou konec světa, ale začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří mají celou cestu teprve před sebou.
+                    Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé. Sami jsme si tím prošli, máme po operaci and jsme tu, abychom ti ukázali, že život na druhé straně je plný síly, pohybu a dobrodružství bez limitů. Chceme ukázat, že šrouby v zádech nejsou konec světa, ale začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří mají celou cestu tepv před sebou.
                 </p>
                 <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
                     <a href="#faq" class="bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-brandPink transition shadow-md w-full sm:w-auto text-center" onclick="scrollToSection(event, '#faq', false)">Lékařské FAQ</a>
@@ -248,7 +250,7 @@
                         <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
-                        Velmi zřídka. Moderní titanové implantáty běžné bezpečnostní rámy na letištích nespouštějí. Pokud by se tak stalo, stačí ostraze sdělit, že máte v těle zdravotní implantáty. Žádné speciální lékařské potvrzení v praxi obvykle vyžadováno není.
+                        Velmi zřídka. Moderní titanové implantáty běžné bezpečnostní rámy na letištích nespouštějí. Pokud by se tak stalo, stačí ostraze sdělit, že máte v těle zdravotní implantáty. Žágne speciální lékařské potvrzení v praxi obvykle vyžadováno není.
                     </div>
                 </div>
 
@@ -295,6 +297,7 @@
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
+        const navBar = document.getElementById('main-nav'); // Zacílení lišty pro měření výšky
 
         menuToggle.addEventListener('click', () => {
             toggleMenu();
@@ -311,7 +314,7 @@
             }
         }
 
-        // CHYTRÉ SCROLLOVÁNÍ PODLE TYPU ZAŘÍZENÍ (Mobil vs Desktop)
+        // INTELLIGENTNÍ PLYNULÉ SCROLLOVÁNÍ S DYNAMICKÝM MĚŘENÍM LIŠTY
         function scrollToSection(event, targetId, isMobile) {
             event.preventDefault(); 
             
@@ -323,13 +326,13 @@
             setTimeout(() => {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const navHeight = 80; // Fixní výška lišty
+                    // Zjistíme reálnou výšku horní lišty (bude 64px na mobilu a 80px na PC)
+                    const navHeight = navBar.offsetHeight; 
                     
-                    // ROZCESTNÍK: Podle šířky okna zjistíme, zda jsme na desktopu nebo mobilu
-                    // Tailwind bod md odpovídá šířce 768px.
-                    let extraPadding = 12; // Výchozí malá rezerva pro počítače
+                    // Nastavení ideální ochranné mezery pro text podle typu zařízení
+                    let extraPadding = 5; // Menší, čistá rezerva pro desktop
                     if (window.innerWidth < 768) {
-                        extraPadding = 60; // Větší bezpečná rezerva pro telefony
+                        extraPadding = 60; // Větší bezpečná rezerva pro telefony, aby text nezalezl pod lištu
                     }
                     
                     const targetPosition = window.scrollY + targetElement.getBoundingClientRect().top;
