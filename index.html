@@ -330,9 +330,9 @@
                     const navHeight = navBar.offsetHeight; 
                     
                     // Nastavení ideální ochranné mezery pro text podle typu zařízení
-                    let extraPadding = 5; // Menší, čistá rezerva pro desktop
+                    let extraPadding = 0; // Menší, čistá rezerva pro desktop
                     if (window.innerWidth < 768) {
-                        extraPadding = 60; // Větší bezpečná rezerva pro telefony, aby text nezalezl pod lištu
+                        extraPadding = 36; // Větší bezpečná rezerva pro telefony, aby text nezalezl pod lištu
                     }
                     
                     const targetPosition = window.scrollY + targetElement.getBoundingClientRect().top;
