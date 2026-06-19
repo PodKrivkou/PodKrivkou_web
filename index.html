@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="cs" class="scroll-smooth">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pod Křivkou | Průvodce skoliózou a životem po operaci</title>  <!-- tady je to, co se ukaze pri kopirovani linku -->
-    <link rel="icon" type="image/png" href="favicon.png">     <!-- tady je mala ikonka, co je videt nahore u nazvu webovky na browser tabu -->
+    <title>Pod Křivkou | Průvodce skoliózou a životem po operaci</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -23,8 +23,8 @@
                         brandDark: '#1E293B'
                     },
                     fontFamily: {
-                        heading: ['Syne', 'sans-serif'], // Horizon alternative
-                        body: ['Plus Jakarta Sans', 'sans-serif'] // Glacial Indifference alternative
+                        heading: ['Syne', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif']
                     }
                 }
             }
@@ -57,11 +57,6 @@
             max-height: 400px;
             opacity: 1;
         }
-
-        /* Pojistka pro desktopové klikání, na mobilu to teď řídí matematický JS níže */
-        section[id] {
-            scroll-margin-top: 96px !important;
-        }
     </style>
 </head>
 <body class="bg-brandCream text-brandDark font-glacial antialiased">
@@ -72,13 +67,13 @@
                 Pod <span class="text-brandPink">Křivkou</span>
             </a>
             
-            <!-- Desktop Menu -->
+            <!-- Desktop Menu (Nyní také s přesným JS scrollováním) -->
             <div class="hidden md:flex space-x-8 text-sm font-semibold text-brandDark/80">
-                <a href="#fakta" class="hover:text-brandTeal transition">Fakta o skolióze</a>
-                <a href="#lecba" class="hover:text-brandTeal transition">Způsoby léčby</a>
-                <a href="#blizci" class="hover:text-brandTeal transition">Pro blízké</a>
-                <a href="#faq" class="hover:text-brandTeal transition">Časté dotazy</a>
-                <a href="#o-nas" class="hover:text-brandTeal transition">Kdo jsme</a>
+                <a href="#fakta" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#fakta', false)">Fakta o skolióze</a>
+                <a href="#lecba" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#lecba', false)">Způsoby léčby</a>
+                <a href="#blizci" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#blizci', false)">Pro blízké</a>
+                <a href="#faq" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#faq', false)">Časté dotazy</a>
+                <a href="#o-nas" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#o-nas', false)">Kdo jsme</a>
             </div>
             
             <!-- Desktop Button -->
@@ -98,11 +93,11 @@
 
         <!-- Rozbalovací Mobilní Menu -->
         <div id="mobile-menu" class="md:hidden bg-white border-b border-brandTeal/10 px-6 pb-6 space-y-4 font-semibold text-sm flex flex-col text-center">
-            <a href="#fakta" class="py-2 hover:text-brandTeal transition" onclick="handleMenuClick(event, '#fakta')">Fakta o skolióze</a>
-            <a href="#lecba" class="py-2 hover:text-brandTeal transition" onclick="handleMenuClick(event, '#lecba')">Způsoby léčby</a>
-            <a href="#blizci" class="py-2 hover:text-brandTeal transition" onclick="handleMenuClick(event, '#blizci')">Pro blízké</a>
-            <a href="#faq" class="py-2 hover:text-brandTeal transition" onclick="handleMenuClick(event, '#faq')">Časté dotazy</a>
-            <a href="#o-nas" class="py-2 hover:text-brandTeal transition" onclick="handleMenuClick(event, '#o-nas')">Kdo jsme</a>
+            <a href="#fakta" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#fakta', true)">Fakta o skolióze</a>
+            <a href="#lecba" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#lecba', true)">Způsoby léčby</a>
+            <a href="#blizci" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#blizci', true)">Pro blízké</a>
+            <a href="#faq" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#faq', true)">Časté dotazy</a>
+            <a href="#o-nas" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#o-nas', true)">Kdo jsme</a>
             <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition block shadow-sm mt-2">
                 Komunita
             </a>
@@ -117,11 +112,11 @@
                     Silnější než tvoje křivka.
                 </h1>
                 <p class="mt-6 text-sm md:text-base text-brandDark/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé. Sami jsme si tím prošli, máme po operaci a jsme tu, abychom ti ukázali, že život na druhé straně je plný síly, pohybu a dobrodružství bez limitů. Chceme ukázat, že šrouby v zádech nejsou konec světa, ale začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří mají celou cestu teprve před sebou.
+                    Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé. Sami jsme si tím prošli, máme po operaci a jsme tu, abychom ti ukázali, že život na druhé straně je plný síly, pohybu a dobrodružství bez limitů. Chceme ukázat, že šrouby v zádech nejsou konec světa, ale začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří mají celou cestu tepv před sebou.
                 </p>
                 <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
-                    <a href="#faq" class="bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-brandPink transition shadow-md w-full sm:w-auto text-center" onclick="handleMenuClick(event, '#faq')">Lékařské FAQ</a>
-                    <a href="#lecba" class="bg-white text-brandTeal border border-brandTeal/20 px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-slate-50 transition w-full sm:w-auto text-center" onclick="handleMenuClick(event, '#lecba')">Informace o léčbé</a>
+                    <a href="#faq" class="bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-brandPink transition shadow-md w-full sm:w-auto text-center" onclick="scrollToSection(event, '#faq', false)">Lékařské FAQ</a>
+                    <a href="#lecba" class="bg-white text-brandTeal border border-brandTeal/20 px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-slate-50 transition w-full sm:w-auto text-center" onclick="scrollToSection(event, '#lecba', false)">Informace o léčbě</a>
                 </div>
             </div>
             
@@ -170,7 +165,7 @@
                         <h3 class="text-xl font-bold text-brandDark mt-1">Korzetování & Cvičení</h3>
                     </div>
                     <div class="lg:w-2/3 text-brandDark/70 text-sm leading-relaxed space-y-3">
-                        <p>U středních křivek (25°–40°) u rostoucích dětí pomáhelperský pevný plastový korzet (ortéza) zabránit zhoršování. Fyzioterapie (např. Schrothova metoda) se zaměřuje na vnitřní svalový korzet a správné dýchání.</p>
+                        <p>U středních křivek (25°–40°) u rostoucích dětí pomáhá pevný plastový korzet (ortéza) zabránit zhoršování. Fyzioterapie (např. Schrothova metoda) se zaměřuje na vnitřní svalový korzet a správné dýchání.</p>
                         <p class="bg-brandYellow/20 text-brandDark p-3 rounded-xl font-medium border border-brandYellow/30">💡 <strong>Sebevědomí do školy:</strong> Korzet se dá skvěle schovat pod stylové vrstvené oblečení. Otevřená komunikace s kamarády je ten nejlepší štít proti studu!</p>
                     </div>
                 </div>
@@ -243,7 +238,7 @@
                         <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
-                        Pevná a nepohyblivá zůstane pouze ta část páteře, která byla přímo operována a fúzována. Neoperované úseky (zejména bedra a kyčle) se přirozeně adaptují a zvýší svou flexibilitu, aby fixaci kompenzovaly. Většina pacientů se bez problému podle, zaváže si boty a sportuje.
+                        Pevná a nepohyblivá zůstane pouze ta část páteře, která byla přímo operována a fúzována. Neoperované úseky (zejména bedra a kyčle) se přirozeně adaptují a zvýší svou flexibilitu, aby fixaci kompenzovaly. Většina pacientů se bez problému ohne, zaváže si boty a sportuje.
                     </div>
                 </div>
 
@@ -281,7 +276,7 @@
                         Jsme Míša a Kixa. Obě jsme si prošly skoliózou – od korzetu až po operaci. Potkaly jsme se roky poté, co už se nám na zádech usadila jizva, a okamžitě jsme se shodly na dvou věcech. Za prvé: život po operaci skoliózy může být stále naprostá bomba, plný cestování, sportu a kamarádů. Za druhé: vyrůstat se skoliózou bylo často osamělé, náročné a plné nejistot, i když tak trochu skrytě.  
                     </p>
                     <p>
-                        Internet byl plný strašidelných diskusí a protichůdných rad, které v nás i našich rodičích vyvolávaly jen strach. Rozhodly jsme se to změnit. Pod Křivkou je projekt, kde spojujeme naše osobní zkušenosti s ověřenými lékařskými fakty. A takto bychom chtěly všem, kteří si tím prošli nebo právě procházejí, předat pořádnou dávku povzbuzení, naděje, ověřených a informací.
+                        Internet byl plný strašidelných diskusí a protichůdných rad, které v nás i našich rodičích vyvolávaly jen strach. Rozhodly jsme se to změnit. Pod Křivkou je projekt, kde spojujeme naše osobní zkušenosti s ověřenými lékařskými fakty. A takto bychom chtěly všem, kteří si tím prošli nebo právě procházejí, předat pořádnou dávku povzbuzení, naděje, ověřených informací.
                     </p>
                 </div>
             </div>
@@ -316,32 +311,32 @@
             }
         }
 
-        // PŘESNÁ JS MATEMATIKA PRO ODSCROLLOVÁNÍ BEZ CHYB PROHLÍŽEČE
-        function handleMenuClick(event, targetId) {
-            event.preventDefault(); // Kompletně zastavíme původní skok
+        // UNIVERZÁLNÍ A ČISTÁ FUNKCE PRO SCROLLOVÁNÍ (Bez konfliktů s prohlížečem)
+        function scrollToSection(event, targetId, isMobile) {
+            event.preventDefault(); // Zamezíme nativnímu skoku prohlížeče
             
-            // 1. Okamžitě zavřeme menu
-            mobileMenu.classList.remove('open');
-            menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            if (isMobile) {
+                // Pokud klikáme v mobilním menu, nejprve ho zavřeme
+                mobileMenu.classList.remove('open');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
             
-            // 2. Provedeme precizní výpočet pozice
+            // Počkáme chvilku (zejména na mobilu kvůli zavření menu)
             setTimeout(() => {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const navHeight = 80; // přesná výška naší fixní lišty v px
-                    const extraPadding = 16; // estetická rezerva, aby nebyl nadpis nalepený na menu
+                    const navHeight = 80; // Výška fixního menu v px
+                    const extraPadding = 24; // Pěkná rezerva nad nadpisem sekce
                     
-                    // Zjistíme, kde přesně sekce leží vůči celé stránce
                     const elementPosition = targetElement.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - navHeight - extraPadding;
                     
-                    // Provedeme nativní plynulý posun na vypočtený pixel
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
-            }, 150); // Mírně zkráceno pro svižnější pocit
+            }, isMobile ? 200 : 0); // Pro desktop okamžitě, pro mobil s pauzou na animaci menu
         }
 
         function toggleFAQ(element) {
