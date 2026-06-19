@@ -67,7 +67,7 @@
                 Pod <span class="text-brandPink">Křivkou</span>
             </a>
             
-            <!-- Desktop Menu (Nyní také s přesným JS scrollováním) -->
+            <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8 text-sm font-semibold text-brandDark/80">
                 <a href="#fakta" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#fakta', false)">Fakta o skolióze</a>
                 <a href="#lecba" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#lecba', false)">Způsoby léčby</a>
@@ -112,7 +112,7 @@
                     Silnější než tvoje křivka.
                 </h1>
                 <p class="mt-6 text-sm md:text-base text-brandDark/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé. Sami jsme si tím prošli, máme po operaci a jsme tu, abychom ti ukázali, že život na druhé straně je plný síly, pohybu a dobrodružství bez limitů. Chceme ukázat, že šrouby v zádech nejsou konec světa, ale začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří mají celou cestu tepv před sebou.
+                    Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé. Sami jsme si tím prošli, máme po operaci a jsme tu, abychom ti ukázali, že život na druhé straně je plný síly, pohybu a dobrodružství bez limitů. Chceme ukázat, že šrouby v zádech nejsou konec světa, ale začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří mají celou cestu teprve před sebou.
                 </p>
                 <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
                     <a href="#faq" class="bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-brandPink transition shadow-md w-full sm:w-auto text-center" onclick="scrollToSection(event, '#faq', false)">Lékařské FAQ</a>
@@ -287,7 +287,7 @@
         <div class="max-w-6xl mx-auto px-4 md:px-6 space-y-3">
             <p class="font-bold text-brandTeal">Pod Křivkou &copy; 2026</p>
             <p>Vytvořeno s ❤️ lidmi, kteří si tím prošli sami.</p>
-            <p class="max-w-xl mx-auto text-[11px] text-brandDark/40 leading-relaxed">Upozornění: Informace na tomto webu jsou pouze informativního charakteru a nenahrazují odbornou lékařskou péči, diagnózu ani doporučení vašeho ortopeda či chirurga.</p>
+            <p class="max-w-xl mx-auto text-[11px] text-brandDark/40 leading-relaxed">Upozornění: Informace na tomto webu jsou pouze informativního charakteru a nenahrazují odbornou lékařské péči, diagnózu ani doporučení vašeho ortopeda či chirurga.</p>
         </div>
     </footer>
 
@@ -311,32 +311,31 @@
             }
         }
 
-        // UNIVERZÁLNÍ A ČISTÁ FUNKCE PRO SCROLLOVÁNÍ (Bez konfliktů s prohlížečem)
+        // UPRAVENÁ FUNKCE PRO MAXIMÁLNĚ BEZPEČNÝ VÝPOČET POZICE
         function scrollToSection(event, targetId, isMobile) {
-            event.preventDefault(); // Zamezíme nativnímu skoku prohlížeče
+            event.preventDefault(); // Stop nativnímu chování
             
             if (isMobile) {
-                // Pokud klikáme v mobilním menu, nejprve ho zavřeme
                 mobileMenu.classList.remove('open');
                 menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
             }
             
-            // Počkáme chvilku (zejména na mobilu kvůli zavření menu)
             setTimeout(() => {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const navHeight = 80; // Výška fixního menu v px
-                    const extraPadding = 24; // Pěkná rezerva nad nadpisem sekce
+                    const navHeight = 80;      // Přesná výška naší lišty
+                    const extraPadding = 40;   // Výrazně zvýšená rezerva (zástěra), aby vršek sekce nikdy nezalezl pod lištu
                     
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - navHeight - extraPadding;
+                    // Stabilnější výpočet pozice vůči dokumentu nezávislý na momentálním scrollu
+                    const targetPosition = window.scrollY + targetElement.getBoundingClientRect().top;
+                    const offsetPosition = targetPosition - navHeight - extraPadding;
                     
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
-            }, isMobile ? 200 : 0); // Pro desktop okamžitě, pro mobil s pauzou na animaci menu
+            }, isMobile ? 220 : 0); // Malá pauza pro mobil na zavření menu, desktop hned
         }
 
         function toggleFAQ(element) {
