@@ -61,15 +61,12 @@
 </head>
 <body class="bg-brandCream text-brandDark font-glacial antialiased">
 
-    <!-- Přidáno id="main-nav" pro dynamické měření výšky v JS -->
-    <nav id="main-nav" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brandTeal/10 shadow-sm">
-        <!-- Výška změněna z h-20 na h-12 (64px) na mobilu a md:h-20 (80px) na desktopu -->
-        <div class="max-w-6xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
+    <nav id="main-nav" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brandTeal/10 shadow-sm h-16 md:h-20">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 h-full flex items-center justify-between relative">
             <a href="#" class="text-xl md:text-2xl font-horizon text-brandTeal flex items-center gap-2">
                 Pod <span class="text-brandPink">Křivkou</span>
             </a>
             
-            <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8 text-sm font-semibold text-brandDark/80">
                 <a href="#fakta" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#fakta', false)">Fakta o skolióze</a>
                 <a href="#lecba" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#lecba', false)">Způsoby léčby</a>
@@ -78,14 +75,12 @@
                 <a href="#o-nas" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#o-nas', false)">Kdo jsme</a>
             </div>
             
-            <!-- Desktop Button -->
             <div class="hidden md:block">
                 <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition transform hover:scale-105 shadow-md">
                     Komunita
                 </a>
             </div>
 
-            <!-- Hamburger Tlačítko pro mobily -->
             <button id="menu-toggle" class="block md:hidden text-brandDark focus:outline-none p-2" aria-label="Menu">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -93,8 +88,7 @@
             </button>
         </div>
 
-        <!-- Rozbalovací Mobilní Menu -->
-        <div id="mobile-menu" class="md:hidden bg-white border-b border-brandTeal/10 px-6 pb-6 space-y-4 font-semibold text-sm flex flex-col text-center">
+        <div id="mobile-menu" class="md:hidden absolute top-16 left-0 w-full bg-white border-b border-brandTeal/10 px-6 pb-6 space-y-4 font-semibold text-sm flex flex-col text-center shadow-md">
             <a href="#fakta" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#fakta', true)">Fakta o skolióze</a>
             <a href="#lecba" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#lecba', true)">Způsoby léčby</a>
             <a href="#blizci" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#blizci', true)">Pro blízké</a>
@@ -297,7 +291,7 @@
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
-        const navBar = document.getElementById('main-nav'); // Zacílení lišty pro měření výšky
+        const navBar = document.getElementById('main-nav');
 
         menuToggle.addEventListener('click', () => {
             toggleMenu();
@@ -314,7 +308,6 @@
             }
         }
 
-        // INTELLIGENTNÍ PLYNULÉ SCROLLOVÁNÍ S DYNAMICKÝM MĚŘENÍM LIŠTY
         function scrollToSection(event, targetId, isMobile) {
             event.preventDefault(); 
             
@@ -326,13 +319,11 @@
             setTimeout(() => {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    // Zjistíme reálnou výšku horní lišty (bude 64px na mobilu a 80px na PC)
                     const navHeight = navBar.offsetHeight; 
                     
-                    // Nastavení ideální ochranné mezery pro text podle typu zařízení
-                    let extraPadding = 0; // Menší, čistá rezerva pro desktop
+                    let extraPadding = 0; 
                     if (window.innerWidth < 768) {
-                        extraPadding = 36; // Větší bezpečná rezerva pro telefony, aby text nezalezl pod lištu
+                        extraPadding = 40; 
                     }
                     
                     const targetPosition = window.scrollY + targetElement.getBoundingClientRect().top;
