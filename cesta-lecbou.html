@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vše o skolióze | Pod Křivkou</title>
+    <title>Cesta léčbou | Pod Křivkou</title>
 
     <link rel="icon" type="image/png" href="favicon1.png?v=2">
     <link rel="shortcut icon" type="image/png" href="favicon1.png?v=2">
@@ -52,7 +52,7 @@
             opacity: 1;
         }
 
-        /* Desktop "Fakta o skolióze" dropdown (kept identical to the main page) */
+        /* Desktop dropdowns (kept identical to the main page) */
         .nav-dropdown-panel {
             opacity: 0;
             visibility: hidden;
@@ -95,7 +95,7 @@
 
             <div class="hidden md:flex space-x-8 text-sm font-semibold text-brandDark/80">
                 <div class="nav-dropdown-wrap relative">
-                    <a href="vse-o-skolioze.html" class="text-brandTeal transition flex items-center gap-1">
+                    <a href="vse-o-skolioze.html" class="hover:text-brandTeal transition flex items-center gap-1">
                         Fakta o skolióze
                         <svg class="nav-dropdown-chevron w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </a>
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <div class="nav-dropdown-wrap relative">
-                    <a href="cesta-lecbou.html" class="hover:text-brandTeal transition flex items-center gap-1">
+                    <a href="cesta-lecbou.html" class="text-brandTeal transition flex items-center gap-1">
                         Způsoby léčby
                         <svg class="nav-dropdown-chevron w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </a>
@@ -143,22 +143,22 @@
 
         <div id="mobile-menu" class="md:hidden absolute top-16 left-0 w-full bg-white border-b border-brandTeal/10 px-6 pb-6 space-y-1 font-semibold text-sm flex flex-col text-center shadow-md">
             <div class="border-b border-brandTeal/5">
-                <button type="button" class="mobile-submenu-toggle active w-full flex items-center justify-center gap-1 py-3 text-brandTeal transition" onclick="toggleMobileSubmenu(this)">
+                <button type="button" class="mobile-submenu-toggle w-full flex items-center justify-center gap-1 py-3 hover:text-brandTeal transition" onclick="toggleMobileSubmenu(this)">
                     Fakta o skolióze
-                    <svg class="mobile-submenu-icon w-3 h-3 transition-transform duration-200" style="transform: rotate(180deg); color: #E94D7F;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="mobile-submenu-icon w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div class="mobile-submenu open flex flex-col">
+                <div class="mobile-submenu flex flex-col">
                     <a href="vse-o-skolioze.html#co-je-to-skolioza" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Co je to skolióza?</a>
                     <a href="vse-o-skolioze.html#priznaky-skoliozy" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Příznaky skoliózy</a>
                     <a href="vse-o-skolioze.html#priciny-skoliozy" class="py-2 pb-3 text-brandDark/70 hover:text-brandTeal transition">Příčiny skoliózy</a>
                 </div>
             </div>
             <div class="border-b border-brandTeal/5">
-                <button type="button" class="mobile-submenu-toggle w-full flex items-center justify-center gap-1 py-3 hover:text-brandTeal transition" onclick="toggleMobileSubmenu(this)">
+                <button type="button" class="mobile-submenu-toggle active w-full flex items-center justify-center gap-1 py-3 text-brandTeal transition" onclick="toggleMobileSubmenu(this)">
                     Způsoby léčby
-                    <svg class="mobile-submenu-icon w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="mobile-submenu-icon w-3 h-3 transition-transform duration-200" style="transform: rotate(180deg); color: #E94D7F;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div class="mobile-submenu flex flex-col">
+                <div class="mobile-submenu open flex flex-col">
                     <a href="cesta-lecbou.html#diagnostika" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Diagnostika</a>
                     <a href="cesta-lecbou.html#fyzioterapie" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Fyzioterapie</a>
                     <a href="cesta-lecbou.html#korzet" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Korzet</a>
@@ -179,107 +179,93 @@
     <header class="relative overflow-hidden py-12 md:py-16 bg-white">
         <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-horizon text-brandCyan leading-tight">
-                Vše o <span class="text-brandTeal">skolióze</span>
+                Cesta <span class="text-brandTeal">léčbou</span>
             </h1>
             <p class="mt-6 text-sm md:text-base text-brandDark/80 leading-relaxed max-w-2xl mx-auto">
-                Co skolióza vlastně je, jak se projevuje a co o jejím vzniku víme. Podrobný rozcestník na jedno místo, se kterým se v tom snáz zorientuješ.
+                Od první diagnózy přes fyzioterapii a korzet až po případnou operaci a návrat k běžnému životu. Podrobný průvodce celou cestou, krok za krokem.
             </p>
         </div>
     </header>
 
-    <!-- ================= SECTION 1: Co je to skolióza? ================= -->
-    <section id="co-je-to-skolioza" class="py-16 md:py-20 bg-brandCream/50 scroll-mt-32">
+    <!-- ================= SECTION 1: Diagnostika ================= -->
+    <section id="diagnostika" class="py-16 md:py-20 bg-brandCream/50 scroll-mt-32">
         <div class="max-w-4xl mx-auto px-4 md:px-6">
             <div class="text-center mb-10 md:mb-12">
-                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Co je to skolióza?</h2>
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Diagnostika</h2>
             </div>
 
             <div class="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-brandTeal/5 text-sm md:text-base text-brandDark/80 leading-relaxed space-y-4">
 
-                <!-- PLACEHOLDER: Sem vlož text pro sekci "Co je to skolióza?" -->
-                <p>
-                    Oficiální skripta řeknou něco jako, že skolióza je rotační deformita páteře ve frontální rovině. V praxi to znamená, že obratle vybočí z běžné svislé osy páteře. Mohou se zakřivit tak, že při pohledu na záda zezadu vytvoří tvar písmene C, nebo S. Ale také rotují vůči sobě. Představte si tedy křivku páteře vždy ve 3D. Každá páteř se zakřiví jinak a na jiném místě.
-                </p>
-
-                <ul class="space-y-3 list-disc list-outside pl-5 marker:text-brandTeal">
-                    <li><strong class="text-brandDark">hrudní křivka</strong>: páteř se zakřiví v oblasti hrudníku – může provázet i deformaci hrudního koše nebo utlačovat některé orgány</li>
-                    <li><strong class="text-brandDark">bederní křivka</strong>: páteř se zakřiví v oblasti bederní.</li>
-                </ul>
-
-                <p>
-                    Naše tělo má tendenci všechny problémy nějak řešit a kompenzovat. Proto je velmi časté, že u jedné křivky nezůstane. Páteř se zahne v jedné části a automaticky tak to vybočení z osy vykompenzuje druhá část páteře. Ale to neznamená, že by obě křivky byly vždy stejné. Každý případ je velmi individuální.
-                </p>
+                <!-- PLACEHOLDER: Sem vlož text pro sekci "Diagnostika" -->
+                <p>Text pro sekci „Diagnostika“ sem bude doplněn.</p>
                 <!-- /PLACEHOLDER -->
 
             </div>
         </div>
     </section>
 
-    <!-- ================= SECTION 2: Příznaky skoliózy ================= -->
-    <section id="priznaky-skoliozy" class="py-16 md:py-20 bg-white scroll-mt-32">
+    <!-- ================= SECTION 2: Fyzioterapie ================= -->
+    <section id="fyzioterapie" class="py-16 md:py-20 bg-white scroll-mt-32">
         <div class="max-w-4xl mx-auto px-4 md:px-6">
             <div class="text-center mb-10 md:mb-12">
-                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Příznaky skoliózy</h2>
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Fyzioterapie</h2>
             </div>
 
             <div class="bg-brandCream/50 p-6 md:p-10 rounded-2xl shadow-sm border border-brandTeal/5 text-sm md:text-base text-brandDark/80 leading-relaxed space-y-4">
 
-                <!-- PLACEHOLDER: Sem vlož text pro sekci "Příznaky skoliózy" -->
-                <p>
-                    Poprvé skoliózu objeví často někdo jiný než pacient sám. Nejčastěji tak, že si všimne nějaké deformity na zádech nebo držení těla. Může to být například:
-                </p>
-
-                <ul class="space-y-3 list-disc list-outside pl-5 marker:text-brandTeal">
-                    <li><strong class="text-brandDark">nerovnoměrná ramena</strong> – jedno rameno je výš než druhé</li>
-                    <li><strong class="text-brandDark">jedna lopatka více vyčnívá</strong> – nerovnoměrné lopatky mohou být významným ukazatelem</li>
-                    <li><strong class="text-brandDark">hrudní koš je asymetrický</strong> – jedna část žeber může vyčnívat dopředu nebo dozadu</li>
-                    <li><strong class="text-brandDark">náklon</strong> – člověk nestojí 100 % rovně ale vždy se trochu naklání k jedné straně</li>
-                </ul>
-
-                <p>
-                    Samozřejmě to ale není vždy jen druhá osoba, kdo nám pomůže s rozpoznáním symptomů. Pacient si může všimnout:
-                </p>
-
-                <ul class="space-y-3 list-disc list-outside pl-5 marker:text-brandTeal">
-                    <li><strong class="text-brandDark">bolest nebo ztuhlost zad</strong> – ve kterémkoli místě na zádech se může začít objevovat bolest nebo ztuhlost, která byla předtím neobvyklá</li>
-                    <li><strong class="text-brandDark">necitlivost</strong> – v zádech nebo končetinách se může objevit menší citlivost, pokud by skolióza tlačila na nějaké nervy</li>
-                    <li><strong class="text-brandDark">zhoršené dýchání</strong> – pokud by deformity utlačovaly plíce, může se nám začít hůře dýchat</li>
-                </ul>
-
-                <p>
-                    Protože skolióza je vidět většinou ze zadu, kam si nevidíme, je moc důležité, abychom na takovou deformitu jemně a citlivě dotyčného upozornili. Nejčastěji se skolióza objevuje v dětství a dospívání, takže rodiče jsou většinou ti, kdo si všimnou nějakých změn. Nejlepší je nechat paniku na později, ale nepodceňovat to a raději hned vyrazit k nejbližšímu ortopedovi. Čím dříve se skolióza zjistí, tím lepší může mít průběh.
-                </p>
+                <!-- PLACEHOLDER: Sem vlož text pro sekci "Fyzioterapie" -->
+                <p>Text pro sekci „Fyzioterapie“ sem bude doplněn.</p>
                 <!-- /PLACEHOLDER -->
 
             </div>
         </div>
     </section>
 
-    <!-- ================= SECTION 3: Příčiny skoliózy ================= -->
-    <section id="priciny-skoliozy" class="py-16 md:py-20 bg-brandCream/50 scroll-mt-32">
+    <!-- ================= SECTION 3: Korzet ================= -->
+    <section id="korzet" class="py-16 md:py-20 bg-brandCream/50 scroll-mt-32">
         <div class="max-w-4xl mx-auto px-4 md:px-6">
             <div class="text-center mb-10 md:mb-12">
-                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Příčiny skoliózy</h2>
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Korzet</h2>
             </div>
 
             <div class="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-brandTeal/5 text-sm md:text-base text-brandDark/80 leading-relaxed space-y-4">
 
-                <!-- PLACEHOLDER: Sem vlož text pro sekci "Příčiny skoliózy" -->
-                <p>
-                    8 z 10 skolióz jsou tzv. idiopatické. To znamená, že <strong class="text-brandDark">není známá jejich příčina</strong>. Lékaři bohužel nemají jasný graf: příčina – důsledek. Skolióza nevznikne proto, že máte těžkou učebnici na literaturu nebo jste se dívali na pohádky ve špatné poloze. Skolióza zkrátka není ničí vina.
-                </p>
+                <!-- PLACEHOLDER: Sem vlož text pro sekci "Korzet" -->
+                <p>Text pro sekci „Korzet“ sem bude doplněn.</p>
+                <!-- /PLACEHOLDER -->
 
-                <p>
-                    Některé formy skoliózy jsou spojené s vrozenými vadami, dětskou obrnou, svalovou dystrofií nebo jinými nemocemi.
-                </p>
+            </div>
+        </div>
+    </section>
 
-                <p>
-                    Může to být <strong class="text-brandDark">dědičné</strong>? Výzkumy o genetickém přenosu skoliózy nebo jejich predispozic shrnují to, že dědičnost skoliózy se výsledek velkého mixu předpokladů a u každého to může být trochu jinak. Určitě nemůžeme říct, že pokud má rodič skoliózu, bude ji mít i dítě. Ale také to nemůžeme vyloučit. Výzkumy ukazují, že se skolióza v rodinách opakuje, ale také ukazují, že to není pravidlem.
-                </p>
+    <!-- ================= SECTION 4: Operace ================= -->
+    <section id="operace" class="py-16 md:py-20 bg-white scroll-mt-32">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-10 md:mb-12">
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Operace</h2>
+            </div>
 
-                <p>
-                    Původ skoliózy je tedy trochu záhada. Tak se musíme soustředit hlavně na to, jak s ní pracovat, jak ji léčit a zmírnit.
-                </p>
+            <div class="bg-brandCream/50 p-6 md:p-10 rounded-2xl shadow-sm border border-brandTeal/5 text-sm md:text-base text-brandDark/80 leading-relaxed space-y-4">
+
+                <!-- PLACEHOLDER: Sem vlož text pro sekci "Operace" -->
+                <p>Text pro sekci „Operace“ sem bude doplněn.</p>
+                <!-- /PLACEHOLDER -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 5: Životní styl ================= -->
+    <section id="zivotni-styl" class="py-16 md:py-20 bg-brandCream/50 scroll-mt-32">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-10 md:mb-12">
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Životní styl</h2>
+            </div>
+
+            <div class="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-brandTeal/5 text-sm md:text-base text-brandDark/80 leading-relaxed space-y-4">
+
+                <!-- PLACEHOLDER: Sem vlož text pro sekci "Životní styl" -->
+                <p>Text pro sekci „Životní styl“ sem bude doplněn.</p>
                 <!-- /PLACEHOLDER -->
 
             </div>
@@ -288,8 +274,8 @@
 
     <section class="py-14 bg-white text-center">
         <div class="max-w-2xl mx-auto px-4 md:px-6">
-            <p class="text-sm text-brandDark/70">Chceš vědět, jak skoliózu léčíme a jak vypadá cesta po operaci?</p>
-            <a href="cesta-lecbou.html" class="mt-4 inline-block bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-brandPink transition shadow-md">Podrobný průvodce → Cesta léčbou</a>
+            <p class="text-sm text-brandDark/70">Chceš se ještě vrátit k základním faktům o skolióze?</p>
+            <a href="vse-o-skolioze.html" class="mt-4 inline-block bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-brandPink transition shadow-md">Zpět → Vše o skolióze</a>
         </div>
     </section>
 
@@ -321,7 +307,7 @@
             }
         }
 
-        // Mobile accordion for the "Fakta o skolióze" submenu
+        // Mobile accordion for the "Fakta o skolióze" / "Způsoby léčby" submenus
         function toggleMobileSubmenu(button) {
             const submenu = button.nextElementSibling;
             const isOpen = submenu.classList.contains('open');

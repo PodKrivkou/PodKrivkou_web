@@ -60,7 +60,7 @@
             opacity: 0;
         }
         #mobile-menu.open {
-            max-height: 600px;
+            max-height: 720px;
             opacity: 1;
         }
 
@@ -89,7 +89,7 @@
             transition: max-height 0.25s ease-out;
         }
         .mobile-submenu.open {
-            max-height: 260px;
+            max-height: 320px;
         }
         .mobile-submenu-toggle.active .mobile-submenu-icon {
             transform: rotate(180deg);
@@ -120,7 +120,22 @@
                         </div>
                     </div>
                 </div>
-                <a href="#lecba" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#lecba', false)">Způsoby léčby</a>
+                <!-- "Způsoby léčby" now opens a hover dropdown pointing to the separate "Cesta léčbou" page -->
+                <div class="nav-dropdown-wrap relative">
+                    <a href="cesta-lecbou.html" class="hover:text-brandTeal transition flex items-center gap-1">
+                        Způsoby léčby
+                        <svg class="nav-dropdown-chevron w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="nav-dropdown-panel absolute left-1/2 -translate-x-1/2 top-full pt-3 w-64 z-50">
+                        <div class="bg-white rounded-2xl shadow-lg border border-brandTeal/10 overflow-hidden py-2">
+                            <a href="cesta-lecbou.html#diagnostika" class="block px-5 py-3 text-sm font-semibold text-brandDark/80 hover:bg-brandCream hover:text-brandTeal transition">Diagnostika</a>
+                            <a href="cesta-lecbou.html#fyzioterapie" class="block px-5 py-3 text-sm font-semibold text-brandDark/80 hover:bg-brandCream hover:text-brandTeal transition">Fyzioterapie</a>
+                            <a href="cesta-lecbou.html#korzet" class="block px-5 py-3 text-sm font-semibold text-brandDark/80 hover:bg-brandCream hover:text-brandTeal transition">Korzet</a>
+                            <a href="cesta-lecbou.html#operace" class="block px-5 py-3 text-sm font-semibold text-brandDark/80 hover:bg-brandCream hover:text-brandTeal transition">Operace</a>
+                            <a href="cesta-lecbou.html#zivotni-styl" class="block px-5 py-3 text-sm font-semibold text-brandDark/80 hover:bg-brandCream hover:text-brandTeal transition">Životní styl</a>
+                        </div>
+                    </div>
+                </div>
                 <a href="#blizci" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#blizci', false)">Pro blízké</a>
                 <a href="#komunita" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#komunita', false)">Komunita</a>
                 <a href="#faq" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#faq', false)">Lékařské FAQ</a>
@@ -154,7 +169,20 @@
                     <a href="vse-o-skolioze.html" class="py-2 pb-3 text-brandTeal/90 hover:text-brandPink transition">→ Celá stránka „Vše o skolióze“</a>
                 </div>
             </div>
-            <a href="#lecba" class="py-3 hover:text-brandTeal transition" onclick="scrollToSection(event, '#lecba', true)">Způsoby léčby</a>
+            <!-- "Způsoby léčby" mobile accordion: tap to reveal links to the "Cesta léčbou" page sections -->
+            <div class="border-b border-brandTeal/5">
+                <button type="button" class="mobile-submenu-toggle w-full flex items-center justify-center gap-1 py-3 hover:text-brandTeal transition" onclick="toggleMobileSubmenu(this)">
+                    Způsoby léčby
+                    <svg class="mobile-submenu-icon w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="mobile-submenu flex flex-col">
+                    <a href="cesta-lecbou.html#diagnostika" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Diagnostika</a>
+                    <a href="cesta-lecbou.html#fyzioterapie" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Fyzioterapie</a>
+                    <a href="cesta-lecbou.html#korzet" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Korzet</a>
+                    <a href="cesta-lecbou.html#operace" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Operace</a>
+                    <a href="cesta-lecbou.html#zivotni-styl" class="py-2 pb-3 text-brandDark/70 hover:text-brandTeal transition">Životní styl</a>
+                </div>
+            </div>
             <a href="#blizci" class="py-3 hover:text-brandTeal transition" onclick="scrollToSection(event, '#blizci', true)">Pro blízké</a>
             <a href="#komunita" class="py-3 hover:text-brandTeal transition" onclick="scrollToSection(event, '#komunita', true)">Komunita</a>
             <a href="#faq" class="py-3 hover:text-brandTeal transition" onclick="scrollToSection(event, '#faq', true)">Lékařské FAQ</a>
@@ -173,7 +201,7 @@
                     Páteř pod křivkou<br><span class="text-brandTeal">i pod kontrolou</span>
                 </h1>
                 <p class="mt-6 text-sm md:text-base text-brandDark/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé, samy jsme si tím prošly. Jsme dvě holky po operaci a jsme tu, abychom ukázaly, že život na druhé straně je plný akce, pohybu a dobrodružství bez limitů. Věříme, že šrouby v zádech nejsou konec světa a naopak můžou být začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří si celou cestou tebrve procházejí. Tak se pojďme procházet společně, co?
+                    Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé, samy jsme si tím prošly. Jsme dvě holky po operaci a jsme tu, abychom ukázali, že život na druhé straně je plný akce, pohybu a dobrodružství bez limitů. Věříme, že šrouby v zádech nejsou konec světa a naopak můžou být začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří si celou cestou teprve procházejí. Tak se pojďme procházet společně, co?
                 </p>
                 <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
                     <a href="#fakta" class="bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-brandPink transition shadow-md w-full sm:w-auto text-center" onclick="scrollToSection(event, '#fakta', false)">Skolióza: co to je?</a>
@@ -266,6 +294,10 @@
                         <p>První týdny po operaci vyžadují klid, správné vstávání přes bok (log-rolling) a postupné chození. Během 6 až 12 měsíců kosti pevně srostou. Většina pacientů se vrací k plnohodnotnému životu – cestování, plavání, tanci, turistice a sportům bez chronických bolestí.</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="text-center mt-10 md:mt-12">
+                <a href="cesta-lecbou.html" class="inline-block bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-brandPink transition shadow-md">Podrobný průvodce → Cesta léčbou</a>
             </div>
         </div>
     </section>
