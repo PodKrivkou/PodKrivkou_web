@@ -60,8 +60,40 @@
             opacity: 0;
         }
         #mobile-menu.open {
-            max-height: 400px;
+            max-height: 600px;
             opacity: 1;
+        }
+
+        /* Desktop "Fakta o skolióze" dropdown */
+        .nav-dropdown-panel {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out;
+        }
+        .nav-dropdown-wrap:hover .nav-dropdown-panel,
+        .nav-dropdown-wrap:focus-within .nav-dropdown-panel {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .nav-dropdown-wrap:hover .nav-dropdown-chevron {
+            transform: rotate(180deg);
+            color: #E94D7F;
+        }
+
+        /* Mobile submenu */
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease-out;
+        }
+        .mobile-submenu.open {
+            max-height: 260px;
+        }
+        .mobile-submenu-toggle.active .mobile-submenu-icon {
+            transform: rotate(180deg);
+            color: #E94D7F;
         }
     </style>
 </head>
@@ -74,7 +106,20 @@
             </a>
             
             <div class="hidden md:flex space-x-8 text-sm font-semibold text-brandDark/80">
-                <a href="#fakta" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#fakta', false)">Fakta o skolióze</a>
+                <!-- "Fakta o skolióze" now opens a hover dropdown pointing to the separate "Vše o skolióze" page -->
+                <div class="nav-dropdown-wrap relative">
+                    <a href="vse-o-skolioze.html" class="hover:text-brandTeal transition flex items-center gap-1">
+                        Fakta o skolióze
+                        <svg class="nav-dropdown-chevron w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="nav-dropdown-panel absolute left-1/2 -translate-x-1/2 top-full pt-3 w-64 z-50">
+                        <div class="bg-white rounded-2xl shadow-lg border border-brandTeal/10 overflow-hidden py-2">
+                            <a href="vse-o-skolioze.html#co-je-to-skolioza" class="block px-5 py-3 text-sm font-semibold text-brandDark/80 hover:bg-brandCream hover:text-brandTeal transition">Co je to skolióza?</a>
+                            <a href="vse-o-skolioze.html#priznaky-skoliozy" class="block px-5 py-3 text-sm font-semibold text-brandDark/80 hover:bg-brandCream hover:text-brandTeal transition">Příznaky skoliózy</a>
+                            <a href="vse-o-skolioze.html#priciny-skoliozy" class="block px-5 py-3 text-sm font-semibold text-brandDark/80 hover:bg-brandCream hover:text-brandTeal transition">Příčiny skoliózy</a>
+                        </div>
+                    </div>
+                </div>
                 <a href="#lecba" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#lecba', false)">Způsoby léčby</a>
                 <a href="#blizci" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#blizci', false)">Pro blízké</a>
                 <a href="#komunita" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#komunita', false)">Komunita</a>
@@ -95,13 +140,25 @@
             </button>
         </div>
 
-        <div id="mobile-menu" class="md:hidden absolute top-16 left-0 w-full bg-white border-b border-brandTeal/10 px-6 pb-6 space-y-4 font-semibold text-sm flex flex-col text-center shadow-md">
-            <a href="#fakta" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#fakta', true)">Fakta o skolióze</a>
-            <a href="#lecba" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#lecba', true)">Způsoby léčby</a>
-            <a href="#blizci" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#blizci', true)">Pro blízké</a>
-            <a href="#blizci" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#komunita', true)">Komunita</a>
-            <a href="#faq" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#faq', true)">Lékařské FAQ</a>
-            <a href="#o-nas" class="py-2 hover:text-brandTeal transition" onclick="scrollToSection(event, '#o-nas', true)">Kdo jsme</a>
+        <div id="mobile-menu" class="md:hidden absolute top-16 left-0 w-full bg-white border-b border-brandTeal/10 px-6 pb-6 space-y-1 font-semibold text-sm flex flex-col text-center shadow-md">
+            <!-- "Fakta o skolióze" mobile accordion: tap to reveal links to the "Vše o skolióze" page sections -->
+            <div class="border-b border-brandTeal/5">
+                <button type="button" class="mobile-submenu-toggle w-full flex items-center justify-center gap-1 py-3 hover:text-brandTeal transition" onclick="toggleMobileSubmenu(this)">
+                    Fakta o skolióze
+                    <svg class="mobile-submenu-icon w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="mobile-submenu flex flex-col">
+                    <a href="vse-o-skolioze.html#co-je-to-skolioza" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Co je to skolióza?</a>
+                    <a href="vse-o-skolioze.html#priznaky-skoliozy" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Příznaky skoliózy</a>
+                    <a href="vse-o-skolioze.html#priciny-skoliozy" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Příčiny skoliózy</a>
+                    <a href="vse-o-skolioze.html" class="py-2 pb-3 text-brandTeal/90 hover:text-brandPink transition">→ Celá stránka „Vše o skolióze“</a>
+                </div>
+            </div>
+            <a href="#lecba" class="py-3 hover:text-brandTeal transition" onclick="scrollToSection(event, '#lecba', true)">Způsoby léčby</a>
+            <a href="#blizci" class="py-3 hover:text-brandTeal transition" onclick="scrollToSection(event, '#blizci', true)">Pro blízké</a>
+            <a href="#komunita" class="py-3 hover:text-brandTeal transition" onclick="scrollToSection(event, '#komunita', true)">Komunita</a>
+            <a href="#faq" class="py-3 hover:text-brandTeal transition" onclick="scrollToSection(event, '#faq', true)">Lékařské FAQ</a>
+            <a href="#o-nas" class="py-3 hover:text-brandTeal transition" onclick="scrollToSection(event, '#o-nas', true)">Kdo jsme</a>
             <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition block shadow-sm mt-2">
                 SAFE SPACE
             </a>
@@ -151,6 +208,10 @@
                     <h3 class="font-bold text-brandDark text-lg mb-2">Růst a stabilizace</h3>
                     <p class="text-sm text-brandDark/70 leading-relaxed">Nejdůležitější je lékařský dohled v době růstu. Když rychle rosteme a dospíváme, křivka se nejčastěji rychle zhoršuje. Naopak, pokud toto období přečkáme, tak po dokončení růstu se mírné křivky často zcela stabilizují.</p>
                 </div>
+            </div>
+
+            <div class="mt-10">
+                <a href="vse-o-skolioze.html" class="inline-block bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-brandPink transition shadow-md">Chci vědět víc → Vše o skolióze</a>
             </div>
         </div>
     </section>
@@ -350,6 +411,23 @@
             } else {
                 mobileMenu.classList.add('open');
                 menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
+        }
+
+        // Mobile accordion for the "Fakta o skolióze" submenu
+        function toggleMobileSubmenu(button) {
+            const submenu = button.nextElementSibling;
+            const isOpen = submenu.classList.contains('open');
+            if (isOpen) {
+                submenu.classList.remove('open');
+                button.classList.remove('active');
+            } else {
+                submenu.classList.add('open');
+                button.classList.add('active');
+            }
+            // Re-measure the outer mobile menu height so the reveal fits
+            if (mobileMenu.classList.contains('open')) {
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
             }
         }
 
