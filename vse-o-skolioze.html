@@ -187,6 +187,20 @@
         </div>
     </header>
 
+        <div id="mobile-menu" class="md:hidden absolute top-16 left-0 w-full bg-white border-b border-brandTeal/10 px-6 pb-6 space-y-1 font-semibold text-sm flex flex-col text-center shadow-md">
+    <!-- "Fakta o skolióze" mobile accordion: tap to reveal links to the "Vše o skolióze" page sections -->
+            <div class="border-b border-brandTeal/5">
+                <button type="button" class="mobile-submenu-toggle w-full flex items-center justify-center gap-1 py-3 hover:text-brandTeal transition" onclick="toggleMobileSubmenu(this)">
+                    Fakta o skolióze
+                    <svg class="mobile-submenu-icon w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="mobile-submenu flex flex-col">
+                    <a href="vse-o-skolioze.html#co-je-to-skolioza" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Co je to skolióza?</a>
+                    <a href="vse-o-skolioze.html#priznaky-skoliozy" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Příznaky skoliózy</a>
+                    <a href="vse-o-skolioze.html#priciny-skoliozy" class="py-2 text-brandDark/70 hover:text-brandTeal transition">Příčiny skoliózy</a>
+                    <a href="vse-o-skolioze.html" class="py-2 pb-3 text-brandTeal/90 hover:text-brandPink transition">→ Celá stránka „Vše o skolióze“</a>
+                </div>
+            </div>    
     <!-- ================= SECTION 1: Co je to skolióza? ================= -->
     <section id="co-je-to-skolioza" class="py-16 md:py-20 bg-brandCream/50 scroll-mt-32">
         <div class="max-w-4xl mx-auto px-4 md:px-6">
