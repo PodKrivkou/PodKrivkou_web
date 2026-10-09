@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pod Křivkou | Průvodce skoliózou a životem po operaci</title>
-    
+    <title>Lékařské FAQ | Pod Křivkou</title>
+
     <link rel="icon" type="image/png" href="favicon1.png?v=2">
     <link rel="shortcut icon" type="image/png" href="favicon1.png?v=2">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -39,8 +39,7 @@
     <style>
         .font-horizon { font-family: 'Syne', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.03em; }
         .font-glacial { font-family: 'Plus Jakarta Sans', sans-serif; }
-        
-        /* Mobile Menu Animation */
+
         #mobile-menu {
             max-height: 0;
             overflow: hidden;
@@ -52,7 +51,6 @@
             opacity: 1;
         }
 
-        /* Desktop "Fakta o skolióze" dropdown */
         .nav-dropdown-panel {
             opacity: 0;
             visibility: hidden;
@@ -70,7 +68,6 @@
             color: #E94D7F;
         }
 
-        /* Mobile submenu */
         .mobile-submenu {
             max-height: 0;
             overflow: hidden;
@@ -83,18 +80,28 @@
             transform: rotate(180deg);
             color: #E94D7F;
         }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding-top 0.3s ease-out;
+            padding-top: 0;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: #E94D7F;
+        }
     </style>
 </head>
 <body class="bg-brandCream text-brandDark font-glacial antialiased">
 
     <nav id="main-nav" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brandTeal/10 shadow-sm h-16 md:h-20">
         <div class="max-w-6xl mx-auto px-4 md:px-6 h-full flex items-center justify-between relative">
-            <a href="#" class="text-xl md:text-2xl font-horizon text-brandTeal flex items-center gap-2">
+            <a href="index.html" class="text-xl md:text-2xl font-horizon text-brandTeal flex items-center gap-2">
                 Pod <span class="text-brandPink">Křivkou</span>
             </a>
-            
+
             <div class="hidden md:flex space-x-8 text-sm font-semibold text-brandDark/80">
-                <!-- "Fakta o skolióze" now opens a hover dropdown pointing to the separate "Vše o skolióze" page -->
                 <div class="nav-dropdown-wrap relative">
                     <a href="vse-o-skolioze.html" class="hover:text-brandTeal transition flex items-center gap-1">
                         Fakta o skolióze
@@ -108,7 +115,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- "Způsoby léčby" now opens a hover dropdown pointing to the separate "Cesta léčbou" page -->
                 <div class="nav-dropdown-wrap relative">
                     <a href="cesta-lecbou.html" class="hover:text-brandTeal transition flex items-center gap-1">
                         Způsoby léčby
@@ -126,10 +132,10 @@
                 </div>
                 <a href="pro-blizke.html" class="hover:text-brandTeal transition">Pro blízké</a>
                 <a href="komunita.html" class="hover:text-brandTeal transition">Komunita</a>
-                <a href="lekarske-faq.html" class="hover:text-brandTeal transition">Lékařské FAQ</a>
-                <a href="#o-nas" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#o-nas', false)">Kdo jsme</a>
+                <a href="lekarske-faq.html" class="text-brandTeal transition">Lékařské FAQ</a>
+                <a href="index.html#o-nas" class="hover:text-brandTeal transition">Kdo jsme</a>
             </div>
-            
+
             <div class="hidden md:block">
                 <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition transform hover:scale-105 shadow-md">
                     SAFE SPACE
@@ -144,7 +150,6 @@
         </div>
 
         <div id="mobile-menu" class="md:hidden absolute top-16 left-0 w-full bg-white border-b border-brandTeal/10 px-6 pb-6 space-y-1 font-semibold text-sm flex flex-col text-center shadow-md">
-            <!-- "Fakta o skolióze" mobile accordion: tap to reveal links to the "Vše o skolióze" page sections -->
             <div class="border-b border-brandTeal/5">
                 <button type="button" class="mobile-submenu-toggle w-full flex items-center justify-center gap-1 py-3 hover:text-brandTeal transition" onclick="toggleMobileSubmenu(this)">
                     Fakta o skolióze
@@ -157,7 +162,6 @@
                     <a href="vse-o-skolioze.html" class="py-2 pb-3 text-brandTeal/90 hover:text-brandPink transition">→ Celá stránka „Vše o skolióze“</a>
                 </div>
             </div>
-            <!-- "Způsoby léčby" mobile accordion: tap to reveal links to the "Cesta léčbou" page sections -->
             <div class="border-b border-brandTeal/5">
                 <button type="button" class="mobile-submenu-toggle w-full flex items-center justify-center gap-1 py-3 hover:text-brandTeal transition" onclick="toggleMobileSubmenu(this)">
                     Způsoby léčby
@@ -173,56 +177,56 @@
             </div>
             <a href="pro-blizke.html" class="py-3 hover:text-brandTeal transition">Pro blízké</a>
             <a href="komunita.html" class="py-3 hover:text-brandTeal transition">Komunita</a>
-            <a href="lekarske-faq.html" class="py-3 hover:text-brandTeal transition">Lékařské FAQ</a>
-            <a href="#o-nas" class="py-3 hover:text-brandTeal transition" onclick="scrollToSection(event, '#o-nas', true)">Kdo jsme</a>
+            <a href="lekarske-faq.html" class="py-3 text-brandTeal transition">Lékařské FAQ</a>
+            <a href="index.html#o-nas" class="py-3 hover:text-brandTeal transition">Kdo jsme</a>
             <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition block shadow-sm mt-2">
                 SAFE SPACE
             </a>
         </div>
     </nav>
 
-    <header class="relative overflow-hidden py-12 md:py-16 lg:py-24">
-        <div class="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 md:gap-12 lg:gap-16 items-center">
-            <div class="text-center lg:text-left">
-                <span class="inline-block bg-brandYellow/10 text-brandYellow text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">Konečně někdo, kdo to chápe</span>
-                <h1 class="text-4xl lg:text-5xl font-horizon text-brandCyan leading-tight">
-                    Páteř pod křivkou<br><span class="text-brandTeal">i pod kontrolou</span>
-                </h1>
-                <p class="mt-6 text-sm md:text-base text-brandDark/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé, samy jsme si tím prošly. Jsme dvě holky po operaci a jsme tu, abychom ukázaly, že život na druhé straně je plný akce, pohybu a dobrodružství bez limitů. Věříme, že šrouby v zádech nejsou konec světa a naopak můžou být začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří si celou cestou teprve procházejí. Tak se pojďme procházet společně, co?
-                </p>
-                <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
-                    <a href="vse-o-skolioze.html#fakta" class="bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-brandPink transition shadow-md w-full sm:w-auto text-center">Skolióza: co to je?</a>
-                    <a href="#o-nas" class="bg-white text-brandTeal border border-brandTeal/20 px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-slate-50 transition w-full sm:w-auto text-center" onclick="scrollToSection(event, '#o-nas', false)">Kdo jsme my</a>
-                </div>
+    <main>
+    <section id="faq" class="py-16 md:py-20 bg-white min-h-[calc(100vh-5rem)]">
+        <div class="max-w-3xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-12">
+                <h1 class="text-2xl md:text-3xl font-horizon text-brandTeal">Časté otázky pacientů</h1>
+                <p class="mt-4 text-brandDark/70 text-sm">Ověřené odpovědi na opakující se otázky v ambulancích. Ušetřete čas sobě i svému lékaři.</p>
             </div>
-            
-            <div class="flex justify-center lg:justify-end w-full mt-6 lg:mt-0">
-                <img src="logo.png" alt="Pod Křivkou Logo" class="w-full max-w-[220px] md:max-w-[280px] lg:max-w-[340px] h-auto object-contain drop-shadow-sm select-none">
-            </div>
-        </div>
-    </header>
 
-
-
-
-    <section id="o-nas" class="py-16 md:py-20 bg-brandCream">
-        <div class="max-w-4xl mx-auto px-4 md:px-6">
-            <div class="bg-white p-6 md:p-8 lg:p-12 rounded-3xl border border-brandTeal/10 shadow-sm grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 md:gap-8 items-center">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal leading-tight text-center lg:text-left">Kdo jsme a proč to děláme?</h2>
+            <div class="space-y-4">
+                <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                    <div class="flex justify-between items-center gap-4">
+                        <h3 class="font-bold text-brandDark text-sm md:text-base">Ztratím po operaci (fúzi) navždy veškerou ohebnost páteře?</h3>
+                        <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                        Pevná a nepohyblivá zůstane pouze ta část páteře, která byla přímo operována a fúzována. Neoperované úseky (zejména bedra a kyčle) se přirozeně adaptují a zvýší svou flexibilitu, aby fixaci kompenzovaly. Většina pacientů se bez problému Classification.ohne, zaváže si boty a sportuje.
+                    </div>
                 </div>
-                <div class="text-sm text-brandDark/80 leading-relaxed space-y-4">
-                    <p>
-                        Jsme Míša a Kixa. Obě jsme si prošly skoliózou – od korzetu až po operaci. Potkaly jsme se roky poté, co už se nám na zádech usadila jizva, a okamžitě jsme se shodly na dvou věcech. Za prvé: život po operaci skoliózy může být stále naprostá bomba, plný cestování, sportu a kamarádů. Za druhé: vyrůstat se skoliózou bylo často osamělé, náročné a plné nejistot, i když tak trochu skrytě.  
-                    </p>
-                    <p>
-                        Internet byl plný strašidelných diskusí a protichůdných rad, které v nás i našich rodičích vyvolávaly jen strach. Rozhodly jsme se to změnit. Pod Křivkou je projekt, kde spojujeme naše osobní zkušenosti s ověřenými lékařskými fakty. A takto bychom chtěly všem, kteří si tím prošli nebo právě procházejí, předat pořádnou dávku povzbuzení, naděje a ověřených informací.
-                    </p>
+
+                <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                    <div class="flex justify-between items-center gap-4">
+                        <h3 class="font-bold text-brandDark text-sm md:text-base">Budu pískat na letištních detektorech kovu?</h3>
+                        <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                        Velmi zřídka. Moderní titanové implantáty běžné bezpečnostní rámy na letištích nespouštějí. Pokud by se tak stalo, stačí ostraze sdělit, že máte v těle zdravotní implantáty. Žádné speciální lékařské potvrzení v praxi obvykle vyžadováno není.
+                    </div>
+                </div>
+
+                <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                    <div class="flex justify-between items-center gap-4">
+                        <h3 class="font-bold text-brandDark text-sm md:text-base">Dokáže korzet skoliózu úplně vyléčit a narovnat?</h3>
+                        <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                        Korzet není navržen tak, aby již vzniklou křivku trvale vrátil na 0°, ale aby zabránil jejímu dalšímu zhoršování (progresi) během divokého růstu v dospívání. Úspěšná léčba korzetem znamená udržet křivku pod hranicí nutnosti operace.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="bg-brandCream border-t border-brandTeal/10 py-10 text-center text-xs text-brandDark/50">
         <div class="max-w-6xl mx-auto px-4 md:px-6 space-y-3">
@@ -236,24 +240,19 @@
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
-        const navBar = document.getElementById('main-nav');
 
         menuToggle.addEventListener('click', () => {
-            toggleMenu();
-        });
-
-        function toggleMenu() {
             const isOpen = mobileMenu.classList.contains('open');
             if (isOpen) {
                 mobileMenu.classList.remove('open');
+                mobileMenu.style.maxHeight = '';
                 menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
             } else {
                 mobileMenu.classList.add('open');
                 menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
             }
-        }
+        });
 
-        // Mobile accordion for the "Fakta o skolióze" submenu
         function toggleMobileSubmenu(button) {
             const submenu = button.nextElementSibling;
             const isOpen = submenu.classList.contains('open');
@@ -264,39 +263,30 @@
                 submenu.classList.add('open');
                 button.classList.add('active');
             }
-            // Re-measure the outer mobile menu height so the reveal fits
             if (mobileMenu.classList.contains('open')) {
                 mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
             }
         }
 
-        function scrollToSection(event, targetId, isMobile) {
-            event.preventDefault(); 
-            
-            if (isMobile) {
-                mobileMenu.classList.remove('open');
-                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-            }
-            
-            setTimeout(() => {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const navHeight = navBar.offsetHeight; 
-                    
-                    let extraPadding = 0; 
-                    if (window.innerWidth < 768) {
-                        extraPadding = 0; 
-                    }
-                    
-                    const targetPosition = window.scrollY + targetElement.getBoundingClientRect().top;
-                    const offsetPosition = targetPosition - navHeight - extraPadding;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+        function toggleFAQ(element) {
+            const answer = element.querySelector('.faq-answer');
+            const isActive = element.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = '0px';
+                    item.querySelector('.faq-answer').style.paddingTop = '0px';
                 }
-            }, isMobile ? 220 : 0);
+            });
+            if (!isActive) {
+                element.classList.add('active');
+                answer.style.paddingTop = '1rem';
+                answer.style.maxHeight = (answer.scrollHeight + 16) + 'px';
+            } else {
+                element.classList.remove('active');
+                answer.style.maxHeight = '0px';
+                answer.style.paddingTop = '0px';
+            }
         }
     </script>
 </body>
