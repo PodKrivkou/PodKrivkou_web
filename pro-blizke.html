@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pro blízké | Pod Křivkou</title>
+    <meta name="description" content="Jak podpořit blízkého člověka, který nosí ortopedický korzet kvůli skolióze. Co dělat, co říkat a čemu se raději vyhnout.">
 
     <link rel="icon" type="image/png" href="favicon1.png?v=2">
     <link rel="shortcut icon" type="image/png" href="favicon1.png?v=2">
@@ -37,53 +38,49 @@
         }
     </script>
     <style>
+        html { scroll-behavior: smooth; }
         .font-horizon { font-family: 'Syne', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.03em; }
         .font-glacial { font-family: 'Plus Jakarta Sans', sans-serif; }
+        section[id] { scroll-margin-top: 6rem; }
 
-        #mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out;
-            opacity: 0;
-        }
-        #mobile-menu.open {
-            max-height: 720px;
-            opacity: 1;
-        }
+        /* Mobile Menu Animation */
+        #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out; opacity: 0; }
+        #mobile-menu.open { max-height: 720px; opacity: 1; }
 
-        .nav-dropdown-panel {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-6px);
-            transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out;
-        }
+        /* Desktop dropdowns */
+        .nav-dropdown-panel { opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out; }
         .nav-dropdown-wrap:hover .nav-dropdown-panel,
-        .nav-dropdown-wrap:focus-within .nav-dropdown-panel {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .nav-dropdown-wrap:hover .nav-dropdown-chevron {
-            transform: rotate(180deg);
-            color: #E94D7F;
-        }
+        .nav-dropdown-wrap:focus-within .nav-dropdown-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-dropdown-wrap:hover .nav-dropdown-chevron { transform: rotate(180deg); color: #E94D7F; }
 
-        .mobile-submenu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.25s ease-out;
-        }
-        .mobile-submenu.open {
-            max-height: 320px;
-        }
-        .mobile-submenu-toggle.active .mobile-submenu-icon {
-            transform: rotate(180deg);
-            color: #E94D7F;
-        }
+        /* Mobile submenu */
+        .mobile-submenu { max-height: 0; overflow: hidden; transition: max-height 0.25s ease-out; }
+        .mobile-submenu.open { max-height: 320px; }
+        .mobile-submenu-toggle.active .mobile-submenu-icon { transform: rotate(180deg); color: #E94D7F; }
+
+        /* Role tabs */
+        .role-tab { transition: all 0.2s ease; }
+        .role-tab.active { background: #E94D7F; color: #fff; border-color: #E94D7F; box-shadow: 0 4px 12px rgba(233,77,127,0.25); }
+        .role-panel { display: none; }
+        .role-panel.active { display: block; animation: fadeUp 0.3s ease-out; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Decorative blobs */
+        .blob { position: absolute; border-radius: 9999px; filter: blur(48px); opacity: 0.35; pointer-events: none; }
+
+        /* Quote cards */
+        .quote-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .quote-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(30,41,59,0.08); }
+
+        /* Custom bullets */
+        .bullets li { position: relative; padding-left: 1.5rem; }
+        .bullets.good li::before { content: "✓"; position: absolute; left: 0; color: #00B1B6; font-weight: 800; }
+        .bullets.bad li::before { content: "✕"; position: absolute; left: 0; color: #E94D7F; font-weight: 800; }
     </style>
 </head>
 <body class="bg-brandCream text-brandDark font-glacial antialiased">
 
+    <!-- NAVIGACE -->
     <nav id="main-nav" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-brandTeal/10 shadow-sm h-16 md:h-20">
         <div class="max-w-6xl mx-auto px-4 md:px-6 h-full flex items-center justify-between relative">
             <a href="index.html" class="text-xl md:text-2xl font-horizon text-brandTeal flex items-center gap-2">
@@ -119,9 +116,9 @@
                         </div>
                     </div>
                 </div>
-                <a href="pro-blizke.html" class="text-brandTeal transition">Pro blízké</a>
+                <a href="pro-blizke.html" class="text-brandPink border-b-2 border-brandPink transition">Pro blízké</a>
                 <a href="komunita.html" class="hover:text-brandTeal transition">Komunita</a>
-                <a href="lekarske-faq.html" class="hover:text-brandTeal transition">Časté dotazy</a>
+                <a href="lekarske-faq.html" class="hover:text-brandTeal transition">Lékařské FAQ</a>
                 <a href="index.html#o-nas" class="hover:text-brandTeal transition">Kdo jsme</a>
             </div>
 
@@ -164,9 +161,9 @@
                     <a href="cesta-lecbou.html#zivotni-styl" class="py-2 pb-3 text-brandDark/70 hover:text-brandTeal transition">Životní styl</a>
                 </div>
             </div>
-            <a href="pro-blizke.html" class="py-3 text-brandTeal transition">Pro blízké</a>
+            <a href="pro-blizke.html" class="py-3 text-brandPink transition">Pro blízké</a>
             <a href="komunita.html" class="py-3 hover:text-brandTeal transition">Komunita</a>
-            <a href="lekarske-faq.html" class="py-3 hover:text-brandTeal transition">Časté dotazy</a>
+            <a href="lekarske-faq.html" class="py-3 hover:text-brandTeal transition">Lékařské FAQ</a>
             <a href="index.html#o-nas" class="py-3 hover:text-brandTeal transition">Kdo jsme</a>
             <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition block shadow-sm mt-2">
                 SAFE SPACE
@@ -174,37 +171,325 @@
         </div>
     </nav>
 
-    <main>
-        <section id="blizci" class="py-16 md:py-20 bg-brandDark text-white min-h-[calc(100vh-5rem)]">
-            <div class="max-w-4xl mx-auto px-4 md:px-6">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h1 class="text-2xl md:text-3xl font-horizon text-brandCyan">Jak podpořit pacienta</h1>
-                    <p class="mt-4 text-slate-400 text-sm">Praktický průvodce pro rodiče, sourozence a kamarády, aby věděli, jak s člověkem se skoliózou správně komunikovat.</p>
+    <!-- HERO -->
+    <header class="relative overflow-hidden py-12 md:py-16 lg:py-20">
+        <div class="blob bg-brandCyan w-72 h-72 -top-20 -left-20"></div>
+        <div class="blob bg-brandBabypink w-72 h-72 top-10 -right-24"></div>
+        <div class="relative max-w-4xl mx-auto px-4 md:px-6 text-center">
+            <span class="inline-block bg-brandYellow/10 text-brandYellow text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">Pro rodinu, kamarády i partnery</span>
+            <h1 class="text-4xl lg:text-5xl font-horizon text-brandCyan leading-tight">
+                Jak být oporou,<br><span class="text-brandTeal">ne dozorcem</span>
+            </h1>
+            <p class="mt-6 text-sm md:text-base text-brandDark/80 leading-relaxed max-w-2xl mx-auto">
+                Váš blízký nosí ortopedický korzet a vy nevíte, co říct, co udělat a čeho se raději vyhnout? Nejste v tom sami. Korzet nosí nejčastěji dospívající, tedy v době, kdy se vzhled, kamarádi a to „zapadnout“ řeší víc než kdy jindy. A právě tehdy dělá podpora okolí obrovský rozdíl. Tady najdete konkrétní tipy, vzorové věty i rady přímo pro vaši roli.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3 text-xs font-bold uppercase tracking-wider">
+                <a href="#co-delat" class="bg-brandTeal text-white px-5 py-2.5 rounded-full hover:bg-brandPink transition shadow-md">Co dělat</a>
+                <a href="#co-nedelat" class="bg-white text-brandPink border border-brandPink/30 px-5 py-2.5 rounded-full hover:bg-brandPink hover:text-white transition">Čemu se vyhnout</a>
+                <a href="#vzorove-vety" class="bg-white text-brandTeal border border-brandTeal/20 px-5 py-2.5 rounded-full hover:bg-brandTeal hover:text-white transition">Vzorové věty</a>
+                <a href="#podle-role" class="bg-white text-brandTeal border border-brandTeal/20 px-5 py-2.5 rounded-full hover:bg-brandTeal hover:text-white transition">Podle role</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CO DĚLAT -->
+    <section id="co-delat" class="py-12 md:py-16">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-brandTeal/10 text-brandTeal text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">Podpora v praxi</span>
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Co dělat, říkat a jak podpořit</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+
+                <article class="bg-white rounded-3xl border border-brandTeal/10 shadow-sm p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-11 h-11 rounded-2xl bg-brandBabypink/20 flex items-center justify-center text-xl">💬</span>
+                        <h3 class="font-heading font-bold text-lg text-brandDark">Emoční podpora</h3>
+                    </div>
+                    <ul class="bullets good space-y-2 text-sm text-brandDark/80 leading-relaxed">
+                        <li>Poslouchejte bez soudu a bez okamžitého radění. Někdy stačí „jsem tu pro tebe“.</li>
+                        <li>Uznejte, že je to těžké: „Chápu, že tě to štve / že je to nepříjemné.“</li>
+                        <li>Dejte prostor vzteku, smutku i studu a nebagatelizujte je.</li>
+                        <li>Připomínejte, že korzet je dočasný a má smysl: pomáhá zabránit zhoršení křivky, případně operaci.</li>
+                        <li>Chvalte vytrvalost, ne vzhled: „Vážím si toho, jak to zvládáš.“</li>
+                    </ul>
+                </article>
+
+                <article class="bg-white rounded-3xl border border-brandTeal/10 shadow-sm p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-11 h-11 rounded-2xl bg-brandCyan/20 flex items-center justify-center text-xl">🛠️</span>
+                        <h3 class="font-heading font-bold text-lg text-brandDark">Praktická pomoc</h3>
+                    </div>
+                    <ul class="bullets good space-y-2 text-sm text-brandDark/80 leading-relaxed">
+                        <li>Pomozte s režimem nošení: připomínky v rozumné míře, ne hlídání.</li>
+                        <li>Vyřešte oblečení: větší velikosti, vrstvení, bavlněné tričko pod korzet, věci, ve kterých se bude cítit dobře.</li>
+                        <li>Pečujte o kůži: hygiena, ochrana proti otlakům, suché a čisté spodní vrstvy.</li>
+                        <li>Doprovázejte na kontroly, k ortotikovi a na rehabilitaci a zajímejte se o pokyny lékaře a fyzioterapeuta.</li>
+                        <li>Podpořte cvičení (Schroth, DNS, plavání apod.), klidně cvičte společně.</li>
+                        <li>Upravte domácí prostředí: pohodlné sezení, vhodná postel a matrace, úprava místa ve škole.</li>
+                    </ul>
+                </article>
+
+                <article class="bg-white rounded-3xl border border-brandTeal/10 shadow-sm p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-11 h-11 rounded-2xl bg-brandYellow/30 flex items-center justify-center text-xl">🔒</span>
+                        <h3 class="font-heading font-bold text-lg text-brandDark">Respekt k autonomii a soukromí</h3>
+                    </div>
+                    <ul class="bullets good space-y-2 text-sm text-brandDark/80 leading-relaxed">
+                        <li>Nechte na něm/ní, komu o korzetu řekne a kdy.</li>
+                        <li>Zapojte ho/ji do rozhodování o léčbě a v ordinaci mu/jí dejte slovo.</li>
+                        <li>Nabídněte, že budete nablízku v těžkých situacích (škola, tělocvik, kamarádi).</li>
+                    </ul>
+                </article>
+
+                <article class="bg-white rounded-3xl border border-brandTeal/10 shadow-sm p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-11 h-11 rounded-2xl bg-brandTerracotta/20 flex items-center justify-center text-xl">🌈</span>
+                        <h3 class="font-heading font-bold text-lg text-brandDark">Normálnost a zapojení do života</h3>
+                    </div>
+                    <ul class="bullets good space-y-2 text-sm text-brandDark/80 leading-relaxed">
+                        <li>Zachovejte běžné aktivity, koníčky, kamarády i rodinné akce.</li>
+                        <li>Domluvte se školou na úpravách: tělocvik, přestávky na převlečení, pohodlná lavice.</li>
+                        <li>Pomozte najít kontakt s dalšími pacienty (skupiny, komunity, sociální sítě), kde zjistí, že v tom není sám/sama.</li>
+                        <li>Zdůrazňujte jeho/její hodnotu mimo vzhled: schopnosti, humor, povahu.</li>
+                    </ul>
+                </article>
+
+                <article class="md:col-span-2 bg-gradient-to-br from-brandTeal/10 to-brandCyan/10 rounded-3xl border border-brandTeal/10 p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-11 h-11 rounded-2xl bg-white flex items-center justify-center text-xl">🫶</span>
+                        <h3 class="font-heading font-bold text-lg text-brandDark">Nezapomeňte i na sebe</h3>
+                    </div>
+                    <ul class="bullets good grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2 text-sm text-brandDark/80 leading-relaxed">
+                        <li>Informujte se z důvěryhodných zdrojů: lékař, ortotik, fyzioterapeut.</li>
+                        <li>Hlídejte vlastní emoce a obavy, aby se nepřenášely na pacienta.</li>
+                        <li>Vyhledejte podporu pro sebe, pokud je to pro vás náročné.</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CO NEDĚLAT -->
+    <section id="co-nedelat" class="py-12 md:py-16 bg-white/60">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-brandPink/10 text-brandPink text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">Dobře míněno, špatně vyznělo</span>
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Co nedělat a nemluvit</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+                <article class="bg-white rounded-3xl border border-brandPink/15 shadow-sm p-6 md:p-8">
+                    <h3 class="font-heading font-bold text-lg text-brandDark mb-4">Věty, kterým se vyhnout</h3>
+                    <ul class="bullets bad space-y-2 text-sm text-brandDark/80 leading-relaxed">
+                        <li>„Není to tak hrozné.“ / „Ostatní to mají horší.“ (znevažování pocitů)</li>
+                        <li>„Vždyť to skoro není vidět.“ (neúprimné uklidňování)</li>
+                        <li>„Kdybys cvičil/a víc, nemusel/a bys korzet nosit.“ (vyvolává vinu)</li>
+                        <li>„Zase ho nemáš na sobě?“ (výčitky a kontrola)</li>
+                        <li>„Co by tomu řekli lidé?“ (posiluje stud)</li>
+                        <li>„Zhubni, ať ti to sedí líp.“ (zasahuje do tělesného sebeobrazu)</li>
+                    </ul>
+                </article>
+
+                <article class="bg-white rounded-3xl border border-brandPink/15 shadow-sm p-6 md:p-8">
+                    <h3 class="font-heading font-bold text-lg text-brandDark mb-4">Chování, kterému se vyhnout</h3>
+                    <ul class="bullets bad space-y-2 text-sm text-brandDark/80 leading-relaxed">
+                        <li>Neustále hlídat a kontrolovat, kolik hodin korzet nosí.</li>
+                        <li>Vyhrožovat operací nebo zhoršením jako motivací.</li>
+                        <li>Komentovat vzhled, držení těla nebo postavu.</li>
+                        <li>Mluvit o stavu pacienta s ostatními bez jeho/jejího souhlasu.</li>
+                        <li>Litovat ho/ji nebo se k němu/ní chovat jako k nemocnému/nemocné.</li>
+                        <li>Zakazovat aktivity, které lékař nezakázal.</li>
+                        <li>Srovnávat s jinými pacienty nebo sourozenci.</li>
+                    </ul>
+                </article>
+
+                <article class="bg-brandYellow/15 rounded-3xl border border-brandYellow/40 shadow-sm p-6 md:p-8">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-xl">⚠️</span>
+                        <h3 class="font-heading font-bold text-lg text-brandDark">Co nepodceňovat</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-brandDark/80 leading-relaxed">
+                        <li><strong>Změny nálady, stahování se, ztráta zájmu</strong> o kamarády a koníčky mohou signalizovat psychické potíže. Zvažte pomoc psychologa.</li>
+                        <li><strong>Bolest nebo otlaky:</strong> neříkejte „to se rozchodí“, řešte je s ortotikem a lékařem.</li>
+                        <li><strong>Poruchy příjmu potravy:</strong> korzet a změny postavy mohou být rizikovým faktorem.</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- VZOROVÉ VĚTY -->
+    <section id="vzorove-vety" class="py-12 md:py-16">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-brandYellow/20 text-brandDark text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">Slova mají váhu</span>
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Vzorové věty</h2>
+                <p class="mt-3 text-sm text-brandDark/70 max-w-xl mx-auto">Pět vět, které pomáhají, a pět, které i při dobrém úmyslu ubližují.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                <!-- Pomáhají -->
+                <div class="bg-brandTeal/5 rounded-3xl border border-brandTeal/20 p-5 md:p-7">
+                    <div class="flex items-center gap-2 mb-5">
+                        <span class="w-9 h-9 rounded-full bg-brandTeal text-white flex items-center justify-center font-bold">✓</span>
+                        <h3 class="font-horizon text-brandTeal text-lg">Pomáhají</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="quote-card bg-white rounded-2xl p-4 border border-brandTeal/10">
+                            <p class="font-bold text-brandDark">„Jsem tu pro tebe, kdybys chtěl/a si promluvit.“</p>
+                            <p class="mt-1 text-xs text-brandDark/70 leading-relaxed">Nabízí podporu bez tlaku. Pacient si sám vybere, kdy a jestli se otevře.</p>
+                        </div>
+                        <div class="quote-card bg-white rounded-2xl p-4 border border-brandTeal/10">
+                            <p class="font-bold text-brandDark">„Chápu, že je to těžké. Nemusíš to zvládat pořád s úsměvem.“</p>
+                            <p class="mt-1 text-xs text-brandDark/70 leading-relaxed">Dává prostor pro vztek, smutek i únavu a neznehodnocuje je.</p>
+                        </div>
+                        <div class="quote-card bg-white rounded-2xl p-4 border border-brandTeal/10">
+                            <p class="font-bold text-brandDark">„Vážím si toho, jak vytrvale to zvládáš.“</p>
+                            <p class="mt-1 text-xs text-brandDark/70 leading-relaxed">Chválí snahu a vytrvalost, ne vzhled. Nošení korzetu je výkon.</p>
+                        </div>
+                        <div class="quote-card bg-white rounded-2xl p-4 border border-brandTeal/10">
+                            <p class="font-bold text-brandDark">„Chceš, abych šel/šla s tebou na kontrolu? Nebo to zvládneš sám/sama?“</p>
+                            <p class="mt-1 text-xs text-brandDark/70 leading-relaxed">Respektuje samostatnost a zároveň ukazuje, že nemusí být na všechno sám/sama.</p>
+                        </div>
+                        <div class="quote-card bg-white rounded-2xl p-4 border border-brandTeal/10">
+                            <p class="font-bold text-brandDark">„Co by ti pomohlo, aby se ti v tom žilo líp?“</p>
+                            <p class="mt-1 text-xs text-brandDark/70 leading-relaxed">Zapojuje pacienta do řešení. Ptá se, místo aby rozhodovala za něj/ni.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-3">
-                        <h2 class="font-bold text-brandCyan text-lg">Co DĚLAT (Pro přátele a rodinu)</h2>
-                        <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside">
-                            <li>Naslouchejte jim, když si potřebují ulevit od nepohodlí.</li>
-                            <li>Pomozte jim najít kreativní módu, pod kterou korzet sedne.</li>
-                            <li>Oslavujte malé úspěchy (např. první samostatná procházka po operaci).</li>
-                            <li>Chovejte se k nim úplně normálně – jsou to stále oni!</li>
-                        </ul>
+                <!-- Ubližují -->
+                <div class="bg-brandPink/5 rounded-3xl border border-brandPink/20 p-5 md:p-7">
+                    <div class="flex items-center gap-2 mb-5">
+                        <span class="w-9 h-9 rounded-full bg-brandPink text-white flex items-center justify-center font-bold">✕</span>
+                        <h3 class="font-horizon text-brandPink text-lg">Ubližují</h3>
                     </div>
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-3">
-                        <h2 class="font-bold text-brandPink text-lg">Čeho se VYVAROVAT</h2>
-                        <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside">
-                            <li>Nezírejte na jejich korzet ani na pooperační jizvy.</li>
-                            <li>Neupozorňujte na nesouměrná ramena nebo boky.</li>
-                            <li>Nesdílejte s nimi děsivé internetové příběhy o operacích.</li>
-                            <li>Nedělejte z nich křehké panenky; jsou neuvěřitelně silní.</li>
-                        </ul>
+                    <div class="space-y-4">
+                        <div class="quote-card bg-white rounded-2xl p-4 border border-brandPink/10">
+                            <p class="font-bold text-brandDark">„Vždyť to není tak hrozné.“</p>
+                            <p class="mt-1 text-xs text-brandDark/70 leading-relaxed">Bagatelizuje pocity. Pacient slyší, že jeho trápení je přehnané, a přestane se svěřovat.</p>
+                        </div>
+                        <div class="quote-card bg-white rounded-2xl p-4 border border-brandPink/10">
+                            <p class="font-bold text-brandDark">„Zase ho nemáš na sobě?“</p>
+                            <p class="mt-1 text-xs text-brandDark/70 leading-relaxed">Zní jako výčitka a kontrola. Vede spíš k tajnůstkaření než ke spolupráci.</p>
+                        </div>
+                        <div class="quote-card bg-white rounded-2xl p-4 border border-brandPink/10">
+                            <p class="font-bold text-brandDark">„Kdybys líp cvičil/a, korzet bys nepotřeboval/a.“</p>
+                            <p class="mt-1 text-xs text-brandDark/70 leading-relaxed">Přenáší vinu na pacienta, i když skolióza není výsledkem jeho selhání.</p>
+                        </div>
+                        <div class="quote-card bg-white rounded-2xl p-4 border border-brandPink/10">
+                            <p class="font-bold text-brandDark">„Co tomu řeknou ostatní?“</p>
+                            <p class="mt-1 text-xs text-brandDark/70 leading-relaxed">Posiluje stud a strach z odsouzení, místo aby budovala sebevědomí.</p>
+                        </div>
+                        <div class="quote-card bg-white rounded-2xl p-4 border border-brandPink/10">
+                            <p class="font-bold text-brandDark">„Dávej pozor, jak stojíš / jak sedíš, vždyť se hrbíš.“</p>
+                            <p class="mt-1 text-xs text-brandDark/70 leading-relaxed">Neustálé komentování držení těla zvyšuje sebekritičnost a nepohodlí z vlastního těla.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <div class="mt-8 max-w-2xl mx-auto bg-brandYellow/20 border border-brandYellow/50 rounded-2xl px-6 py-4 text-center">
+                <p class="text-sm md:text-base font-semibold text-brandDark">Než něco řeknete, zeptejte se sami sebe: <span class="text-brandPink">Pomůže to, nebo si jen ulevuji já?</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PODLE ROLE -->
+    <section id="podle-role" class="py-12 md:py-16 bg-white/60">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
+            <div class="text-center mb-8">
+                <span class="inline-block bg-brandTeal/10 text-brandTeal text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">Vyberte si svou roli</span>
+                <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Stručné tipy podle toho, kdo jste</h2>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-6" role="tablist">
+                <button type="button" role="tab" class="role-tab active border border-brandTeal/20 bg-white text-brandDark/80 px-4 py-2 rounded-full text-sm font-bold" data-target="role-rodice">👨‍👩‍👧 Rodiče</button>
+                <button type="button" role="tab" class="role-tab border border-brandTeal/20 bg-white text-brandDark/80 px-4 py-2 rounded-full text-sm font-bold" data-target="role-kamaradi">🧑‍🤝‍🧑 Kamarádi</button>
+                <button type="button" role="tab" class="role-tab border border-brandTeal/20 bg-white text-brandDark/80 px-4 py-2 rounded-full text-sm font-bold" data-target="role-partneri">💞 Partneři</button>
+                <button type="button" role="tab" class="role-tab border border-brandTeal/20 bg-white text-brandDark/80 px-4 py-2 rounded-full text-sm font-bold" data-target="role-sourozenci">👫 Sourozenci</button>
+                <button type="button" role="tab" class="role-tab border border-brandTeal/20 bg-white text-brandDark/80 px-4 py-2 rounded-full text-sm font-bold" data-target="role-cizi">👋 První setkání</button>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-brandTeal/10 shadow-sm p-6 md:p-8">
+
+                <div id="role-rodice" class="role-panel active">
+                    <h3 class="font-heading font-bold text-xl text-brandDark mb-4">Rodiče</h3>
+                    <ul class="bullets good space-y-2 text-sm md:text-base text-brandDark/80 leading-relaxed">
+                        <li>Buďte oporou, ne dozorem. Připomínky držte na minimu a dohodněte se na nich společně s dítětem.</li>
+                        <li>Zapojte dítě do rozhodování o léčbě a na kontrolách mu nechte slovo.</li>
+                        <li>Domluvte se školou na úpravách (tělocvik, převlékání, pohodlné sezení).</li>
+                        <li>Hlídejte změny nálady a stahování se do sebe. V případě potřeby vyhledejte psychologa.</li>
+                        <li>Chvalte vytrvalost, ne vzhled, a nesrovnávejte sourozence.</li>
+                    </ul>
+                </div>
+
+                <div id="role-kamaradi" class="role-panel">
+                    <h3 class="font-heading font-bold text-xl text-brandDark mb-4">Kamarádi</h3>
+                    <ul class="bullets good space-y-2 text-sm md:text-base text-brandDark/80 leading-relaxed">
+                        <li>Chovejte se normálně a zvěte kamaráda/kamarádku na stejné akce jako dřív.</li>
+                        <li>Neptejte se na korzet pořád dokola, ale dejte najevo, že se můžete kdykoli zeptat nebo poslouchat.</li>
+                        <li>Nechte na něm/ní, komu a kdy o korzetu řekne, a nešiřte to dál.</li>
+                        <li>Pomozte v praktických věcech: pomalejší tempo, výběr místa k sezení, převlékání před tělocvikem.</li>
+                        <li>Nedělejte vtipy na účet korzetu, pokud je nezačne dělat on/ona sám/sama.</li>
+                    </ul>
+                </div>
+
+                <div id="role-partneri" class="role-panel">
+                    <h3 class="font-heading font-bold text-xl text-brandDark mb-4">Partneři</h3>
+                    <ul class="bullets good space-y-2 text-sm md:text-base text-brandDark/80 leading-relaxed">
+                        <li>Mluvte o tom otevřeně a bez tlaku. Zeptejte se, co je příjemné a co ne.</li>
+                        <li>Dejte najevo, že vás přitahuje celý člověk, ne jen vzhled těla. Upřímně a konkrétně.</li>
+                        <li>Respektujte hranice v intimitě (citlivá místa, odepnutí korzetu, kdy se cítí v pohodě).</li>
+                        <li>Nepodceňujte pochybnosti o vlastním těle. Neodbývejte je větou „vždyť jsi krásný/á“, ale vyslechněte je.</li>
+                        <li>Nabídněte doprovod na kontroly nebo společné cvičení, pokud o to stojí.</li>
+                    </ul>
+                </div>
+
+                <div id="role-sourozenci" class="role-panel">
+                    <h3 class="font-heading font-bold text-xl text-brandDark mb-4">Sourozenci</h3>
+                    <ul class="bullets good space-y-2 text-sm md:text-base text-brandDark/80 leading-relaxed">
+                        <li>Nepřebírejte roli rodiče a nehlídejte, jak dlouho korzet nosí.</li>
+                        <li>Chovejte se jako dřív a nedělejte z korzetu téma každého rozhovoru.</li>
+                        <li>Nežertujte o korzetu a nedávejte přezdívky, ani v legraci.</li>
+                        <li>Pokud se cítíte přehlížení, protože rodiče řeší hlavně nemocného sourozence, řekněte to rodičům. Je to legitimní.</li>
+                        <li>Nabídněte společnou aktivitu, která nesouvisí s léčbou (hra, film, sport podle možností).</li>
+                    </ul>
+                </div>
+
+                <div id="role-cizi" class="role-panel">
+                    <h3 class="font-heading font-bold text-xl text-brandDark mb-4">Cizí lidé při prvním setkání</h3>
+                    <ul class="bullets good space-y-2 text-sm md:text-base text-brandDark/80 leading-relaxed">
+                        <li>Nekomentujte vzhled, držení těla ani to, co máte pocit, že vidíte pod oblečením.</li>
+                        <li>Neptejte se na zdravotní stav, pokud se o něm dotyčný/á nezmíní sám/sama.</li>
+                        <li>Pokud se zmíní o korzetu, zeptejte se jen, jestli o tom chce mluvit, a respektujte odpověď.</li>
+                        <li>Nezírejte a nedávejte nevyžádané rady („zkus jógu“, „znám někoho, kdo to vyléčil“).</li>
+                        <li>Chovejte se stejně jako ke komukoli jinému: zajímejte se o člověka, ne o diagnózu.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZÁVĚR -->
+    <section class="py-12 md:py-16">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
+            <div class="relative overflow-hidden bg-gradient-to-br from-brandTeal to-brandCyan rounded-3xl p-8 md:p-12 text-center text-white shadow-md">
+                <div class="blob bg-white w-56 h-56 -top-16 -right-16 opacity-20"></div>
+                <h2 class="relative text-2xl md:text-3xl font-horizon">Buďte partnerem, ne dozorcem</h2>
+                <p class="relative mt-4 text-sm md:text-base leading-relaxed max-w-2xl mx-auto text-white/95">
+                    Nejdůležitější není říct vždycky ta správná slova. Je to být nablízku, poslouchat a brát druhého jako celého člověka, ne jen jako člověka s korzetem. Hledáte další informace nebo chcete potkat lidi, kteří si tím prošli?
+                </p>
+                <div class="relative mt-6 flex flex-wrap justify-center gap-3">
+                    <a href="komunita.html" class="bg-white text-brandTeal px-6 py-3 rounded-xl font-bold text-sm hover:bg-brandYellow hover:text-brandDark transition shadow-md">Komunita</a>
+                    <a href="cesta-lecbou.html#korzet" class="bg-white/10 border border-white/40 text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-white/20 transition">Vše o korzetu</a>
+                    <a href="lekarske-faq.html" class="bg-white/10 border border-white/40 text-white px-6 py-3 rounded-xl font-bold text-sm hover:bg-white/20 transition">Lékařské FAQ</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="bg-brandCream border-t border-brandTeal/10 py-10 text-center text-xs text-brandDark/50">
         <div class="max-w-6xl mx-auto px-4 md:px-6 space-y-3">
@@ -245,6 +530,18 @@
                 mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
             }
         }
+
+        // Záložky podle role
+        const tabs = document.querySelectorAll('.role-tab');
+        const panels = document.querySelectorAll('.role-panel');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.target).classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>
