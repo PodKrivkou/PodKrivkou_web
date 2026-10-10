@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pod Křivkou | Průvodce skoliózou a životem po operaci</title>
-    
+    <meta name="description" content="Pod Křivkou: ověřené informace o skolióze, korzetu a operaci páteře od dvou holek, které si tím prošly.">
+
     <link rel="icon" type="image/png" href="favicon1.png?v=2">
     <link rel="shortcut icon" type="image/png" href="favicon1.png?v=2">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -39,49 +40,43 @@
     <style>
         .font-horizon { font-family: 'Syne', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.03em; }
         .font-glacial { font-family: 'Plus Jakarta Sans', sans-serif; }
-        
-        /* Mobile Menu Animation */
-        #mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out;
-            opacity: 0;
-        }
-        #mobile-menu.open {
-            max-height: 720px;
-            opacity: 1;
-        }
 
-        /* Desktop "Fakta o skolióze" dropdown */
-        .nav-dropdown-panel {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-6px);
-            transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out;
-        }
+        :focus-visible { outline: 3px solid #E94D7F; outline-offset: 3px; border-radius: 6px; }
+
+        /* Mobile Menu Animation */
+        #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out; opacity: 0; }
+        #mobile-menu.open { max-height: 720px; opacity: 1; }
+
+        /* Desktop dropdowns */
+        .nav-dropdown-panel { opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s ease-out; }
         .nav-dropdown-wrap:hover .nav-dropdown-panel,
-        .nav-dropdown-wrap:focus-within .nav-dropdown-panel {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .nav-dropdown-wrap:hover .nav-dropdown-chevron {
-            transform: rotate(180deg);
-            color: #E94D7F;
-        }
+        .nav-dropdown-wrap:focus-within .nav-dropdown-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+        .nav-dropdown-wrap:hover .nav-dropdown-chevron { transform: rotate(180deg); color: #E94D7F; }
 
         /* Mobile submenu */
-        .mobile-submenu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.25s ease-out;
-        }
-        .mobile-submenu.open {
-            max-height: 320px;
-        }
-        .mobile-submenu-toggle.active .mobile-submenu-icon {
-            transform: rotate(180deg);
-            color: #E94D7F;
+        .mobile-submenu { max-height: 0; overflow: hidden; transition: max-height 0.25s ease-out; }
+        .mobile-submenu.open { max-height: 320px; }
+        .mobile-submenu-toggle.active .mobile-submenu-icon { transform: rotate(180deg); color: #E94D7F; }
+
+        /* Hero arch logo */
+        #arch text { font-family: 'Syne', sans-serif; font-weight: 800; }
+        #arch tspan { transition: fill 0.35s ease; }
+        #arch-pose { transform-box: fill-box; transform-origin: 50% 100%; }
+        #arch-pose.pop { animation: pose-pop 0.45s cubic-bezier(.3,1.6,.5,1); }
+        @keyframes pose-pop { from { transform: scale(0.88) translateY(8px); opacity: 0.4; } to { transform: scale(1) translateY(0); opacity: 1; } }
+
+        .pose-btn { transition: transform 0.15s ease, background-color 0.15s ease; }
+        .pose-btn:hover { transform: translateY(-3px); }
+        .pose-btn[aria-pressed="true"] { background: #fff; box-shadow: 0 0 0 3px #E94D7F; }
+
+        /* Bento tiles */
+        .tile-art { transition: transform 0.25s ease; transform-origin: 50% 100%; }
+        .tile:hover .tile-art, .tile:focus-visible .tile-art { transform: rotate(-5deg) translateY(-6px); }
+
+        @media (prefers-reduced-motion: reduce) {
+            #arch-pose.pop { animation: none; }
+            .pose-btn, .tile-art, #mobile-menu, .mobile-submenu { transition: none; }
+            .pose-btn:hover, .tile:hover .tile-art { transform: none; }
         }
     </style>
 </head>
@@ -92,9 +87,8 @@
             <a href="#" class="text-xl md:text-2xl font-horizon text-brandTeal flex items-center gap-2">
                 Pod <span class="text-brandPink">Křivkou</span>
             </a>
-            
+
             <div class="hidden md:flex space-x-8 text-sm font-semibold text-brandDark/80">
-                <!-- "Fakta o skolióze" now opens a hover dropdown pointing to the separate "Vše o skolióze" page -->
                 <div class="nav-dropdown-wrap relative">
                     <a href="vse-o-skolioze.html" class="hover:text-brandTeal transition flex items-center gap-1">
                         Fakta o skolióze
@@ -108,7 +102,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- "Způsoby léčby" now opens a hover dropdown pointing to the separate "Cesta léčbou" page -->
                 <div class="nav-dropdown-wrap relative">
                     <a href="cesta-lecbou.html" class="hover:text-brandTeal transition flex items-center gap-1">
                         Způsoby léčby
@@ -129,9 +122,9 @@
                 <a href="lekarske-faq.html" class="hover:text-brandTeal transition">Časté dotazy</a>
                 <a href="#o-nas" class="hover:text-brandTeal transition" onclick="scrollToSection(event, '#o-nas', false)">Kdo jsme</a>
             </div>
-            
+
             <div class="hidden md:block">
-                <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition transform hover:scale-105 shadow-md">
+                <a href="https://instagram.com" target="_blank" rel="noopener" class="bg-brandPink text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition transform hover:scale-105 shadow-md">
                     SAFE SPACE
                 </a>
             </div>
@@ -144,7 +137,6 @@
         </div>
 
         <div id="mobile-menu" class="md:hidden absolute top-16 left-0 w-full bg-white border-b border-brandTeal/10 px-6 pb-6 space-y-1 font-semibold text-sm flex flex-col text-center shadow-md">
-            <!-- "Fakta o skolióze" mobile accordion: tap to reveal links to the "Vše o skolióze" page sections -->
             <div class="border-b border-brandTeal/5">
                 <button type="button" class="mobile-submenu-toggle w-full flex items-center justify-center gap-1 py-3 hover:text-brandTeal transition" onclick="toggleMobileSubmenu(this)">
                     Fakta o skolióze
@@ -157,7 +149,6 @@
                     <a href="vse-o-skolioze.html" class="py-2 pb-3 text-brandTeal/90 hover:text-brandPink transition">→ Celá stránka „Vše o skolióze“</a>
                 </div>
             </div>
-            <!-- "Způsoby léčby" mobile accordion: tap to reveal links to the "Cesta léčbou" page sections -->
             <div class="border-b border-brandTeal/5">
                 <button type="button" class="mobile-submenu-toggle w-full flex items-center justify-center gap-1 py-3 hover:text-brandTeal transition" onclick="toggleMobileSubmenu(this)">
                     Způsoby léčby
@@ -175,60 +166,142 @@
             <a href="komunita.html" class="py-3 hover:text-brandTeal transition">Komunita</a>
             <a href="lekarske-faq.html" class="py-3 hover:text-brandTeal transition">Časté dotazy</a>
             <a href="#o-nas" class="py-3 hover:text-brandTeal transition" onclick="scrollToSection(event, '#o-nas', true)">Kdo jsme</a>
-            <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition block shadow-sm mt-2">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="bg-brandPink text-white py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition block shadow-sm mt-2">
                 SAFE SPACE
             </a>
         </div>
     </nav>
 
-    <header class="relative overflow-hidden py-12 md:py-16 lg:py-24">
-        <div class="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 md:gap-12 lg:gap-16 items-center">
-            <div class="text-center lg:text-left">
-                <span class="inline-block bg-brandYellow/10 text-brandYellow text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">Konečně někdo, kdo to chápe</span>
-                <h1 class="text-4xl lg:text-5xl font-horizon text-brandCyan leading-tight">
+    <!-- HERO -->
+    <header class="relative overflow-hidden pt-10 pb-14 md:pt-14 md:pb-20 lg:pt-16 lg:pb-24">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-10 lg:gap-14 items-center">
+
+            <div class="text-center lg:text-left order-2 lg:order-1">
+                <p class="inline-block bg-brandYellow text-brandDark text-sm font-bold px-4 py-1.5 rounded-full mb-5 -rotate-2 shadow-sm">Konečně někdo, kdo to chápe</p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-horizon text-brandCyan leading-[1.05]">
                     Páteř pod křivkou<br><span class="text-brandTeal">i pod kontrolou</span>
                 </h1>
-                <p class="mt-6 text-sm md:text-base text-brandDark/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé, samy jsme si tím prošly. Jsme dvě holky po operaci a jsme tu, abychom ukázaly, že život na druhé straně je plný akce, pohybu a dobrodružství bez limitů. Věříme, že šrouby v zádech nejsou konec světa a naopak můžou být začátek nové, silnější kapitoly. Boříme mýty a dodáváme odvahu těm, kteří si celou cestou teprve procházejí. Tak se pojďme procházet společně, co?
+                <p class="mt-6 text-base md:text-lg text-brandDark/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Diagnóza skoliózy, nošení korzetu nebo plánovaná operace páteře mohou být děsivé, samy jsme si tím prošly. Jsme dvě holky po operaci a jsme tu, abychom ukázaly, že život na druhé straně je plný akce, pohybu a dobrodružství bez limitů.
                 </p>
                 <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
-                    <a href="vse-o-skolioze.html#fakta" class="bg-brandTeal text-white px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-brandPink transition shadow-md w-full sm:w-auto text-center">Skolióza: co to je?</a>
-                    <a href="#o-nas" class="bg-white text-brandTeal border border-brandTeal/20 px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-slate-50 transition w-full sm:w-auto text-center" onclick="scrollToSection(event, '#o-nas', false)">Kdo jsme my</a>
+                    <a href="vse-o-skolioze.html#fakta" class="bg-brandTeal text-brandDark px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-brandPink hover:text-white transition shadow-md w-full sm:w-auto text-center">Skolióza: co to je?</a>
+                    <a href="#o-nas" class="bg-white text-brandDark border-2 border-brandTeal px-6 py-3 rounded-xl font-bold text-sm md:text-base hover:bg-brandCream transition w-full sm:w-auto text-center" onclick="scrollToSection(event, '#o-nas', false)">Kdo jsme my</a>
                 </div>
             </div>
-            
-            <div class="flex justify-center lg:justify-end w-full mt-6 lg:mt-0">
-                <img src="logo.png" alt="Pod Křivkou Logo" class="w-full max-w-[220px] md:max-w-[280px] lg:max-w-[340px] h-auto object-contain drop-shadow-sm select-none">
+
+            <!-- Obloukové logo, kliknutím na cvičenku se mění póza i barva -->
+            <div class="relative order-1 lg:order-2 mx-auto w-full max-w-[460px]">
+                <svg id="arch" class="relative w-full h-auto" viewBox="0 0 400 270" role="img" aria-label="Logo Pod Křivkou">
+                    <defs><path id="arc-path" d="M50 225 A150 150 0 0 1 350 225"></path></defs>
+                    <path d="M62 270 L62 225 A138 138 0 0 1 338 225 L338 270 Z" fill="#FCE56A" fill-opacity="0.4"></path>
+                    <text font-size="58">
+                        <textPath href="#arc-path" startOffset="50%" text-anchor="middle" textLength="436" lengthAdjust="spacing"><tspan id="arch-pod" fill="#12CACF">POD </tspan><tspan id="arch-krivkou" fill="#00B1B6">KŘIVKOU</tspan></textPath>
+                    </text>
+                    <image id="arch-pose" href="img/downward-dog.png" x="78" y="100" width="244" height="165" preserveAspectRatio="xMidYMax meet"></image>
+                </svg>
+                <div id="pose-picker" class="relative mt-2 flex flex-wrap justify-center gap-2" role="group" aria-label="Vyberte si cvičenku"></div>
+                <p class="relative mt-3 text-center text-xs text-brandDark/60">Klikni na cvičenku a loga se změní.</p>
             </div>
         </div>
     </header>
 
+    <!-- CITÁT -->
+    <section class="relative bg-brandYellow">
+        <svg class="absolute left-0 right-0 bottom-full block w-full h-8 md:h-14" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C240 0 480 60 720 30 S1200 0 1440 30 L1440 60 L0 60 Z" fill="#F8D936"></path></svg>
+        <div class="max-w-6xl mx-auto px-4 md:px-6 py-10 md:py-14 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center">
+            <p class="font-heading font-extrabold text-2xl md:text-4xl leading-tight text-brandDark max-w-3xl">
+                Věříme, že šrouby v zádech nejsou konec světa a naopak můžou být začátek nové, silnější kapitoly.
+            </p>
+            <img src="img/warrior.png" alt="" width="474" height="672" class="hidden md:block h-56 w-auto justify-self-center -mb-14 relative" loading="lazy">
+        </div>
+        <svg class="absolute left-0 right-0 top-full block w-full h-8 md:h-14" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C240 60 480 0 720 30 S1200 60 1440 30 L1440 0 L0 0 Z" fill="#F8D936"></path></svg>
+    </section>
 
+    <!-- ROZCESTNÍK -->
+    <section class="pt-24 md:pt-32 pb-16 md:pb-20">
+        <div class="max-w-6xl mx-auto px-4 md:px-6">
+            <div class="max-w-2xl">
+                <h2 class="text-3xl md:text-4xl font-horizon text-brandTeal leading-tight">Tak se pojďme procházet společně, co?</h2>
+                <p class="mt-4 text-base md:text-lg text-brandDark/80 leading-relaxed">Boříme mýty a dodáváme odvahu těm, kteří si celou cestou teprve procházejí.</p>
+            </div>
 
+            <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 md:gap-5">
 
-    <section id="o-nas" class="py-16 md:py-20 bg-brandCream">
-        <div class="max-w-4xl mx-auto px-4 md:px-6">
-            <div class="bg-white p-6 md:p-8 lg:p-12 rounded-3xl border border-brandTeal/10 shadow-sm grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 md:gap-8 items-center">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal leading-tight text-center lg:text-left">Kdo jsme a proč to děláme?</h2>
-                </div>
-                <div class="text-sm text-brandDark/80 leading-relaxed space-y-4">
-                    <p>
-                        Jsme Míša a Kixa. Obě jsme si prošly skoliózou – od korzetu až po operaci. Potkaly jsme se roky poté, co už se nám na zádech usadila jizva, a okamžitě jsme se shodly na dvou věcech. Za prvé: život po operaci skoliózy může být stále naprostá bomba, plný cestování, sportu a kamarádů. Za druhé: vyrůstat se skoliózou bylo často osamělé, náročné a plné nejistot, i když tak trochu skrytě.  
-                    </p>
-                    <p>
-                        Internet byl plný strašidelných diskusí a protichůdných rad, které v nás i našich rodičích vyvolávaly jen strach. Rozhodly jsme se to změnit. Pod Křivkou je projekt, kde spojujeme naše osobní zkušenosti s ověřenými lékařskými fakty. A takto bychom chtěly všem, kteří si tím prošli nebo právě procházejí, předat pořádnou dávku povzbuzení, naděje a ověřených informací.
-                    </p>
-                </div>
+                <a href="vse-o-skolioze.html" class="tile relative overflow-hidden bg-brandTeal text-brandDark lg:col-span-3 min-h-[260px] p-7 md:p-9 rounded-[2.5rem] rounded-br-[0.75rem] flex flex-col">
+                    <h3 class="font-horizon text-2xl md:text-3xl max-w-[14rem]">Fakta o skolióze</h3>
+                    <p class="mt-3 text-sm md:text-base font-semibold max-w-[15rem] leading-relaxed">Co to je, jak ji poznat a odkud se bere.</p>
+                    <img src="img/forward-fold.png" alt="" width="391" height="601" class="tile-art absolute right-6 md:right-12 -bottom-3 h-48 md:h-60 w-auto" loading="lazy">
+                </a>
+
+                <a href="cesta-lecbou.html" class="tile relative overflow-hidden bg-brandPink text-white lg:col-span-3 min-h-[260px] p-7 md:p-9 rounded-[2.5rem] rounded-bl-[0.75rem] flex flex-col">
+                    <h3 class="font-horizon text-2xl md:text-3xl max-w-[14rem]">Způsoby léčby</h3>
+                    <p class="mt-3 text-sm md:text-base font-semibold max-w-[15rem] leading-relaxed">Od diagnostiky přes fyzioterapii a korzet až po operaci.</p>
+                    <img src="img/bridge.png" alt="" width="739" height="583" class="tile-art absolute right-4 -bottom-2 w-52 md:w-72 h-auto" loading="lazy">
+                </a>
+
+                <a href="pro-blizke.html" class="tile relative overflow-hidden bg-brandYellow text-brandDark lg:col-span-2 min-h-[280px] p-7 rounded-[2rem] rounded-tl-[0.75rem] flex flex-col">
+                    <h3 class="font-horizon text-2xl max-w-[10rem]">Pro blízké</h3>
+                    <p class="mt-3 text-sm font-semibold max-w-[12rem] leading-relaxed">Jak podpořit někoho, kdo nosí korzet nebo čeká na operaci.</p>
+                    <img src="img/eagle.png" alt="" width="685" height="586" class="tile-art absolute right-3 -bottom-2 w-36 h-auto" loading="lazy">
+                </a>
+
+                <a href="komunita.html" class="tile relative overflow-hidden bg-brandCyan text-brandDark lg:col-span-2 min-h-[280px] p-7 rounded-[2rem] rounded-tr-[0.75rem] flex flex-col">
+                    <h3 class="font-horizon text-2xl max-w-[10rem]">Komunita</h3>
+                    <p class="mt-3 text-sm font-semibold max-w-[12rem] leading-relaxed">Lidé, kteří si tím prošli. V tom nejste sami.</p>
+                    <img src="img/shoulder-stand.png" alt="" width="391" height="687" class="tile-art absolute right-6 -bottom-6 h-52 w-auto" loading="lazy">
+                </a>
+
+                <a href="lekarske-faq.html" class="tile relative overflow-hidden bg-brandBabypink text-brandDark sm:col-span-2 lg:col-span-2 min-h-[280px] p-7 rounded-[2rem] rounded-bl-[0.75rem] flex flex-col">
+                    <h3 class="font-horizon text-2xl max-w-[10rem]">Časté dotazy</h3>
+                    <p class="mt-3 text-sm font-semibold max-w-[12rem] leading-relaxed">Ověřené odpovědi na lékařské otázky.</p>
+                    <img src="img/plow.png" alt="" width="918" height="321" class="tile-art absolute right-2 -bottom-1 w-56 h-auto" loading="lazy">
+                </a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-brandCream border-t border-brandTeal/10 py-10 text-center text-xs text-brandDark/50">
+    <!-- KDO JSME -->
+    <section id="o-nas" class="py-16 md:py-20">
+        <div class="max-w-5xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-12 items-center">
+            <div class="text-center lg:text-left">
+                <h2 class="text-3xl md:text-4xl font-horizon text-brandTeal leading-tight">Kdo jsme a proč to děláme?</h2>
+                <div class="mt-6 flex items-end justify-center lg:justify-start gap-6">
+                    <img src="img/dancer.png" alt="" width="296" height="643" class="h-48 md:h-56 w-auto" loading="lazy">
+                    <img src="img/seated-stretch.png" alt="" width="820" height="309" class="w-40 md:w-52 h-auto" loading="lazy">
+                </div>
+            </div>
+            <div class="bg-white p-6 md:p-10 rounded-[2rem] rounded-tr-[0.75rem] border border-brandTeal/10 text-base text-brandDark/80 leading-relaxed space-y-4">
+                <p>
+                    Jsme Míša a Kixa. Obě jsme si prošly skoliózou – od korzetu až po operaci. Potkaly jsme se roky poté, co už se nám na zádech usadila jizva, a okamžitě jsme se shodly na dvou věcech. Za prvé: život po operaci skoliózy může být stále naprostá bomba, plný cestování, sportu a kamarádů. Za druhé: vyrůstat se skoliózou bylo často osamělé, náročné a plné nejistot, i když tak trochu skrytě.
+                </p>
+                <p>
+                    Internet byl plný strašidelných diskusí a protichůdných rad, které v nás i našich rodičích vyvolávaly jen strach. Rozhodly jsme se to změnit. Pod Křivkou je projekt, kde spojujeme naše osobní zkušenosti s ověřenými lékařskými fakty. A takto bychom chtěly všem, kteří si tím prošli nebo právě procházejí, předat pořádnou dávku povzbuzení, naděje a ověřených informací.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ŘADA CVIČENEK -->
+    <div class="max-w-5xl mx-auto px-4 md:px-6 pt-6 pb-0" aria-hidden="true">
+        <div class="flex flex-wrap items-end justify-center gap-x-5 md:gap-x-9 gap-y-2 border-b-4 border-brandTeal pb-0">
+            <img src="img/seated-stretch.png" alt="" class="w-24 md:w-32 h-auto" loading="lazy">
+            <img src="img/forward-fold.png" alt="" class="h-20 md:h-28 w-auto" loading="lazy">
+            <img src="img/downward-dog.png" alt="" class="w-24 md:w-32 h-auto" loading="lazy">
+            <img src="img/warrior.png" alt="" class="h-24 md:h-32 w-auto" loading="lazy">
+            <img src="img/eagle.png" alt="" class="w-20 md:w-28 h-auto" loading="lazy">
+            <img src="img/dancer.png" alt="" class="h-24 md:h-32 w-auto" loading="lazy">
+            <img src="img/shoulder-stand.png" alt="" class="h-24 md:h-32 w-auto" loading="lazy">
+            <img src="img/bridge.png" alt="" class="w-24 md:w-32 h-auto" loading="lazy">
+            <img src="img/plow.png" alt="" class="w-28 md:w-36 h-auto" loading="lazy">
+        </div>
+    </div>
+
+    <footer class="bg-brandCream py-10 text-center text-xs text-brandDark/50">
         <div class="max-w-6xl mx-auto px-4 md:px-6 space-y-3">
             <p class="font-bold text-brandTeal">Pod Křivkou &copy; 2026</p>
             <p>Vytvořeno s ❤️ lidmi, kteří si tím prošli sami.</p>
-            <p class="max-w-xl mx-auto text-[11px] text-brandDark/40 leading-relaxed">Upozornění: Informace na tomto webu jsou pouze informativního charakteru a nenahrazují odbornou lékařskou péči, diagnózu ani doporučení vašeho ortopeda či chirurga.</p>
+            <p class="max-w-xl mx-auto text-[11px] text-brandDark/60 leading-relaxed">Upozornění: Informace na tomto webu jsou pouze informativního charakteru a nenahrazují odbornou lékařskou péči, diagnózu ani doporučení vašeho ortopeda či chirurga.</p>
         </div>
     </footer>
 
@@ -238,14 +311,13 @@
         const menuIcon = document.getElementById('menu-icon');
         const navBar = document.getElementById('main-nav');
 
-        menuToggle.addEventListener('click', () => {
-            toggleMenu();
-        });
+        menuToggle.addEventListener('click', () => { toggleMenu(); });
 
         function toggleMenu() {
             const isOpen = mobileMenu.classList.contains('open');
             if (isOpen) {
                 mobileMenu.classList.remove('open');
+                mobileMenu.style.maxHeight = '';
                 menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
             } else {
                 mobileMenu.classList.add('open');
@@ -253,7 +325,6 @@
             }
         }
 
-        // Mobile accordion for the "Fakta o skolióze" submenu
         function toggleMobileSubmenu(button) {
             const submenu = button.nextElementSibling;
             const isOpen = submenu.classList.contains('open');
@@ -264,40 +335,82 @@
                 submenu.classList.add('open');
                 button.classList.add('active');
             }
-            // Re-measure the outer mobile menu height so the reveal fits
             if (mobileMenu.classList.contains('open')) {
                 mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
             }
         }
 
         function scrollToSection(event, targetId, isMobile) {
-            event.preventDefault(); 
-            
+            event.preventDefault();
             if (isMobile) {
                 mobileMenu.classList.remove('open');
+                mobileMenu.style.maxHeight = '';
                 menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
             }
-            
             setTimeout(() => {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const navHeight = navBar.offsetHeight; 
-                    
-                    let extraPadding = 0; 
-                    if (window.innerWidth < 768) {
-                        extraPadding = 0; 
-                    }
-                    
                     const targetPosition = window.scrollY + targetElement.getBoundingClientRect().top;
-                    const offsetPosition = targetPosition - navHeight - extraPadding;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: targetPosition - navBar.offsetHeight, behavior: 'smooth' });
                 }
             }, isMobile ? 220 : 0);
         }
+
+        // Obloukové logo: výběr cvičenky (devět variant z vizuální identity)
+        const POSES = [
+            { id: 'downward-dog',   name: 'Pes hlavou dolů', w: 804, h: 542, c1: '#12CACF', c2: '#00B1B6' },
+            { id: 'eagle',          name: 'Orel',            w: 685, h: 586, c1: '#FCE56A', c2: '#F8D936' },
+            { id: 'bridge',         name: 'Most',            w: 739, h: 583, c1: '#F37BA1', c2: '#E94D7F' },
+            { id: 'forward-fold',   name: 'Předklon',        w: 391, h: 601, c1: '#F37BA1', c2: '#E94D7F' },
+            { id: 'shoulder-stand', name: 'Svíčka',          w: 391, h: 687, c1: '#FCE56A', c2: '#F8D936' },
+            { id: 'seated-stretch', name: 'Úklon v sedu',    w: 820, h: 309, c1: '#12CACF', c2: '#00B1B6' },
+            { id: 'dancer',         name: 'Tanečník',        w: 296, h: 643, c1: '#FCE56A', c2: '#F8D936' },
+            { id: 'plow',           name: 'Pluh',            w: 918, h: 321, c1: '#FCE56A', c2: '#F8D936' },
+            { id: 'warrior',        name: 'Bojovník',        w: 474, h: 672, c1: '#F37BA1', c2: '#E94D7F' }
+        ];
+
+        const poseImg = document.getElementById('arch-pose');
+        const podText = document.getElementById('arch-pod');
+        const krivkouText = document.getElementById('arch-krivkou');
+        const picker = document.getElementById('pose-picker');
+        const BOX_W = 250, BOX_H = 165, BASE_Y = 265, CENTER_X = 200;
+
+        POSES.forEach(p => { const pre = new Image(); pre.src = 'img/' + p.id + '.png'; });
+
+        function setPose(index, animate) {
+            const p = POSES[index];
+            const scale = Math.min(BOX_W / p.w, BOX_H / p.h);
+            const w = p.w * scale, h = p.h * scale;
+            poseImg.setAttribute('href', 'img/' + p.id + '.png');
+            poseImg.setAttribute('x', CENTER_X - w / 2);
+            poseImg.setAttribute('y', BASE_Y - h);
+            poseImg.setAttribute('width', w);
+            poseImg.setAttribute('height', h);
+            podText.setAttribute('fill', p.c1);
+            krivkouText.setAttribute('fill', p.c2);
+            picker.querySelectorAll('button').forEach((b, i) => b.setAttribute('aria-pressed', i === index ? 'true' : 'false'));
+            if (animate) {
+                poseImg.classList.remove('pop');
+                void poseImg.getBoundingClientRect();
+                poseImg.classList.add('pop');
+            }
+        }
+
+        POSES.forEach((p, i) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'pose-btn w-12 h-12 rounded-full bg-white/70 flex items-center justify-center';
+            b.setAttribute('aria-label', 'Póza: ' + p.name);
+            b.setAttribute('title', p.name);
+            const im = document.createElement('img');
+            im.src = 'img/' + p.id + '.png';
+            im.alt = '';
+            im.className = 'max-w-[34px] max-h-[34px] w-auto h-auto';
+            b.appendChild(im);
+            b.addEventListener('click', () => setPose(i, true));
+            picker.appendChild(b);
+        });
+        setPose(0, false);
     </script>
 </body>
 </html>
