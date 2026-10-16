@@ -92,6 +92,24 @@
             color: #E94D7F;
         }
 
+        .faq-diagnostika .faq-item { background-color: #EAF9FB; border-color: rgba(18, 202, 207, 0.3); }
+        .faq-diagnostika .faq-item:hover { background-color: #DDF4F7; }
+        .faq-diagnostika > h2 { color: #008A99; }
+        .faq-fyzioterapie .faq-item { background-color: #FFF0F5; border-color: rgba(243, 123, 161, 0.3); }
+        .faq-fyzioterapie .faq-item:hover { background-color: #FCE4ED; }
+        .faq-fyzioterapie > h2 { color: #C43B70; }
+        .faq-korzet .faq-item { background-color: #FFFBE6; border-color: rgba(248, 217, 54, 0.4); }
+        .faq-korzet .faq-item:hover { background-color: #FFF6D0; }
+        .faq-korzet > h2 { color: #8A6B00; }
+        .faq-operace .faq-item { background-color: #EAF7F5; border-color: rgba(0, 177, 182, 0.28); }
+        .faq-operace .faq-item:hover { background-color: #DCF1EE; }
+        .faq-operace > h2 { color: #00817D; }
+        .faq-zivot .faq-item { background-color: #FFF3ED; border-color: rgba(223, 148, 116, 0.32); }
+        .faq-zivot .faq-item:hover { background-color: #FCE9DF; }
+        .faq-zivot > h2 { color: #B85D3C; }
+
+        .blob { position: absolute; border-radius: 9999px; filter: blur(48px); opacity: 0.35; pointer-events: none; }
+
         .field {
             width: 100%;
             background: #fff;
@@ -197,43 +215,252 @@
     </nav>
 
     <main>
-    <section id="faq" class="py-16 md:py-20 bg-white min-h-[calc(100vh-5rem)]">
-        <div class="max-w-3xl mx-auto px-4 md:px-6">
+    <section id="faq" class="relative overflow-hidden py-16 md:py-20 bg-brandCream min-h-[calc(100vh-5rem)]">
+        <div class="blob bg-brandCyan w-72 h-72 -top-20 -left-20"></div>
+        <div class="blob bg-brandBabypink w-72 h-72 top-10 -right-24"></div>
+        <div class="relative max-w-3xl mx-auto px-4 md:px-6">
             <div class="text-center mb-12">
-                <h1 class="text-2xl md:text-3xl font-horizon text-brandTeal">Časté otázky pacientů</h1>
+                <h1 class="text-2xl md:text-3xl font-horizon text-brandPink">Časté otázky pacientů</h1>
                 <p class="mt-4 text-brandDark/70 text-sm">Ověřené odpovědi na opakující se otázky v ambulancích. Ušetřete čas sobě i svému lékaři.</p>
             </div>
 
-            <div class="space-y-4">
-                <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
-                    <div class="flex justify-between items-center gap-4">
-                        <h3 class="font-bold text-brandDark text-sm md:text-base">Ztratím po operaci (fúzi) navždy veškerou ohebnost páteře?</h3>
-                        <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            <div class="space-y-12">
+                <section class="faq-diagnostika" aria-labelledby="faq-diagnostika">
+                    <h2 id="faq-diagnostika" class="mb-4 text-xl font-horizon text-brandPink">Skolióza a její diagnostika</h2>
+                    <div class="space-y-4">
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Jak poznám, že já (nebo moje dítě, můj blízký) má skoliózu?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Skolióza často nebolí a bývá odhalena náhodou při preventivní prohlídce nebo když si někdo všimne nerovností na těle.</p>
+                                <p class="mt-3 font-semibold text-brandDark">Co sledovat:</p>
+                                <p class="mt-1">Nesouměrnost pravé a levé části těla — například jedno rameno výš než druhé, jeden bok níž, viditelné zakřivení páteře do tvaru S nebo C, více vystupující lopatku nebo náklon postavy na jednu stranu. Někdy se může objevit i bolest nebo necitlivost zad.</p>
+                                <p class="mt-3 font-semibold text-brandDark">Domácí screening — Adamsův test:</p>
+                                <p class="mt-1">Při předklonu se druhá osoba může podívat na záda zezadu a všímat si nesouměrností, například vyboulených žeber nebo jedné poloviny zad vystupující více než druhá. Jde pouze o orientační screening, ne o diagnózu; při podezření se obraťte na lékaře.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Co mám dělat, když mám podezření na skoliózu?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Pokud máš pochybnosti, obrať se na praktického lékaře nebo ortopedii. Lékař může doporučit rentgen celé páteře, ze kterého se hodnotí zakřivení a Cobbův úhel. Teprve podle vyšetření může lékař navrhnout další postup, případně doporučit fyzioterapii.</p>
+                                <p class="mt-3">Ne každé zakřivení nebo nerovnost zad znamená skoliózu, může jít také o skoliotické držení způsobené svalovou nerovnováhou. Při podezření nepanikař, ale nepodceňuj ho a objednej se k lékaři. Rady, jak podpořit blízkého člověka, najdeš také na stránce <a href="pro-blizke.html" class="font-semibold text-brandTeal hover:text-brandPink">Pro blízké</a>.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Může za skoliózu špatné držení těla nebo těžká aktovka?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Ne. U většiny skolióz není přesná příčina známá. Těžká aktovka, sezení nakřivo ani hraní tenisu skoliózu nezpůsobují. Špatné držení těla nebo těžký batoh mohou nerovnoměrně zatěžovat svaly a přispívat k bolesti zad, ale nejsou příčinou skoliózy.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Může se skolióza sama spravit nebo „vrátit zpět“?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Skolióza se obvykle sama nezlepší a během růstu se může zhoršovat. Další postup, třeba sledování, cvičení, korzet nebo jiné řešení. Vždycky závisí na konkrétní křivce a doporučení odborníka.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
-                        Pevná a nepohyblivá zůstane pouze ta část páteře, která byla přímo operována a fúzována. Neoperované úseky (zejména bedra a kyčle) se přirozeně adaptují a zvýší svou flexibilitu, aby fixaci kompenzovaly. Většina pacientů se bez problému Classification.ohne, zaváže si boty a sportuje.
-                    </div>
-                </div>
+                </section>
 
-                <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
-                    <div class="flex justify-between items-center gap-4">
-                        <h3 class="font-bold text-brandDark text-sm md:text-base">Budu pískat na letištních detektorech kovu?</h3>
-                        <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <section class="faq-fyzioterapie" aria-labelledby="faq-fyzioterapie">
+                    <h2 id="faq-fyzioterapie" class="mb-4 text-xl font-horizon text-brandPink">Cvičení a fyzioterapie</h2>
+                    <div class="space-y-4">
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Jak si vyberu správnou fyzioterapeutku nebo fyzioterapeuta? Jaké cvičení je nejlepší?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Fyzioterapeut by měl mít zkušenosti s metodou zaměřenou na skoliózu a cvičení přizpůsobit tvému nálezu. Může být užitečné požádat o doporučení ortopeda nebo lidí se skoliózou, případně navštívit úvodní konzultace na více místech a vybrat si přístup, který ti vyhovuje.</p>
+                                <p class="mt-3">Fyzioterapeut by měl zohlednit tvůj rentgen, tvar a umístění křivky a případně zapojit celkové posilování svalů kolem páteře. Obecné „cviky na záda“ bez ohledu na individuální nález nebo pocit, že terapeut podceňuje tvé obavy, jsou důvodem zeptat se na další názor. Připravujeme sekci recenzí a doporučení.</p>
+                                <p class="mt-3">Pravidelné domácí cvičení je důležitou součástí fyzioterapie. Zkus si z něj vytvořit co nejpříjemnější rituál; konkrétní plán a jeho četnost prober se svým fyzioterapeutem.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Jaká cvičení se používají při skolióze?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Výběr cvičení závisí na konkrétní křivce a doporučení odborníka. Mezi používané přístupy patří například:</p>
+                                <ul class="mt-3 list-disc space-y-2 pl-5">
+                                    <li><strong>Metoda Schrothové</strong> — využívá specifická protahovací a rotační cvičení a dechovou práci.</li>
+                                    <li><strong>SM systém</strong> — metoda Richarda Smíška využívá elastické lano a zaměřuje se na stabilizaci a mobilizaci.</li>
+                                    <li><strong>Vojtova metoda</strong> — využívá reflexní lokomoci a u dětí se často provádí s asistencí rodiče podle pokynů terapeuta.</li>
+                                    <li><strong>Klappovo lezení</strong> — cvičení na všech čtyřech, které odlehčuje páteři a zapojuje svalový korzet.</li>
+                                </ul>
+                                <p class="mt-3">Neexistuje jedna metoda vhodná pro každého; konkrétní cvičení vybírej s fyzioterapeutem nebo lékařem.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
-                        Velmi zřídka. Moderní titanové implantáty běžné bezpečnostní rámy na letištích nespouštějí. Pokud by se tak stalo, stačí ostraze sdělit, že máte v těle zdravotní implantáty. Žádné speciální lékařské potvrzení v praxi obvykle vyžadováno není.
-                    </div>
-                </div>
+                </section>
 
-                <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
-                    <div class="flex justify-between items-center gap-4">
-                        <h3 class="font-bold text-brandDark text-sm md:text-base">Dokáže korzet skoliózu úplně vyléčit a narovnat?</h3>
-                        <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <section class="faq-korzet" aria-labelledby="faq-korzet">
+                    <h2 id="faq-korzet" class="mb-4 text-xl font-horizon text-brandPink">Korzet</h2>
+                    <div class="space-y-4">
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Jaké to je nosit korzet?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Korzet není dovolená v Karibiku, ale s podporou a praktickými tipy se dá zvládnout. Je vyrobený z plastu na míru podle tvého těla a jeho cílem je působit tlakem na vybraná místa páteře, aby se křivka během růstu zlepšila nebo dál nezhoršovala.</p>
+                                <p class="mt-3">V horku v něm může být teplo. Prodyšné tričko pod korzetem chrání kůži a odvádí pot; vybírej si takové, ve kterém se cítíš pohodlně, a zkus lehčí oblečení. Někdy může být náročné najít outfit, splynout s davem nebo zvládnout nevhodné poznámky. Je normální, že se nálada mění. Korzet tě nedefinuje, období nošení nebude trvat navždy a podpora dobrých kamarádů může hodně pomoct.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Právě se rozhodlo, že dostanu korzet. Co mě teď čeká?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Korzet se vyrábí na míru. Ortotik může pořídit sádrový odlitek nebo 3D sken. Po výrobě se korzet upraví a podle možností si někdy můžeš vybrat barvu nebo vzor.</p>
+                                <p class="mt-3">Potom následuje zvykání a naučíš se korzet správně nasazovat a zapínat. Než si tělo a kůže zvyknou, mohou se objevit drobné otlaky nebo oděrky. Pokud tě korzet výrazně tlačí, způsobuje poranění nebo si nejsi jistý/á, jak o kůži pečovat, obrať se na ortotika nebo lékaře.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Jak korzet funguje?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Korzet působí tlakem na vybraná místa a nechává prostor jinde. Hlavním cílem korzetoterapie je ovlivnit vývoj křivky v době, kdy páteř ještě roste. Může pomoci křivku korigovat nebo zastavit její zhoršování. Účinnost závisí na konkrétní situaci a fázi růstu.</p>
+                                <p class="mt-3">Existují různé typy korzetů; vhodný typ závisí mimo jiné na tvaru a velikosti křivky, věku a růstu. O výběru rozhoduje ošetřující tým.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Způsobí korzet ochabnutí zádových svalů?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Korzetoterapie se obvykle kombinuje s fyzioterapií a cvičením, které pomáhají udržovat svaly aktivní. Konkrétní plán cvičení a nošení korzetu dodržuj podle doporučení svého lékaře a fyzioterapeuta.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Jak kombinovat korzet s oblečením a cítit se v pohodě?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <ul class="list-disc space-y-2 pl-5">
+                                    <li>Pod korzet zkus tenké, bezešvé nebo funkční tričko, které odvádí pot a chrání kůži.</li>
+                                    <li>Možností je fakt milion a záleží jenom na tom, jak moc velký modní nadšenec jsi. I s korzetem se každopádně daj vzkouzlit super outfity bez výraznější námahy.</li>
+                                    <li>Přes korzet dobře vzpadaj oversized trička, košile, vestičky i svetry. Rolák, šátek i výraznější šperky mohou pomoct zakrýt hrudní sponu nebo výraznější výřezy. A když jí zakrývat nechceš, tak je to vlastně kinda chic.</li>
+                                    <li>Kalhoty s vysokým pasem, sukně i šaty mohou být pohodlnou volbou. A klidně můžeš korzet v pohodě nosit i odhalený. Záleží jenom na tobě, v čem se cítíš dobře.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Dokáže korzet skoliózu úplně vyléčit a narovnat?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Korzet obvykle není určen k tomu, aby již vzniklou křivku trvale vrátil na 0°. Jeho hlavním cílem je zabránit zhoršování křivky během růstu. Úspěšnost a vhodnost léčby posuzuje ošetřující ortoped podle konkrétního nálezu.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
-                        Korzet není navržen tak, aby již vzniklou křivku trvale vrátil na 0°, ale aby zabránil jejímu dalšímu zhoršování (progresi) během divokého růstu v dospívání. Úspěšná léčba korzetem znamená udržet křivku pod hranicí nutnosti operace.
+                </section>
+
+                <section class="faq-operace" aria-labelledby="faq-operace">
+                    <h2 id="faq-operace" class="mb-4 text-xl font-horizon text-brandPink">Operace skoliózy</h2>
+                    <div class="space-y-4">
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Co se děje při operaci skoliózy?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Každá záda i každý případ jsou jiné; vhodný postup navrhne ortoped a chirurg. Mezi používané postupy patří:</p>
+                                <ul class="mt-3 list-disc space-y-2 pl-5">
+                                    <li><strong>Zadní spinální fúze</strong> — nejčastější operační řešení. Chirurg zavede do obratlů šrouby, propojí je kovovými tyčemi a páteř stabilizuje. Operovaná část následně srůstá pomocí kostních štěpů; délka a umístění fúze se liší.</li>
+                                    <li><strong>Přední spinální fúze</strong> — podobný princip, ale k páteři se přistupuje přes břicho nebo z boku. Umístění jizvy a možnosti korekce se liší od zadního přístupu.</li>
+                                    <li><strong>Pružné spojení obratlů (VBT)</strong> — metoda pro vybrané pacienty, kteří ještě rostou. Šrouby a pružné spojení z jedné strany umožňují, aby růst pomáhal postupně korigovat křivku. Vhodnost musí posoudit ortoped.</li>
+                                </ul>
+                                <p class="mt-3">Po operaci následuje zotavování a postupné zvykání na změny v těle. Délka rekonvalescence, pobyt v nemocnici, omezení i péče o jizvu se liší podle zákroku a pacienta. Fúze je trvalá a implantáty obvykle zůstávají v těle; konkrétní informace ti poskytne chirurgický tým.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Ztratím po operaci (fúzi) navždy veškerou ohebnost páteře?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Pevná zůstane ta část páteře, která byla operována a fúzována. Ostatní části těla, včetně neoperovaných úseků páteře a kyčlí, mohou pohyb částečně kompenzovat. Možnosti ohýbání, sportu a běžných činností závisejí na rozsahu operace a rekonvalescenci; řiď se pokyny svého chirurga a fyzioterapeuta.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Jak dlouho trvá rekonvalescence po operaci a co se změní?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Rekonvalescence je individuální a přesný plán určí tvůj chirurgický tým. Obvykle probíhá postupně:</p>
+                                <ol class="mt-3 list-decimal space-y-2 pl-5">
+                                    <li><strong>První dny v nemocnici:</strong> délka pobytu se liší. Tým pomáhá s bezpečným vstáváním, stáním, pohybem a přípravou na domácí péči.</li>
+                                    <li><strong>První týdny doma:</strong> většina času je věnována odpočinku a postupnému návratu k běžným činnostem. Omezení se liší, někdo může potřebovat oporu při sezení, korzet nebo pomůcky.</li>
+                                    <li><strong>Návrat do školy nebo práce:</strong> může být postupný a načasování závisí na typu práce či studia i na průběhu zotavování.</li>
+                                    <li><strong>Následující měsíce:</strong> zátěž se zvyšuje podle toho, jak se tělo hojí a co povolí lékař. Sporty s rizikem pádu, nárazů nebo zvedání těžkých břemen mohou vyžadovat delší omezení.</li>
+                                    <li><strong>Dlouhodobě:</strong> mnoho lidí se vrací k běžnému životu, ale načasování a povolené aktivity jsou individuální.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Budu pískat na letištních detektorech kovu?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Reakce detektorů se může lišit podle typu implantátu a citlivosti zařízení. Pokud se kontrola spustí, informuj pracovníky bezpečnostní kontroly o zdravotním implantátu a řiď se jejich pokyny. Potřebné doklady si ověř u svého lékaře nebo letecké společnosti.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
+
+                <section class="faq-zivot" aria-labelledby="faq-zivot">
+                    <h2 id="faq-zivot" class="mb-4 text-xl font-horizon text-brandPink">Skolióza a běžný život</h2>
+                    <div class="space-y-4">
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Co operace páteře znamená pro těhotenství nebo porod?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Operace páteře sama o sobě nemusí bránit těhotenství ani porodu. Konkrétní situaci prober se svým ortopedem a gynekologem. Po rozsáhlejší fúzi, zejména v bederní oblasti, může být zavedení epidurální anestezie obtížnější; možnosti anestezie prober předem s anesteziologem. Během těhotenství mohou záda bolet a vhodnou péči a pohyb konzultuj se svým lékařem.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Můžu se skoliózou sportovat? Co tělocvik a sport po léčbě?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Skolióza automaticky neznamená zákaz sportu nebo tělocviku. Pohyb pomáhá udržovat celkové zdraví a sílu. Pokud tě při konkrétní aktivitě bolí záda, prober to s odborníkem a případně zátěž uprav. Vrcholový, kontaktní, gymnastický nebo extrémní sport může vyžadovat individuální konzultaci.</p>
+                                <p class="mt-3">Po operaci se k pohybu vracej postupně a podle pokynů chirurga a fyzioterapeuta. Začni aktivitami, které ti tým povolí, a zvyšuj zátěž podle hojení a reakce těla.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border-2 border-brandCream rounded-2xl p-5 bg-brandCream/30 cursor-pointer transition hover:bg-brandCream/60" onclick="toggleFAQ(this)">
+                            <div class="flex justify-between items-center gap-4">
+                                <h3 class="font-bold text-brandDark text-sm md:text-base">Zhoršuje se skolióza i v dospělosti?</h3>
+                                <svg class="faq-icon w-5 h-5 text-brandTeal flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer text-brandDark/70 text-sm leading-relaxed">
+                                <p>Po dokončení růstu se progrese často zpomalí, ale její průběh závisí na velikosti a typu křivky. U některých výraznějších křivek může v dospělosti docházet k postupným změnám souvisejícím také s přirozeným opotřebením páteře. Pravidelné kontroly pomohou sledovat konkrétní stav.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <div id="zeptej-se" class="mt-12 border-t border-brandTeal/10 pt-8">
                     <div class="text-center mb-6">
