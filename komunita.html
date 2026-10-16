@@ -105,6 +105,8 @@
             color: #1E293B;
         }
         .field:focus { outline: 2px solid #12CACF; outline-offset: 1px; }
+
+        .blob { position: absolute; border-radius: 9999px; filter: blur(48px); opacity: 0.35; pointer-events: none; }
     </style>
 </head>
 <body class="bg-brandCream text-brandDark font-glacial antialiased">
@@ -202,52 +204,63 @@
     <main>
 
         <!-- 1. ÚVOD (HERO) -->
-        <section id="komunita" class="py-16 md:py-24 bg-brandDark text-white">
+        <header id="komunita" class="relative overflow-hidden py-12 md:py-16 lg:py-20">
+            <div class="blob bg-brandCyan w-72 h-72 -top-20 -left-20"></div>
+            <div class="blob bg-brandBabypink w-72 h-72 top-10 -right-24"></div>
             <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
-                <p class="text-xs font-bold uppercase tracking-widest text-brandPink mb-4">Komunita</p>
-                <h1 class="text-3xl md:text-5xl font-horizon text-brandCyan leading-tight">V tom nejsi sama<br class="hidden md:block"> (ani sám)</h1>
-                <p class="mt-6 text-slate-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                <span class="inline-block bg-brandYellow/10 text-brandYellow text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">Komunita</span>
+                <h1 class="text-4xl lg:text-5xl font-horizon text-brandCyan leading-tight">
+                    V tom nejsi sama<br class="hidden md:block"><span class="text-brandTeal">(ani sám)</span>
+                </h1>
+                <p class="mt-6 text-sm md:text-base text-brandDark/80 leading-relaxed max-w-2xl mx-auto">
                     Skolióza se často nese potichu. Tady najdeš lidi, kteří si prošli korzetem i operací a rádi se podělí o to, jaké to opravdu bylo.
                 </p>
-                <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                    <a href="https://instagram.com" target="_blank" rel="noopener" class="bg-brandPink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition transform hover:scale-105 shadow-md">
+                <div class="mt-6 max-w-2xl mx-auto text-left">
+                    <p class="text-sm text-brandDark/70 leading-relaxed">Protože některé věci ti žádný lékař ani leták nepoví:</p>
+                    <ul class="mt-3 space-y-3 text-sm text-brandDark/80 leading-relaxed">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
+                            <span><strong class="text-brandDark">Nejsi jediný/á.</strong> Ve třídě to může vypadat, že jsi jediný/á s korzetem nebo jizvou. Není to tak — tady jsou další, kteří přesně vědí, o čem mluvíš.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
+                            <span><strong class="text-brandDark">Zkušenost, kterou lékař nedá.</strong> Jaké je spát v korzetu, co čekat první týden po operaci nebo jak se vrátit ke sportu — praktické věci z první ruky.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
+                            <span><strong class="text-brandDark">Bez strašení.</strong> Žádné hororové diskuze. Jen ověřené informace a skutečné příběhy lidí, kteří to zvládli.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-6 max-w-2xl mx-auto text-left">
+                    <h2 class="text-sm font-bold text-brandDark">Pro koho tu jsme:</h2>
+                    <ul class="mt-3 space-y-3 text-sm text-brandDark/80 leading-relaxed">
+                        <li class="flex items-start gap-3">
+                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
+                            <span><strong class="text-brandDark">Pacienti:</strong> Právě řešíš skoliózu, korzet nebo operaci a chceš mluvit s někým, kdo to zná zevnitř. <a href="#pribehy" class="font-semibold text-brandTeal hover:text-brandPink transition">Přečti si příběhy →</a></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
+                            <span><strong class="text-brandDark">Rodiče:</strong> Chcete vědět, jak dítě podpořit a co ho čeká. Vítáme i vaše otázky. <a href="pro-blizke.html" class="font-semibold text-brandTeal hover:text-brandPink transition">Stránka Pro blízké →</a></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
+                            <span><strong class="text-brandDark">Dospělí po operaci:</strong> Už máš operaci za sebou a rád/a bys sdílel/a zkušenost a pomohl/a těm, kdo na to teprve čekají. <a href="#poslat-pribeh" class="font-semibold text-brandTeal hover:text-brandPink transition">Sdílej svůj příběh →</a></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-8 flex flex-wrap justify-center gap-3 text-xs font-bold uppercase tracking-wider">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="bg-brandTeal text-white px-5 py-2.5 rounded-full hover:bg-brandPink transition shadow-md">
                         Přidej se do Safe space
                     </a>
-                    <a href="#poslat-pribeh" class="border border-brandCyan text-brandCyan px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandCyan hover:text-brandDark transition">
+                    <a href="#poslat-pribeh" class="bg-white text-brandTeal border border-brandTeal/20 px-5 py-2.5 rounded-full hover:bg-brandTeal hover:text-white transition">
                         Pošli svůj příběh
                     </a>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <!-- 2. PROČ KOMUNITA -->
-        <section id="proc-komunita" class="py-16 md:py-20 bg-brandCream">
-            <div class="max-w-5xl mx-auto px-4 md:px-6">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Proč komunita?</h2>
-                    <p class="mt-3 text-sm text-brandDark/70">Protože některé věci ti žádný lékař ani leták nepoví.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm">
-                        <div class="w-10 h-10 rounded-full bg-brandPink/10 text-brandPink flex items-center justify-center font-bold mb-4">1</div>
-                        <h3 class="font-bold text-brandDark text-lg">Nejsi jediný/á</h3>
-                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed">Ve třídě to může vypadat, že jsi jediný/á s korzetem nebo jizvou. Není to tak. Tady jsou další, kteří přesně vědí, o čem mluvíš.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm">
-                        <div class="w-10 h-10 rounded-full bg-brandTeal/10 text-brandTeal flex items-center justify-center font-bold mb-4">2</div>
-                        <h3 class="font-bold text-brandDark text-lg">Zkušenost, kterou lékař nedá</h3>
-                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed">Jaké je spát v korzetu, co čekat první týden po operaci, jak se vrátit k sportu. Praktické věci z první ruky.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm">
-                        <div class="w-10 h-10 rounded-full bg-brandYellow/30 text-brandDark flex items-center justify-center font-bold mb-4">3</div>
-                        <h3 class="font-bold text-brandDark text-lg">Bez strašení</h3>
-                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed">Žádné hororové diskuze. Jen ověřené informace a skutečné příběhy lidí, kteří to zvládli.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. PŘÍBĚHY -->
+        <!-- 2. PŘÍBĚHY -->
         <section id="pribehy" class="py-16 md:py-20 bg-white">
             <div class="max-w-5xl mx-auto px-4 md:px-6">
                 <div class="text-center max-w-2xl mx-auto mb-8">
@@ -325,46 +338,42 @@
             </div>
         </section>
 
-        <!-- 4. VHLED DO INSTAGRAMU -->
-        <section id="instagram" class="py-16 md:py-20 bg-brandDark text-white">
-            <div class="max-w-5xl mx-auto px-4 md:px-6">
-                <div class="text-center max-w-2xl mx-auto mb-8">
-                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Nahlédni do Safe space</h2>
-                    <p class="mt-3 text-sm text-slate-300 leading-relaxed">Na Instagramu se děje to hlavní: otázky a odpovědi, příběhy členů, cvičení a tipy na oblečení i spaní.</p>
+        <!-- 3. Z PRAXE -->
+        <section id="z-praxe" class="py-16 md:py-20 bg-white">
+            <div class="max-w-3xl mx-auto px-4 md:px-6">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Z praxe</h2>
+                    <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">Praktické tipy od členů komunity. Jsou to osobní zkušenosti, ne lékařská doporučení. Vždy se ptej svého lékaře.</p>
                 </div>
 
-                <div class="flex flex-wrap justify-center gap-2 mb-8 text-[11px] font-bold uppercase tracking-wider">
-                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Q&amp;A</span>
-                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Příběhy</span>
-                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Cvičení</span>
-                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Tipy na oblečení</span>
-                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Tipy na spaní</span>
-                </div>
-
-                <!--
-                    TODO: Sem vložte feed posledních 6 příspěvků. Možnosti:
-                    1) widget třetí strany (např. Behold, Elfsight, SnapWidget) – vloží se jako <script>/<iframe>,
-                    2) jednotlivé příspěvky přes oficiální Instagram embed (Embed code u každého příspěvku).
-                    Šedé dlaždice níže jsou jen zástupné a po vložení feedu je smažte.
-                -->
-                <div id="instagram-feed" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 1</div>
-                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 2</div>
-                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 3</div>
-                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 4</div>
-                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 5</div>
-                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 6</div>
-                </div>
-
-                <div class="mt-8 text-center">
-                    <a href="https://instagram.com" target="_blank" rel="noopener" class="inline-block bg-brandPink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition transform hover:scale-105 shadow-md">
-                        Safe space na Instagramu
-                    </a>
+                <!-- TODO: Doplňte obsah od členek a členů. Každý <details> je jedno téma. -->
+                <div class="space-y-3">
+                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
+                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
+                            Oblečení přes korzet
+                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit tipy od členů: střihy, látky, co se osvědčilo.]</p>
+                    </details>
+                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
+                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
+                            Návrat do školy
+                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit zkušenosti: jak to říct spolužákům, tělocvik, domluva s učiteli.]</p>
+                    </details>
+                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
+                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
+                            Sport po operaci
+                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit zkušenosti s návratem k pohybu. Vždy s odkazem na doporučení lékaře.]</p>
+                    </details>
                 </div>
             </div>
         </section>
 
-        <!-- 5. ZEPTEJ SE -->
+        <!-- 4. ZEPTEJ SE -->
         <section id="zeptej-se" class="py-16 md:py-20 bg-brandBeige">
             <div class="max-w-3xl mx-auto px-4 md:px-6">
                 <div class="text-center mb-8">
@@ -406,82 +415,46 @@
             </div>
         </section>
 
-        <!-- 6. Z PRAXE -->
-        <section id="z-praxe" class="py-16 md:py-20 bg-white">
-            <div class="max-w-3xl mx-auto px-4 md:px-6">
-                <div class="text-center mb-8">
-                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Z praxe</h2>
-                    <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">Praktické tipy od členů komunity. Jsou to osobní zkušenosti, ne lékařská doporučení. Vždy se ptej svého lékaře.</p>
-                </div>
-
-                <!-- TODO: Doplňte obsah od členek a členů. Každý <details> je jedno téma. -->
-                <div class="space-y-3">
-                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
-                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
-                            Oblečení přes korzet
-                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </summary>
-                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit tipy od členů: střihy, látky, co se osvědčilo.]</p>
-                    </details>
-                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
-                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
-                            Spaní
-                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </summary>
-                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit zkušenosti se spaním v korzetu i po operaci.]</p>
-                    </details>
-                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
-                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
-                            Balení do nemocnice
-                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </summary>
-                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit seznam věcí, které se členům osvědčily.]</p>
-                    </details>
-                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
-                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
-                            Návrat do školy
-                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </summary>
-                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit zkušenosti: jak to říct spolužákům, tělocvik, domluva s učiteli.]</p>
-                    </details>
-                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
-                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
-                            Sport po operaci
-                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </summary>
-                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit zkušenosti s návratem k pohybu. Vždy s odkazem na doporučení lékaře.]</p>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. PRO KOHO TO JE -->
-        <section id="pro-koho" class="py-16 md:py-20 bg-brandCream">
+        <!-- 5. VHLED DO INSTAGRAMU -->
+        <section id="instagram" class="py-16 md:py-20 bg-brandDark text-white">
             <div class="max-w-5xl mx-auto px-4 md:px-6">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Pro koho to je</h2>
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Nahlédni do Safe space</h2>
+                    <p class="mt-3 text-sm text-slate-300 leading-relaxed">Na Instagramu se děje to hlavní: otázky a odpovědi, příběhy členů, cvičení a tipy na oblečení i spaní.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm flex flex-col">
-                        <h3 class="font-bold text-lg text-brandPink">Pacienti</h3>
-                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed flex-1">Právě řešíš skoliózu, korzet nebo operaci a chceš mluvit s někým, kdo to zná zevnitř.</p>
-                        <a href="#pribehy" class="mt-4 text-xs font-bold uppercase tracking-wider text-brandTeal hover:text-brandPink transition">Přečti si příběhy →</a>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm flex flex-col">
-                        <h3 class="font-bold text-lg text-brandTeal">Rodiče</h3>
-                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed flex-1">Chcete vědět, jak dítě podpořit a co ho čeká. Vítáme i vaše otázky.</p>
-                        <a href="pro-blizke.html" class="mt-4 text-xs font-bold uppercase tracking-wider text-brandTeal hover:text-brandPink transition">Stránka Pro blízké →</a>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm flex flex-col">
-                        <h3 class="font-bold text-lg text-brandDark">Dospělí po operaci</h3>
-                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed flex-1">Už máš operaci za sebou a rád/a bys sdílel/a zkušenost a pomohl/a těm, kdo na to teprve čekají.</p>
-                        <a href="#poslat-pribeh" class="mt-4 text-xs font-bold uppercase tracking-wider text-brandTeal hover:text-brandPink transition">Sdílej svůj příběh →</a>
-                    </div>
+
+                <div class="flex flex-wrap justify-center gap-2 mb-8 text-[11px] font-bold uppercase tracking-wider">
+                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Q&amp;A</span>
+                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Příběhy</span>
+                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Cvičení</span>
+                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Tipy na oblečení</span>
+                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Tipy na spaní</span>
+                </div>
+
+                <!--
+                    TODO: Sem vložte feed posledních 6 příspěvků. Možnosti:
+                    1) widget třetí strany (např. Behold, Elfsight, SnapWidget) – vloží se jako <script>/<iframe>,
+                    2) jednotlivé příspěvky přes oficiální Instagram embed (Embed code u každého příspěvku).
+                    Šedé dlaždice níže jsou jen zástupné a po vložení feedu je smažte.
+                -->
+                <div id="instagram-feed" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 1</div>
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 2</div>
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 3</div>
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 4</div>
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 5</div>
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 6</div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="inline-block bg-brandPink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition transform hover:scale-105 shadow-md">
+                        Safe space na Instagramu
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- 8. PRAVIDLA SAFE SPACE -->
+        <!-- 6. PRAVIDLA SAFE SPACE -->
         <section id="pravidla" class="py-16 md:py-20 bg-brandDark text-white">
             <div class="max-w-4xl mx-auto px-4 md:px-6">
                 <div class="text-center max-w-2xl mx-auto mb-10">
@@ -516,7 +489,7 @@
             </div>
         </section>
 
-        <!-- 9. POŠLI SVŮJ PŘÍBĚH -->
+        <!-- 7. POŠLI SVŮJ PŘÍBĚH -->
         <section id="poslat-pribeh" class="py-16 md:py-20 bg-brandBeige">
             <div class="max-w-3xl mx-auto px-4 md:px-6">
                 <div class="text-center mb-8">
