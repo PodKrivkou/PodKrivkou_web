@@ -85,7 +85,7 @@
             color: #E94D7F;
         }
 
-        /* Akordeon "Z praxe" */
+        /* Akordeon "Ze života" */
         details.tip summary { list-style: none; cursor: pointer; }
         details.tip summary::-webkit-details-marker { display: none; }
         details.tip[open] .tip-chevron { transform: rotate(180deg); color: #E94D7F; }
@@ -203,7 +203,7 @@
         <header id="komunita" class="relative overflow-hidden py-12 md:py-16 lg:py-20">
             <div class="blob bg-brandCyan w-72 h-72 -top-20 -left-20"></div>
             <div class="blob bg-brandBabypink w-72 h-72 top-10 -right-24"></div>
-            <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+            <div class="max-w-6xl mx-auto px-4 md:px-6 text-center">
                 <span class="inline-block bg-brandYellow/10 text-brandYellow text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">Komunita</span>
                 <h1 class="text-4xl lg:text-5xl font-horizon text-brandCyan leading-tight">
                     V tom nejsi sama<br class="hidden md:block"><span class="text-brandTeal">(ani sám)</span>
@@ -297,97 +297,80 @@
             </div>
         </section>
 
-        <!-- 3. Z PRAXE -->
-        <section id="z-praxe" class="py-16 md:py-20 bg-white">
+        <!-- 3. ZE ŽIVOTA -->
+        <section id="z-praxe" class="py-16 md:py-20 bg-brandBeige">
             <div class="max-w-3xl mx-auto px-4 md:px-6">
                 <div class="text-center mb-8">
-                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Z praxe</h2>
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Tipy a triky ze/do života</h2>
                     <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">Praktické tipy od členů komunity. Jsou to osobní zkušenosti, ne lékařská doporučení. Vždy se ptej svého lékaře.</p>
                 </div>
 
                 <!-- TODO: Doplňte obsah od členek a členů. Každý <details> je jedno téma. -->
                 <div class="space-y-3">
-                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
+                    <details class="tip bg-white rounded-2xl border border-brandTeal/10 p-5">
                         <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
                             Oblečení přes korzet
                             <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </summary>
-                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit tipy od členů: střihy, látky, co se osvědčilo.]</p>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">Nebojte se nikdo nic, na této stránce pro vás stále usilovně pracujeme. Ale zas to bude stát za to!🤞🏽</p>
                     </details>
-                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
+                    <details class="tip bg-white rounded-2xl border border-brandTeal/10 p-5">
                         <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
                             Návrat do školy
                             <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </summary>
-                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit zkušenosti: jak to říct spolužákům, tělocvik, domluva s učiteli.]</p>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">Nebojte se nikdo nic, na této stránce pro vás stále usilovně pracujeme. Ale zas to bude stát za to!🤞🏽</p>
                     </details>
-                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
+                    <details class="tip bg-white rounded-2xl border border-brandTeal/10 p-5">
                         <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
                             Sport po operaci
                             <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </summary>
-                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit zkušenosti s návratem k pohybu. Vždy s odkazem na doporučení lékaře.]</p>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">Nebojte se nikdo nic, na této stránce pro vás stále usilovně pracujeme. Ale zas to bude stát za to!🤞🏽</p>
                     </details>
                 </div>
+
+                <div id="zeptej-se" class="mt-10">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl md:text-2xl font-horizon text-brandTeal">Zeptej se sama/sám</h3>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">Stydíš se zeptat nahlas? Napiš nám anonymně. Nejčastější otázky zpracujeme jako příspěvek na Instagramu a později je přidáme do Lékařského FAQ.</p>
+                    </div>
+
+                    <!-- TODO: Nahraďte action vlastním endpointem (např. Formspree, Getform, nebo váš backend). -->
+                    <form action="https://formspree.io/f/VASE_ID_FORMULARE" method="POST" class="bg-white p-6 md:p-8 rounded-2xl border border-brandTeal/10 shadow-sm space-y-4">
+                        <input type="hidden" name="typ" value="otazka">
+                        <div>
+                            <label for="otazka" class="block text-sm font-semibold mb-1.5">Tvoje otázka</label>
+                            <textarea id="otazka" name="otazka" rows="4" required class="field" placeholder="Na co by ses chtěl/a zeptat?"></textarea>
+                        </div>
+                        <div>
+                            <label for="otazka-etapa" class="block text-sm font-semibold mb-1.5">V jaké fázi právě jsi? <span class="font-normal text-brandDark/40">(nepovinné)</span></label>
+                            <select id="otazka-etapa" name="etapa" class="field">
+                                <option value="">Nechci uvádět</option>
+                                <option>Čekám na diagnózu / řeším zjištění</option>
+                                <option>Nosím korzet</option>
+                                <option>Čekám na operaci</option>
+                                <option>Jsem po operaci</option>
+                                <option>Jsem rodič / blízký</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="otazka-email" class="block text-sm font-semibold mb-1.5">E-mail <span class="font-normal text-brandDark/40">(jen pokud chceš odpověď soukromě)</span></label>
+                            <input id="otazka-email" type="email" name="email" class="field" placeholder="tvuj@email.cz">
+                        </div>
+                        <p class="text-xs text-brandDark/50">Otázky zveřejňujeme vždy bez jména. Odpovědi jsou zkušenosti, ne lékařské rady.</p>
+                        <button type="submit" class="bg-brandPink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition shadow-md">Odeslat otázku</button>
+                    </form>
+                </div>
             </div>
         </section>
 
-        <!-- 4. ZEPTEJ SE -->
-        <section id="zeptej-se" class="py-16 md:py-20 bg-brandBeige">
-            <div class="max-w-3xl mx-auto px-4 md:px-6">
-                <div class="text-center mb-8">
-                    <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Zeptej se těch, kdo si tím prošli</h2>
-                    <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">Stydíš se zeptat nahlas? Napiš nám anonymně. Nejčastější otázky zpracujeme jako příspěvek na Instagramu a později je přidáme do Lékařského FAQ.</p>
-                </div>
-
-                <div class="flex flex-wrap justify-center gap-2 mb-6 text-xs">
-                    <span class="bg-white border border-brandTeal/15 px-3 py-1.5 rounded-full text-brandDark/70">Jde se s korzetem koupat?</span>
-                    <span class="bg-white border border-brandTeal/15 px-3 py-1.5 rounded-full text-brandDark/70">Co si zabalit do nemocnice?</span>
-                    <span class="bg-white border border-brandTeal/15 px-3 py-1.5 rounded-full text-brandDark/70">Jak to řeknu spolužákům?</span>
-                </div>
-
-                <!-- TODO: Nahraďte action vlastním endpointem (např. Formspree, Getform, nebo váš backend). -->
-                <form action="https://formspree.io/f/VASE_ID_FORMULARE" method="POST" class="bg-white p-6 md:p-8 rounded-2xl border border-brandTeal/10 shadow-sm space-y-4">
-                    <input type="hidden" name="typ" value="otazka">
-                    <div>
-                        <label for="otazka" class="block text-sm font-semibold mb-1.5">Tvoje otázka</label>
-                        <textarea id="otazka" name="otazka" rows="4" required class="field" placeholder="Na co by ses chtěl/a zeptat?"></textarea>
-                    </div>
-                    <div>
-                        <label for="otazka-etapa" class="block text-sm font-semibold mb-1.5">V jaké fázi právě jsi? <span class="font-normal text-brandDark/40">(nepovinné)</span></label>
-                        <select id="otazka-etapa" name="etapa" class="field">
-                            <option value="">Nechci uvádět</option>
-                            <option>Čekám na diagnózu / řeším zjištění</option>
-                            <option>Nosím korzet</option>
-                            <option>Čekám na operaci</option>
-                            <option>Jsem po operaci</option>
-                            <option>Jsem rodič / blízký</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="otazka-email" class="block text-sm font-semibold mb-1.5">E-mail <span class="font-normal text-brandDark/40">(jen pokud chceš odpověď soukromě)</span></label>
-                        <input id="otazka-email" type="email" name="email" class="field" placeholder="tvuj@email.cz">
-                    </div>
-                    <p class="text-xs text-brandDark/50">Otázky zveřejňujeme vždy bez jména. Odpovědi jsou zkušenosti, ne lékařské rady.</p>
-                    <button type="submit" class="bg-brandPink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition shadow-md">Odeslat otázku</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- 5. VHLED DO INSTAGRAMU -->
+        <!-- 4. VHLED DO INSTAGRAMU -->
         <section id="instagram" class="py-16 md:py-20 bg-brandDark text-white">
             <div class="max-w-5xl mx-auto px-4 md:px-6">
                 <div class="text-center max-w-2xl mx-auto mb-8">
-                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Nahlédni do Safe space</h2>
-                    <p class="mt-3 text-sm text-slate-300 leading-relaxed">Na Instagramu se děje to hlavní: otázky a odpovědi, příběhy členů, cvičení a tipy na oblečení i spaní.</p>
-                </div>
-
-                <div class="flex flex-wrap justify-center gap-2 mb-8 text-[11px] font-bold uppercase tracking-wider">
-                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Q&amp;A</span>
-                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Příběhy</span>
-                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Cvičení</span>
-                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Tipy na oblečení</span>
-                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Tipy na spaní</span>
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Nahlédni do našeho Safe space</h2>
+                    <p class="mt-3 text-sm text-slate-300 leading-relaxed">Na Instagramu se děje to hlavní: komunita, diskuze, podpora, sdílení příběhů, cvičení a secret osobní tipy.</p>
                 </div>
 
                 <!--
@@ -413,42 +396,7 @@
             </div>
         </section>
 
-        <!-- 6. PRAVIDLA SAFE SPACE -->
-        <section id="pravidla" class="py-16 md:py-20 bg-brandDark text-white">
-            <div class="max-w-4xl mx-auto px-4 md:px-6">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <h2 class="text-2xl md:text-3xl font-horizon text-brandCyan">Pravidla Safe space</h2>
-                    <p class="mt-3 text-sm text-slate-300">Aby se tu každý cítil dobře, držíme se čtyř jednoduchých věcí.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <h3 class="font-bold text-brandCyan">Respekt</h3>
-                        <p class="mt-2 text-sm text-slate-300 leading-relaxed">Žádné srovnávání ani hodnocení vzhledu. Každá záda i každá cesta jsou jiné.</p>
-                    </div>
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <h3 class="font-bold text-brandPink">Zkušenosti, ne rady</h3>
-                        <p class="mt-2 text-sm text-slate-300 leading-relaxed">Mezi členy nedáváme lékařské rady, od toho je lékař. Sdílíme, co jsme zažili my.</p>
-                    </div>
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <h3 class="font-bold text-brandYellow">Soukromí</h3>
-                        <p class="mt-2 text-sm text-slate-300 leading-relaxed">Příběhy a fotky zveřejňujeme jen se souhlasem. Nikdo nesdílí cizí údaje ani fotky bez dovolení.</p>
-                    </div>
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <h3 class="font-bold text-brandTerracotta">Bezpečí</h3>
-                        <p class="mt-2 text-sm text-slate-300 leading-relaxed">Nevhodné chování nahlas moderátorkám. Zasáhneme a v případě potřeby osobu z komunity vyloučíme.</p>
-                    </div>
-                </div>
-
-                <!-- TODO: Doplňte skutečný kontaktní e-mail. -->
-                <div class="mt-8 bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-                    <h3 class="font-bold text-white">Kontakt na moderátorky</h3>
-                    <p class="mt-2 text-sm text-slate-300">Něco se ti nezdá, nebo chceš nahlásit nevhodný příspěvek? Napiš nám, Míša a Kixa to řeší.</p>
-                    <a href="mailto:kontakt@podkrivkou.cz?subject=Nahlášení%20příspěvku" class="inline-block mt-4 border border-brandCyan text-brandCyan px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandCyan hover:text-brandDark transition">Napsat moderátorkám</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. POŠLI SVŮJ PŘÍBĚH -->
+        <!-- 5. POŠLI SVŮJ PŘÍBĚH -->
         <section id="poslat-pribeh" class="py-16 md:py-20 bg-brandBeige">
             <div class="max-w-3xl mx-auto px-4 md:px-6">
                 <div class="text-center mb-8">
@@ -533,7 +481,7 @@
                     </div>
 
                     <button type="submit" class="bg-brandPink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition shadow-md">Odeslat příběh</button>
-                    <p class="text-xs text-brandDark/50">Osobní údaje používáme jen ke zpracování tvého příběhu a nikomu je nepředáváme. Bez tvého souhlasu nic nezveřejníme.</p>
+                    <p class="text-xs text-brandDark/50">Osobní údaje používáme jen ke zpracování tvého příběhu a nikomu je nepředáváme. Bez tvého souhlasu nic nezveřejníme. </p>
                 </form>
             </div>
         </section>
