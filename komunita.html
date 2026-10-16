@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Komunita | Pod Křivkou</title>
+    <meta name="description" content="Komunita Pod Křivkou: příběhy lidí, kteří si prošli skoliózou, korzetem i operací. V tom nejsi sama ani sám.">
 
     <link rel="icon" type="image/png" href="favicon1.png?v=2">
     <link rel="shortcut icon" type="image/png" href="favicon1.png?v=2">
@@ -37,6 +38,9 @@
         }
     </script>
     <style>
+        html { scroll-behavior: smooth; }
+        section[id] { scroll-margin-top: 5rem; }
+
         .font-horizon { font-family: 'Syne', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.03em; }
         .font-glacial { font-family: 'Plus Jakarta Sans', sans-serif; }
 
@@ -80,6 +84,27 @@
             transform: rotate(180deg);
             color: #E94D7F;
         }
+
+        /* Filtr příběhů */
+        .story-filter.active { background-color: #E94D7F; color: #fff; border-color: #E94D7F; }
+        .story-card.hidden-card { display: none; }
+
+        /* Akordeon "Z praxe" */
+        details.tip summary { list-style: none; cursor: pointer; }
+        details.tip summary::-webkit-details-marker { display: none; }
+        details.tip[open] .tip-chevron { transform: rotate(180deg); color: #E94D7F; }
+
+        /* Formuláře */
+        .field {
+            width: 100%;
+            background: #fff;
+            border: 1px solid rgba(0, 177, 182, 0.25);
+            border-radius: 0.75rem;
+            padding: 0.7rem 1rem;
+            font-size: 0.875rem;
+            color: #1E293B;
+        }
+        .field:focus { outline: 2px solid #12CACF; outline-offset: 1px; }
     </style>
 </head>
 <body class="bg-brandCream text-brandDark font-glacial antialiased">
@@ -121,7 +146,7 @@
                 </div>
                 <a href="pro-blizke.html" class="hover:text-brandTeal transition">Pro blízké</a>
                 <a href="komunita.html" class="text-brandTeal transition">Komunita</a>
-                <a href="lekarske-faq.html" class="hover:text-brandTeal transition">Časté dotazy</a>
+                <a href="lekarske-faq.html" class="hover:text-brandTeal transition">Lékařské FAQ</a>
                 <a href="index.html#o-nas" class="hover:text-brandTeal transition">Kdo jsme</a>
             </div>
 
@@ -166,7 +191,7 @@
             </div>
             <a href="pro-blizke.html" class="py-3 hover:text-brandTeal transition">Pro blízké</a>
             <a href="komunita.html" class="py-3 text-brandTeal transition">Komunita</a>
-            <a href="lekarske-faq.html" class="py-3 hover:text-brandTeal transition">Časté dotazy</a>
+            <a href="lekarske-faq.html" class="py-3 hover:text-brandTeal transition">Lékařské FAQ</a>
             <a href="index.html#o-nas" class="py-3 hover:text-brandTeal transition">Kdo jsme</a>
             <a href="https://instagram.com" target="_blank" class="bg-brandPink text-white py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition block shadow-sm mt-2">
                 SAFE SPACE
@@ -175,31 +200,412 @@
     </nav>
 
     <main>
-        <section id="komunita" class="py-16 md:py-20 bg-brandDark text-white min-h-[calc(100vh-5rem)]">
-            <div class="max-w-4xl mx-auto px-4 md:px-6">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h1 class="text-2xl md:text-3xl font-horizon text-brandCyan">Komunita</h1>
-                    <p class="mt-4 text-slate-400 text-sm">PLalallala1</p>
-                </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-3">
-                        <h2 class="font-bold text-brandCyan text-lg">Proc komunita a tak</h2>
-                        <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside">
-                            <li>textik</li>
-                            <li>textik</li>
-                        </ul>
+        <!-- 1. ÚVOD (HERO) -->
+        <section id="komunita" class="py-16 md:py-24 bg-brandDark text-white">
+            <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+                <p class="text-xs font-bold uppercase tracking-widest text-brandPink mb-4">Komunita</p>
+                <h1 class="text-3xl md:text-5xl font-horizon text-brandCyan leading-tight">V tom nejsi sama<br class="hidden md:block"> (ani sám)</h1>
+                <p class="mt-6 text-slate-300 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                    Skolióza se často nese potichu. Tady najdeš lidi, kteří si prošli korzetem i operací a rádi se podělí o to, jaké to opravdu bylo.
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="bg-brandPink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition transform hover:scale-105 shadow-md">
+                        Přidej se do Safe space
+                    </a>
+                    <a href="#poslat-pribeh" class="border border-brandCyan text-brandCyan px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandCyan hover:text-brandDark transition">
+                        Pošli svůj příběh
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. PROČ KOMUNITA -->
+        <section id="proc-komunita" class="py-16 md:py-20 bg-brandCream">
+            <div class="max-w-5xl mx-auto px-4 md:px-6">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Proč komunita?</h2>
+                    <p class="mt-3 text-sm text-brandDark/70">Protože některé věci ti žádný lékař ani leták nepoví.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm">
+                        <div class="w-10 h-10 rounded-full bg-brandPink/10 text-brandPink flex items-center justify-center font-bold mb-4">1</div>
+                        <h3 class="font-bold text-brandDark text-lg">Nejsi jediný/á</h3>
+                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed">Ve třídě to může vypadat, že jsi jediný/á s korzetem nebo jizvou. Není to tak. Tady jsou další, kteří přesně vědí, o čem mluvíš.</p>
                     </div>
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-3">
-                        <h2 class="font-bold text-brandPink text-lg">Vhled do instacku</h2>
-                        <ul class="space-y-2 text-sm text-slate-300 list-disc list-inside">
-                            <li>instacek</li>
-                            <li>instacek</li>
-                        </ul>
+                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm">
+                        <div class="w-10 h-10 rounded-full bg-brandTeal/10 text-brandTeal flex items-center justify-center font-bold mb-4">2</div>
+                        <h3 class="font-bold text-brandDark text-lg">Zkušenost, kterou lékař nedá</h3>
+                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed">Jaké je spát v korzetu, co čekat první týden po operaci, jak se vrátit k sportu. Praktické věci z první ruky.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm">
+                        <div class="w-10 h-10 rounded-full bg-brandYellow/30 text-brandDark flex items-center justify-center font-bold mb-4">3</div>
+                        <h3 class="font-bold text-brandDark text-lg">Bez strašení</h3>
+                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed">Žádné hororové diskuze. Jen ověřené informace a skutečné příběhy lidí, kteří to zvládli.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- 3. PŘÍBĚHY -->
+        <section id="pribehy" class="py-16 md:py-20 bg-white">
+            <div class="max-w-5xl mx-auto px-4 md:px-6">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Jak to bylo u nás</h2>
+                    <p class="mt-3 text-sm text-brandDark/70">Skutečné příběhy podle toho, v jaké fázi právě jsi.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-2 mb-8" role="group" aria-label="Filtr příběhů podle etapy">
+                    <button type="button" class="story-filter active border border-brandTeal/30 text-brandDark/80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:border-brandPink transition" data-filter="all">Vše</button>
+                    <button type="button" class="story-filter border border-brandTeal/30 text-brandDark/80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:border-brandPink transition" data-filter="korzet">Dostala jsem korzet</button>
+                    <button type="button" class="story-filter border border-brandTeal/30 text-brandDark/80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:border-brandPink transition" data-filter="pred">Před operací</button>
+                    <button type="button" class="story-filter border border-brandTeal/30 text-brandDark/80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:border-brandPink transition" data-filter="tydny">První týdny po operaci</button>
+                    <button type="button" class="story-filter border border-brandTeal/30 text-brandDark/80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:border-brandPink transition" data-filter="rok">Rok a víc potom</button>
+                </div>
+
+                <!--
+                    TODO: Doplňte skutečné příběhy. U každé karty změňte data-stage (korzet | pred | tydny | rok),
+                    jméno/přezdívku, věk v době léčby, typ léčby a text. Obrázky nahraďte fotkami se souhlasem autorů.
+                -->
+                <div id="story-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                    <article class="story-card bg-brandCream rounded-2xl overflow-hidden border border-brandTeal/10 flex flex-col" data-stage="korzet">
+                        <div class="h-44 bg-brandBeige flex items-center justify-center">
+                            <img src="dancer.png" alt="" class="h-36 w-auto object-contain" loading="lazy">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <span class="self-start text-[11px] font-bold uppercase tracking-wider bg-brandTeal/10 text-brandTeal px-3 py-1 rounded-full">Dostala jsem korzet</span>
+                            <h3 class="mt-3 font-bold text-lg text-brandDark">Míša</h3>
+                            <p class="text-xs text-brandDark/50 mt-1">Věk v době léčby: [doplnit] · Léčba: korzet</p>
+                            <p class="mt-3 text-sm text-brandDark/70 leading-relaxed flex-1">[Sem vložte krátký příběh Míši: jaké to bylo dostat korzet, co jí pomohlo, co by řekla sama sobě tehdy.]</p>
+                        </div>
+                    </article>
+
+                    <article class="story-card bg-brandCream rounded-2xl overflow-hidden border border-brandTeal/10 flex flex-col" data-stage="pred">
+                        <div class="h-44 bg-brandBeige flex items-center justify-center">
+                            <img src="seated-stretch.png" alt="" class="h-36 w-auto object-contain" loading="lazy">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <span class="self-start text-[11px] font-bold uppercase tracking-wider bg-brandPink/10 text-brandPink px-3 py-1 rounded-full">Před operací</span>
+                            <h3 class="mt-3 font-bold text-lg text-brandDark">Kixa</h3>
+                            <p class="text-xs text-brandDark/50 mt-1">Věk v době léčby: [doplnit] · Léčba: operace</p>
+                            <p class="mt-3 text-sm text-brandDark/70 leading-relaxed flex-1">[Sem vložte krátký příběh Kixy: jak se připravovala na operaci, čeho se bála a co jí pomohlo.]</p>
+                        </div>
+                    </article>
+
+                    <article class="story-card bg-brandCream rounded-2xl overflow-hidden border border-brandTeal/10 flex flex-col" data-stage="tydny">
+                        <div class="h-44 bg-brandBeige flex items-center justify-center">
+                            <img src="dancer.png" alt="" class="h-36 w-auto object-contain" loading="lazy">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <span class="self-start text-[11px] font-bold uppercase tracking-wider bg-brandYellow/40 text-brandDark px-3 py-1 rounded-full">První týdny po operaci</span>
+                            <h3 class="mt-3 font-bold text-lg text-brandDark">Míša</h3>
+                            <p class="text-xs text-brandDark/50 mt-1">Věk v době léčby: [doplnit] · Léčba: operace</p>
+                            <p class="mt-3 text-sm text-brandDark/70 leading-relaxed flex-1">[Sem vložte příběh o prvních týdnech po operaci: nemocnice, domov, první kroky.]</p>
+                        </div>
+                    </article>
+
+                    <article class="story-card bg-brandCream rounded-2xl overflow-hidden border border-brandTeal/10 flex flex-col" data-stage="rok">
+                        <div class="h-44 bg-brandBeige flex items-center justify-center">
+                            <img src="seated-stretch.png" alt="" class="h-36 w-auto object-contain" loading="lazy">
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <span class="self-start text-[11px] font-bold uppercase tracking-wider bg-brandTerracotta/20 text-brandTerracotta px-3 py-1 rounded-full">Rok a víc potom</span>
+                            <h3 class="mt-3 font-bold text-lg text-brandDark">Kixa</h3>
+                            <p class="text-xs text-brandDark/50 mt-1">Věk v době léčby: [doplnit] · Léčba: operace</p>
+                            <p class="mt-3 text-sm text-brandDark/70 leading-relaxed flex-1">[Sem vložte příběh o životě rok a víc po operaci: sport, cestování, návrat do normálu.]</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <a href="#poslat-pribeh" class="inline-block bg-brandTeal text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandPink transition shadow-md">
+                        Chci přidat svůj příběh
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. VHLED DO INSTAGRAMU -->
+        <section id="instagram" class="py-16 md:py-20 bg-brandDark text-white">
+            <div class="max-w-5xl mx-auto px-4 md:px-6">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Nahlédni do Safe space</h2>
+                    <p class="mt-3 text-sm text-slate-300 leading-relaxed">Na Instagramu se děje to hlavní: otázky a odpovědi, příběhy členů, cvičení a tipy na oblečení i spaní.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-2 mb-8 text-[11px] font-bold uppercase tracking-wider">
+                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Q&amp;A</span>
+                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Příběhy</span>
+                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Cvičení</span>
+                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Tipy na oblečení</span>
+                    <span class="bg-white/10 px-3 py-1.5 rounded-full">Tipy na spaní</span>
+                </div>
+
+                <!--
+                    TODO: Sem vložte feed posledních 6 příspěvků. Možnosti:
+                    1) widget třetí strany (např. Behold, Elfsight, SnapWidget) – vloží se jako <script>/<iframe>,
+                    2) jednotlivé příspěvky přes oficiální Instagram embed (Embed code u každého příspěvku).
+                    Šedé dlaždice níže jsou jen zástupné a po vložení feedu je smažte.
+                -->
+                <div id="instagram-feed" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 1</div>
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 2</div>
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 3</div>
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 4</div>
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 5</div>
+                    <div class="aspect-square rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xs text-slate-500">Příspěvek 6</div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="inline-block bg-brandPink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition transform hover:scale-105 shadow-md">
+                        Safe space na Instagramu
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. ZEPTEJ SE -->
+        <section id="zeptej-se" class="py-16 md:py-20 bg-brandBeige">
+            <div class="max-w-3xl mx-auto px-4 md:px-6">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Zeptej se těch, kdo si tím prošli</h2>
+                    <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">Stydíš se zeptat nahlas? Napiš nám anonymně. Nejčastější otázky zpracujeme jako příspěvek na Instagramu a později je přidáme do Lékařského FAQ.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-2 mb-6 text-xs">
+                    <span class="bg-white border border-brandTeal/15 px-3 py-1.5 rounded-full text-brandDark/70">Jde se s korzetem koupat?</span>
+                    <span class="bg-white border border-brandTeal/15 px-3 py-1.5 rounded-full text-brandDark/70">Co si zabalit do nemocnice?</span>
+                    <span class="bg-white border border-brandTeal/15 px-3 py-1.5 rounded-full text-brandDark/70">Jak to řeknu spolužákům?</span>
+                </div>
+
+                <!-- TODO: Nahraďte action vlastním endpointem (např. Formspree, Getform, nebo váš backend). -->
+                <form action="https://formspree.io/f/VASE_ID_FORMULARE" method="POST" class="bg-white p-6 md:p-8 rounded-2xl border border-brandTeal/10 shadow-sm space-y-4">
+                    <input type="hidden" name="typ" value="otazka">
+                    <div>
+                        <label for="otazka" class="block text-sm font-semibold mb-1.5">Tvoje otázka</label>
+                        <textarea id="otazka" name="otazka" rows="4" required class="field" placeholder="Na co by ses chtěl/a zeptat?"></textarea>
+                    </div>
+                    <div>
+                        <label for="otazka-etapa" class="block text-sm font-semibold mb-1.5">V jaké fázi právě jsi? <span class="font-normal text-brandDark/40">(nepovinné)</span></label>
+                        <select id="otazka-etapa" name="etapa" class="field">
+                            <option value="">Nechci uvádět</option>
+                            <option>Čekám na diagnózu / řeším zjištění</option>
+                            <option>Nosím korzet</option>
+                            <option>Čekám na operaci</option>
+                            <option>Jsem po operaci</option>
+                            <option>Jsem rodič / blízký</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="otazka-email" class="block text-sm font-semibold mb-1.5">E-mail <span class="font-normal text-brandDark/40">(jen pokud chceš odpověď soukromě)</span></label>
+                        <input id="otazka-email" type="email" name="email" class="field" placeholder="tvuj@email.cz">
+                    </div>
+                    <p class="text-xs text-brandDark/50">Otázky zveřejňujeme vždy bez jména. Odpovědi jsou zkušenosti, ne lékařské rady.</p>
+                    <button type="submit" class="bg-brandPink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition shadow-md">Odeslat otázku</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 6. Z PRAXE -->
+        <section id="z-praxe" class="py-16 md:py-20 bg-white">
+            <div class="max-w-3xl mx-auto px-4 md:px-6">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Z praxe</h2>
+                    <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">Praktické tipy od členů komunity. Jsou to osobní zkušenosti, ne lékařská doporučení. Vždy se ptej svého lékaře.</p>
+                </div>
+
+                <!-- TODO: Doplňte obsah od členek a členů. Každý <details> je jedno téma. -->
+                <div class="space-y-3">
+                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
+                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
+                            Oblečení přes korzet
+                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit tipy od členů: střihy, látky, co se osvědčilo.]</p>
+                    </details>
+                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
+                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
+                            Spaní
+                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit zkušenosti se spaním v korzetu i po operaci.]</p>
+                    </details>
+                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
+                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
+                            Balení do nemocnice
+                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit seznam věcí, které se členům osvědčily.]</p>
+                    </details>
+                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
+                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
+                            Návrat do školy
+                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit zkušenosti: jak to říct spolužákům, tělocvik, domluva s učiteli.]</p>
+                    </details>
+                    <details class="tip bg-brandCream rounded-2xl border border-brandTeal/10 p-5">
+                        <summary class="flex items-center justify-between gap-4 font-bold text-brandDark">
+                            Sport po operaci
+                            <svg class="tip-chevron w-4 h-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">[Doplnit zkušenosti s návratem k pohybu. Vždy s odkazem na doporučení lékaře.]</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. PRO KOHO TO JE -->
+        <section id="pro-koho" class="py-16 md:py-20 bg-brandCream">
+            <div class="max-w-5xl mx-auto px-4 md:px-6">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandTeal">Pro koho to je</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm flex flex-col">
+                        <h3 class="font-bold text-lg text-brandPink">Pacienti</h3>
+                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed flex-1">Právě řešíš skoliózu, korzet nebo operaci a chceš mluvit s někým, kdo to zná zevnitř.</p>
+                        <a href="#pribehy" class="mt-4 text-xs font-bold uppercase tracking-wider text-brandTeal hover:text-brandPink transition">Přečti si příběhy →</a>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm flex flex-col">
+                        <h3 class="font-bold text-lg text-brandTeal">Rodiče</h3>
+                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed flex-1">Chcete vědět, jak dítě podpořit a co ho čeká. Vítáme i vaše otázky.</p>
+                        <a href="pro-blizke.html" class="mt-4 text-xs font-bold uppercase tracking-wider text-brandTeal hover:text-brandPink transition">Stránka Pro blízké →</a>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-brandTeal/10 shadow-sm flex flex-col">
+                        <h3 class="font-bold text-lg text-brandDark">Dospělí po operaci</h3>
+                        <p class="mt-2 text-sm text-brandDark/70 leading-relaxed flex-1">Už máš operaci za sebou a rád/a bys sdílel/a zkušenost a pomohl/a těm, kdo na to teprve čekají.</p>
+                        <a href="#poslat-pribeh" class="mt-4 text-xs font-bold uppercase tracking-wider text-brandTeal hover:text-brandPink transition">Sdílej svůj příběh →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. PRAVIDLA SAFE SPACE -->
+        <section id="pravidla" class="py-16 md:py-20 bg-brandDark text-white">
+            <div class="max-w-4xl mx-auto px-4 md:px-6">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandCyan">Pravidla Safe space</h2>
+                    <p class="mt-3 text-sm text-slate-300">Aby se tu každý cítil dobře, držíme se čtyř jednoduchých věcí.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                        <h3 class="font-bold text-brandCyan">Respekt</h3>
+                        <p class="mt-2 text-sm text-slate-300 leading-relaxed">Žádné srovnávání ani hodnocení vzhledu. Každá záda i každá cesta jsou jiné.</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                        <h3 class="font-bold text-brandPink">Zkušenosti, ne rady</h3>
+                        <p class="mt-2 text-sm text-slate-300 leading-relaxed">Mezi členy nedáváme lékařské rady, od toho je lékař. Sdílíme, co jsme zažili my.</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                        <h3 class="font-bold text-brandYellow">Soukromí</h3>
+                        <p class="mt-2 text-sm text-slate-300 leading-relaxed">Příběhy a fotky zveřejňujeme jen se souhlasem. Nikdo nesdílí cizí údaje ani fotky bez dovolení.</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                        <h3 class="font-bold text-brandTerracotta">Bezpečí</h3>
+                        <p class="mt-2 text-sm text-slate-300 leading-relaxed">Nevhodné chování nahlas moderátorkám. Zasáhneme a v případě potřeby osobu z komunity vyloučíme.</p>
+                    </div>
+                </div>
+
+                <!-- TODO: Doplňte skutečný kontaktní e-mail. -->
+                <div class="mt-8 bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                    <h3 class="font-bold text-white">Kontakt na moderátorky</h3>
+                    <p class="mt-2 text-sm text-slate-300">Něco se ti nezdá, nebo chceš nahlásit nevhodný příspěvek? Napiš nám, Míša a Kixa to řeší.</p>
+                    <a href="mailto:kontakt@podkrivkou.cz?subject=Nahlášení%20příspěvku" class="inline-block mt-4 border border-brandCyan text-brandCyan px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandCyan hover:text-brandDark transition">Napsat moderátorkám</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. POŠLI SVŮJ PŘÍBĚH -->
+        <section id="poslat-pribeh" class="py-16 md:py-20 bg-brandBeige">
+            <div class="max-w-3xl mx-auto px-4 md:px-6">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Pošli svůj příběh</h2>
+                    <p class="mt-3 text-sm text-brandDark/70 leading-relaxed">Tvůj příběh může být tím, co někdo zrovna potřebuje slyšet. Přečteme si ho, dohodneme se s tebou a zveřejníme jen se souhlasem.</p>
+                </div>
+
+                <!-- TODO: Nahraďte action vlastním endpointem (např. Formspree, Getform, nebo váš backend). -->
+                <form id="story-form" action="https://formspree.io/f/VASE_ID_FORMULARE" method="POST" class="bg-white p-6 md:p-8 rounded-2xl border border-brandTeal/10 shadow-sm space-y-5">
+                    <input type="hidden" name="typ" value="pribeh">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="jmeno" class="block text-sm font-semibold mb-1.5">Jméno nebo přezdívka</label>
+                            <input id="jmeno" name="jmeno" type="text" required class="field" placeholder="Jak ti máme říkat?">
+                        </div>
+                        <div>
+                            <label for="vek" class="block text-sm font-semibold mb-1.5">Věk</label>
+                            <input id="vek" name="vek" type="number" min="8" max="99" required class="field" placeholder="Např. 16">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="typ-lecby" class="block text-sm font-semibold mb-1.5">Typ léčby</label>
+                        <select id="typ-lecby" name="typ_lecby" required class="field">
+                            <option value="">Vyber…</option>
+                            <option>Fyzioterapie / cvičení</option>
+                            <option>Korzet</option>
+                            <option>Operace</option>
+                            <option>Korzet i operace</option>
+                            <option>Jiné</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="etapa" class="block text-sm font-semibold mb-1.5">Které etapě se tvůj příběh nejvíc týká?</label>
+                        <select id="etapa" name="etapa" class="field">
+                            <option>Dostala jsem korzet</option>
+                            <option>Před operací</option>
+                            <option>První týdny po operaci</option>
+                            <option>Rok a víc potom</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-4">
+                        <p class="text-sm font-semibold">Napiš nám to svými slovy. Můžeš se opřít o tři otázky:</p>
+                        <div>
+                            <label for="q1" class="block text-xs text-brandDark/60 mb-1.5">1) Co tě na začátku nejvíc překvapilo nebo vyděsilo?</label>
+                            <textarea id="q1" name="q1" rows="3" class="field"></textarea>
+                        </div>
+                        <div>
+                            <label for="q2" class="block text-xs text-brandDark/60 mb-1.5">2) Co ti nejvíc pomohlo?</label>
+                            <textarea id="q2" name="q2" rows="3" class="field"></textarea>
+                        </div>
+                        <div>
+                            <label for="q3" class="block text-xs text-brandDark/60 mb-1.5">3) Co bys vzkázal/a někomu, kdo je teď na začátku?</label>
+                            <textarea id="q3" name="q3" rows="3" class="field"></textarea>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="kontakt" class="block text-sm font-semibold mb-1.5">E-mail <span class="font-normal text-brandDark/40">(abychom ti mohly odpovědět)</span></label>
+                        <input id="kontakt" name="email" type="email" required class="field" placeholder="tvuj@email.cz">
+                    </div>
+
+                    <div id="parent-consent" class="hidden bg-brandYellow/20 border border-brandYellow/60 rounded-xl p-4">
+                        <label class="flex items-start gap-3 text-sm">
+                            <input type="checkbox" name="souhlas_rodice" id="souhlas-rodice" class="mt-1 accent-brandPink">
+                            <span>Rodič nebo zákonný zástupce souhlasí se zveřejněním. <span class="text-brandDark/60">(U dětí mladších 15 let je to nutné. Napíšeme rodiči e-mail pro potvrzení.)</span></span>
+                        </label>
+                    </div>
+
+                    <div class="space-y-3">
+                        <label class="flex items-start gap-3 text-sm">
+                            <input type="checkbox" name="anonymne" class="mt-1 accent-brandPink">
+                            <span>Chci, aby byl příběh zveřejněn <strong>anonymně</strong> (bez jména).</span>
+                        </label>
+                        <label class="flex items-start gap-3 text-sm">
+                            <input type="checkbox" name="souhlas" required class="mt-1 accent-brandPink">
+                            <span>Souhlasím se zveřejněním svého příběhu na webu a sociálních sítích Pod Křivkou. Vím, že mohu souhlas kdykoli odvolat. *</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="bg-brandPink text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-brandTeal transition shadow-md">Odeslat příběh</button>
+                    <p class="text-xs text-brandDark/50">Osobní údaje používáme jen ke zpracování tvého příběhu a nikomu je nepředáváme. Bez tvého souhlasu nic nezveřejníme.</p>
+                </form>
+            </div>
+        </section>
+
     </main>
 
     <footer class="bg-brandCream border-t border-brandTeal/10 py-10 text-center text-xs text-brandDark/50">
@@ -215,22 +621,12 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
 
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('open');
-            mobileMenu.style.maxHeight = '';
-            menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-        }
-
-        mobileMenu.addEventListener('click', (event) => {
-            if (event.target instanceof Element && event.target.closest('a')) {
-                closeMobileMenu();
-            }
-        });
-
         menuToggle.addEventListener('click', () => {
             const isOpen = mobileMenu.classList.contains('open');
             if (isOpen) {
-                closeMobileMenu();
+                mobileMenu.classList.remove('open');
+                mobileMenu.style.maxHeight = '';
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
             } else {
                 mobileMenu.classList.add('open');
                 menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
@@ -251,6 +647,29 @@
                 mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
             }
         }
+
+        // Filtr příběhů podle etapy
+        document.querySelectorAll('.story-filter').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const f = btn.dataset.filter;
+                document.querySelectorAll('.story-filter').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.story-card').forEach(card => {
+                    card.classList.toggle('hidden-card', f !== 'all' && card.dataset.stage !== f);
+                });
+            });
+        });
+
+        // Souhlas rodiče u mladších 15 let
+        const ageInput = document.getElementById('vek');
+        const parentBox = document.getElementById('parent-consent');
+        const parentCheck = document.getElementById('souhlas-rodice');
+        ageInput.addEventListener('input', () => {
+            const age = parseInt(ageInput.value, 10);
+            const young = !isNaN(age) && age < 15;
+            parentBox.classList.toggle('hidden', !young);
+            parentCheck.required = young;
+        });
     </script>
 </body>
 </html>
