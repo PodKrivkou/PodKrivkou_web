@@ -85,10 +85,6 @@
             color: #E94D7F;
         }
 
-        /* Filtr příběhů */
-        .story-filter.active { background-color: #E94D7F; color: #fff; border-color: #E94D7F; }
-        .story-card.hidden-card { display: none; }
-
         /* Akordeon "Z praxe" */
         details.tip summary { list-style: none; cursor: pointer; }
         details.tip summary::-webkit-details-marker { display: none; }
@@ -207,7 +203,7 @@
         <header id="komunita" class="relative overflow-hidden py-12 md:py-16 lg:py-20">
             <div class="blob bg-brandCyan w-72 h-72 -top-20 -left-20"></div>
             <div class="blob bg-brandBabypink w-72 h-72 top-10 -right-24"></div>
-            <div class="max-w-4xl mx-auto px-4 md:px-6 text-center">
+            <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
                 <span class="inline-block bg-brandYellow/10 text-brandYellow text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">Komunita</span>
                 <h1 class="text-4xl lg:text-5xl font-horizon text-brandCyan leading-tight">
                     V tom nejsi sama<br class="hidden md:block"><span class="text-brandTeal">(ani sám)</span>
@@ -215,39 +211,41 @@
                 <p class="mt-6 text-sm md:text-base text-brandDark/80 leading-relaxed max-w-2xl mx-auto">
                     Skolióza se často nese potichu. Tady najdeš lidi, kteří si prošli korzetem i operací a rádi se podělí o to, jaké to opravdu bylo.
                 </p>
-                <div class="mt-6 max-w-2xl mx-auto text-left">
-                    <p class="text-sm text-brandDark/70 leading-relaxed">Protože některé věci ti žádný lékař ani leták nepoví:</p>
-                    <ul class="mt-3 space-y-3 text-sm text-brandDark/80 leading-relaxed">
-                        <li class="flex items-start gap-3">
-                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
-                            <span><strong class="text-brandDark">Nejsi jediný/á.</strong> Ve třídě to může vypadat, že jsi jediný/á s korzetem nebo jizvou. Není to tak — tady jsou další, kteří přesně vědí, o čem mluvíš.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
-                            <span><strong class="text-brandDark">Zkušenost, kterou lékař nedá.</strong> Jaké je spát v korzetu, co čekat první týden po operaci nebo jak se vrátit ke sportu — praktické věci z první ruky.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
-                            <span><strong class="text-brandDark">Bez strašení.</strong> Žádné hororové diskuze. Jen ověřené informace a skutečné příběhy lidí, kteří to zvládli.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="mt-6 max-w-2xl mx-auto text-left">
-                    <h2 class="text-sm font-bold text-brandDark">Pro koho tu jsme:</h2>
-                    <ul class="mt-3 space-y-3 text-sm text-brandDark/80 leading-relaxed">
-                        <li class="flex items-start gap-3">
-                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
-                            <span><strong class="text-brandDark">Pacienti:</strong> Právě řešíš skoliózu, korzet nebo operaci a chceš mluvit s někým, kdo to zná zevnitř. <a href="#pribehy" class="font-semibold text-brandTeal hover:text-brandPink transition">Přečti si příběhy →</a></span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
-                            <span><strong class="text-brandDark">Rodiče:</strong> Chcete vědět, jak dítě podpořit a co ho čeká. Vítáme i vaše otázky. <a href="pro-blizke.html" class="font-semibold text-brandTeal hover:text-brandPink transition">Stránka Pro blízké →</a></span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-brandTeal font-bold" aria-hidden="true">✓</span>
-                            <span><strong class="text-brandDark">Dospělí po operaci:</strong> Už máš operaci za sebou a rád/a bys sdílel/a zkušenost a pomohl/a těm, kdo na to teprve čekají. <a href="#poslat-pribeh" class="font-semibold text-brandTeal hover:text-brandPink transition">Sdílej svůj příběh →</a></span>
-                        </li>
-                    </ul>
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <div>
+                        <h2 class="text-sm font-bold text-brandDark">Protože některé věci ti žádný lékař ani leták nepoví:</h2>
+                        <ul class="mt-3 space-y-3 text-sm text-brandDark/80 leading-relaxed">
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brandPink" aria-hidden="true"></span>
+                                <span><strong class="text-brandDark">Nejsi jediný/á.</strong> Ve třídě to může vypadat, že jsi samotnej mimozemšťan s korzetem nebo jizvou. No milý překvápko je, že to tak neni, jsou tu další! A ti taky přesně vědí, o čem mluvíš.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brandPink" aria-hidden="true"></span>
+                                <span><strong class="text-brandDark">Zkušenost, kterou lékař nepředat nemůže.</strong> Jaký je to spát v korzetu, co čekat první týden po operaci nebo jak se vrátit ke sportu a dobrodrůžu. Praktické věci z první ruky ozkoušeno za vás.🤗</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brandPink" aria-hidden="true"></span>
+                                <span><strong class="text-brandDark">Bez strašení.</strong> Žádný hororový diskuze! Jen ověřené informace a skutečné příběhy lidí, kteří tim prošli taky.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-bold text-brandDark">Pro koho tu jsme:</h2>
+                        <ul class="mt-3 space-y-3 text-sm text-brandDark/80 leading-relaxed">
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brandPink" aria-hidden="true"></span>
+                                <span><strong class="text-brandDark">Pacienti:</strong> Právě řešíš skoliózu, korzet nebo operaci a chceš to všechno slyšet od někoho, kdo to sám zná zevnitř? <a href="#pribehy" class="font-semibold text-brandTeal hover:text-brandPink transition">Přečti si příběhy →</a></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brandPink" aria-hidden="true"></span>
+                                <span><strong class="text-brandDark">Rodiče:</strong> Chcete vědět, jak dítě podpořit a co ho čeká? Vítáme vaše otázky i připomínky. <a href="pro-blizke.html" class="font-semibold text-brandTeal hover:text-brandPink transition">Stránka Pro blízké →</a></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-brandPink" aria-hidden="true"></span>
+                                <span><strong class="text-brandDark">Dospělí po operaci:</strong> Už máš operaci za sebou a rád/a bys sdílel/a zkušenost a pomohl/a těm, kdo na to teprve čekají? <a href="#poslat-pribeh" class="font-semibold text-brandTeal hover:text-brandPink transition">Sdílej svůj příběh →</a></span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="mt-8 flex flex-wrap justify-center gap-3 text-xs font-bold uppercase tracking-wider">
                     <a href="https://instagram.com" target="_blank" rel="noopener" class="bg-brandTeal text-white px-5 py-2.5 rounded-full hover:bg-brandPink transition shadow-md">
@@ -262,72 +260,33 @@
 
         <!-- 2. PŘÍBĚHY -->
         <section id="pribehy" class="py-16 md:py-20 bg-white">
-            <div class="max-w-5xl mx-auto px-4 md:px-6">
+            <div class="max-w-4xl mx-auto px-4 md:px-6">
                 <div class="text-center max-w-2xl mx-auto mb-8">
                     <h2 class="text-2xl md:text-3xl font-horizon text-brandPink">Jak to bylo u nás</h2>
-                    <p class="mt-3 text-sm text-brandDark/70">Skutečné příběhy podle toho, v jaké fázi právě jsi.</p>
+                    <p class="mt-3 text-sm text-brandDark/70">Míša vypráví svůj příběh ve třech částech. Vyber stránku a čti vlastním tempem.</p>
                 </div>
 
-                <div class="flex flex-wrap justify-center gap-2 mb-8" role="group" aria-label="Filtr příběhů podle etapy">
-                    <button type="button" class="story-filter active border border-brandTeal/30 text-brandDark/80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:border-brandPink transition" data-filter="all">Vše</button>
-                    <button type="button" class="story-filter border border-brandTeal/30 text-brandDark/80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:border-brandPink transition" data-filter="korzet">Dostala jsem korzet</button>
-                    <button type="button" class="story-filter border border-brandTeal/30 text-brandDark/80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:border-brandPink transition" data-filter="pred">Před operací</button>
-                    <button type="button" class="story-filter border border-brandTeal/30 text-brandDark/80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:border-brandPink transition" data-filter="tydny">První týdny po operaci</button>
-                    <button type="button" class="story-filter border border-brandTeal/30 text-brandDark/80 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:border-brandPink transition" data-filter="rok">Rok a víc potom</button>
-                </div>
-
-                <!--
-                    TODO: Doplňte skutečné příběhy. U každé karty změňte data-stage (korzet | pred | tydny | rok),
-                    jméno/přezdívku, věk v době léčby, typ léčby a text. Obrázky nahraďte fotkami se souhlasem autorů.
-                -->
-                <div id="story-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-                    <article class="story-card bg-brandCream rounded-2xl overflow-hidden border border-brandTeal/10 flex flex-col" data-stage="korzet">
-                        <div class="h-44 bg-brandBeige flex items-center justify-center">
-                            <img src="dancer.png" alt="" class="h-36 w-auto object-contain" loading="lazy">
+                <div class="mx-auto max-w-2xl overflow-hidden rounded-3xl border border-brandTeal/10 bg-brandCream shadow-sm">
+                    <a id="story-page-link" href="Misa_story_1.png" target="_blank" rel="noopener" aria-label="Otevřít stranu 1 v plné velikosti na nové kartě" class="block bg-brandBeige">
+                        <img id="story-page-image" src="Misa_story_1.png" alt="Míšin příběh, strana 1 ze 3" class="block h-auto w-full" fetchpriority="high">
+                    </a>
+                    <div class="p-4 md:p-5">
+                        <div class="flex items-center justify-between gap-4">
+                            <button id="story-prev" type="button" class="rounded-full border border-brandTeal/20 bg-white px-4 py-2.5 text-xs font-bold text-brandTeal transition hover:bg-brandTeal hover:text-white disabled:cursor-not-allowed disabled:opacity-40" aria-label="Předchozí strana" disabled>
+                                <span aria-hidden="true">←</span> Předchozí
+                            </button>
+                            <p id="story-page-count" class="text-sm font-bold text-brandDark" aria-live="polite">Strana 1 z 3</p>
+                            <button id="story-next" type="button" class="rounded-full bg-brandTeal px-4 py-2.5 text-xs font-bold text-white transition hover:bg-brandPink" aria-label="Další strana">
+                                Další <span aria-hidden="true">→</span>
+                            </button>
                         </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span class="self-start text-[11px] font-bold uppercase tracking-wider bg-brandTeal/10 text-brandTeal px-3 py-1 rounded-full">Dostala jsem korzet</span>
-                            <h3 class="mt-3 font-bold text-lg text-brandDark">Míša</h3>
-                            <p class="text-xs text-brandDark/50 mt-1">Věk v době léčby: [doplnit] · Léčba: korzet</p>
-                            <p class="mt-3 text-sm text-brandDark/70 leading-relaxed flex-1">[Sem vložte krátký příběh Míši: jaké to bylo dostat korzet, co jí pomohlo, co by řekla sama sobě tehdy.]</p>
+                        <p class="mt-3 text-center text-xs text-brandDark/60">Klepni na stránku a otevři ji v plné velikosti pro pohodlnější čtení.</p>
+                        <div class="mt-4 flex justify-center gap-2" role="group" aria-label="Vybrat stranu Míšina příběhu">
+                            <button type="button" class="story-page-select rounded-full border border-brandTeal bg-brandTeal px-4 py-2 text-xs font-bold text-white" data-page="0" aria-label="Strana 1" aria-current="page">1</button>
+                            <button type="button" class="story-page-select rounded-full border border-brandTeal/30 px-4 py-2 text-xs font-bold text-brandTeal transition hover:bg-brandTeal hover:text-white" data-page="1" aria-label="Strana 2">2</button>
+                            <button type="button" class="story-page-select rounded-full border border-brandTeal/30 px-4 py-2 text-xs font-bold text-brandTeal transition hover:bg-brandTeal hover:text-white" data-page="2" aria-label="Strana 3">3</button>
                         </div>
-                    </article>
-
-                    <article class="story-card bg-brandCream rounded-2xl overflow-hidden border border-brandTeal/10 flex flex-col" data-stage="pred">
-                        <div class="h-44 bg-brandBeige flex items-center justify-center">
-                            <img src="seated-stretch.png" alt="" class="h-36 w-auto object-contain" loading="lazy">
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span class="self-start text-[11px] font-bold uppercase tracking-wider bg-brandPink/10 text-brandPink px-3 py-1 rounded-full">Před operací</span>
-                            <h3 class="mt-3 font-bold text-lg text-brandDark">Kixa</h3>
-                            <p class="text-xs text-brandDark/50 mt-1">Věk v době léčby: [doplnit] · Léčba: operace</p>
-                            <p class="mt-3 text-sm text-brandDark/70 leading-relaxed flex-1">[Sem vložte krátký příběh Kixy: jak se připravovala na operaci, čeho se bála a co jí pomohlo.]</p>
-                        </div>
-                    </article>
-
-                    <article class="story-card bg-brandCream rounded-2xl overflow-hidden border border-brandTeal/10 flex flex-col" data-stage="tydny">
-                        <div class="h-44 bg-brandBeige flex items-center justify-center">
-                            <img src="dancer.png" alt="" class="h-36 w-auto object-contain" loading="lazy">
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span class="self-start text-[11px] font-bold uppercase tracking-wider bg-brandYellow/40 text-brandDark px-3 py-1 rounded-full">První týdny po operaci</span>
-                            <h3 class="mt-3 font-bold text-lg text-brandDark">Míša</h3>
-                            <p class="text-xs text-brandDark/50 mt-1">Věk v době léčby: [doplnit] · Léčba: operace</p>
-                            <p class="mt-3 text-sm text-brandDark/70 leading-relaxed flex-1">[Sem vložte příběh o prvních týdnech po operaci: nemocnice, domov, první kroky.]</p>
-                        </div>
-                    </article>
-
-                    <article class="story-card bg-brandCream rounded-2xl overflow-hidden border border-brandTeal/10 flex flex-col" data-stage="rok">
-                        <div class="h-44 bg-brandBeige flex items-center justify-center">
-                            <img src="seated-stretch.png" alt="" class="h-36 w-auto object-contain" loading="lazy">
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <span class="self-start text-[11px] font-bold uppercase tracking-wider bg-brandTerracotta/20 text-brandTerracotta px-3 py-1 rounded-full">Rok a víc potom</span>
-                            <h3 class="mt-3 font-bold text-lg text-brandDark">Kixa</h3>
-                            <p class="text-xs text-brandDark/50 mt-1">Věk v době léčby: [doplnit] · Léčba: operace</p>
-                            <p class="mt-3 text-sm text-brandDark/70 leading-relaxed flex-1">[Sem vložte příběh o životě rok a víc po operaci: sport, cestování, návrat do normálu.]</p>
-                        </div>
-                    </article>
+                    </div>
                 </div>
 
                 <div class="mt-10 text-center">
@@ -621,16 +580,48 @@
             }
         }
 
-        // Filtr příběhů podle etapy
-        document.querySelectorAll('.story-filter').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const f = btn.dataset.filter;
-                document.querySelectorAll('.story-filter').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                document.querySelectorAll('.story-card').forEach(card => {
-                    card.classList.toggle('hidden-card', f !== 'all' && card.dataset.stage !== f);
-                });
+        // Prohlížení stránek Míšiny story.
+        const storyPages = ['Misa_story_1.png', 'Misa_story_2.png', 'Misa_story_3.png'];
+        const storyImage = document.getElementById('story-page-image');
+        const storyPageLink = document.getElementById('story-page-link');
+        const storyPageCount = document.getElementById('story-page-count');
+        const storyPrev = document.getElementById('story-prev');
+        const storyNext = document.getElementById('story-next');
+        const storyPageButtons = document.querySelectorAll('.story-page-select');
+        let currentStoryPage = 0;
+
+        function showStoryPage(index) {
+            currentStoryPage = index;
+            const pageNumber = index + 1;
+            const imagePath = storyPages[index];
+
+            storyImage.src = imagePath;
+            storyImage.alt = `Míšin příběh, strana ${pageNumber} ze ${storyPages.length}`;
+            storyPageLink.href = imagePath;
+            storyPageLink.setAttribute('aria-label', `Otevřít stranu ${pageNumber} v plné velikosti na nové kartě`);
+            storyPageCount.textContent = `Strana ${pageNumber} z ${storyPages.length}`;
+            storyPrev.disabled = index === 0;
+            storyNext.disabled = index === storyPages.length - 1;
+
+            storyPageButtons.forEach((button, buttonIndex) => {
+                const isCurrent = buttonIndex === index;
+                button.classList.toggle('bg-brandTeal', isCurrent);
+                button.classList.toggle('text-white', isCurrent);
+                button.classList.toggle('border-brandTeal', isCurrent);
+                button.classList.toggle('border-brandTeal/30', !isCurrent);
+                button.classList.toggle('text-brandTeal', !isCurrent);
+                if (isCurrent) {
+                    button.setAttribute('aria-current', 'page');
+                } else {
+                    button.removeAttribute('aria-current');
+                }
             });
+        }
+
+        storyPrev.addEventListener('click', () => showStoryPage(currentStoryPage - 1));
+        storyNext.addEventListener('click', () => showStoryPage(currentStoryPage + 1));
+        storyPageButtons.forEach(button => {
+            button.addEventListener('click', () => showStoryPage(Number(button.dataset.page)));
         });
 
         // Souhlas rodiče u mladších 15 let
